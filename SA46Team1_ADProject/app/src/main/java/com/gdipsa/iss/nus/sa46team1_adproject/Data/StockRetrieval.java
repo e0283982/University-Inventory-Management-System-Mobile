@@ -25,7 +25,7 @@ public class StockRetrieval {
 //
 //            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host+"/StoR-3");
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://localhost:49921/api/Restful/GetStockRetrievalList/StoR-3");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetStockRetrievalList/StoR-3");
 
             JSONObject jsonObject;
 

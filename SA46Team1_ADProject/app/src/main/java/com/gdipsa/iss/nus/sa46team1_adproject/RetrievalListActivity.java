@@ -38,6 +38,8 @@ public class RetrievalListActivity extends AppBaseActivity {
         @Override
         protected void onPostExecute(List<StockRetrieval> result) {
 
+            textViewItemDescription.setText(result.get(0).getItemDescription());
+
 
 
 
