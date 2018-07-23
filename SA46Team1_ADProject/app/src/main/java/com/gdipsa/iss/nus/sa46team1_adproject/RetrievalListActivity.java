@@ -9,5 +9,10 @@ public class RetrievalListActivity extends AppBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrieval_list);
+
+        setTitle("Retrieval List");
+
+
+
     }
 }

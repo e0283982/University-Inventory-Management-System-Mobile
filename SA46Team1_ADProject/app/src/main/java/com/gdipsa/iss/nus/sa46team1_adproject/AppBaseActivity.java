@@ -1,17 +1,5 @@
 package com.gdipsa.iss.nus.sa46team1_adproject;
 
-/*
- * This is a simple and easy approach to reuse the same
- * navigation drawer on your other activities. Just create
- * a base layout that conains a DrawerLayout, the
- * navigation drawer and a FrameLayout to hold your
- * content view. All you have to do is to extend your
- * activities from this class to set that navigation
- * drawer. Happy hacking :)
- * P.S: You don't need to declare this Activity in the
- * AndroidManifest.xml. This is just a base class.
- */
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -27,8 +15,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 public abstract class AppBaseActivity extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
-    private FrameLayout view_stub; //This is the framelayout to keep your content view
-    private NavigationView navigation_view; // The new navigation view from Android Design Library. Can inflate menu resources. Easy
+    private FrameLayout view_stub;
+    private NavigationView navigation_view;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private Menu drawerMenu;
@@ -48,7 +36,7 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
         for(int i = 0; i < drawerMenu.size(); i++) {
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);
         }
-        // and so on...
+
     }
 
     @Override
