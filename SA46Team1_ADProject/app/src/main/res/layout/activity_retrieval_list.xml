@@ -15,5 +15,4 @@
         tools:listitem="@layout/recyclerview_retrieval"
         />
 
-
 </android.support.constraint.ConstraintLayout>

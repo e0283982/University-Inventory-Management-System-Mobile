@@ -13,9 +13,13 @@
             android:icon="@drawable/ic_send_black_24dp"
             android:title="Disbursement List" />
         <item
-            android:id="@+id/nav_item_search"
+            android:id="@+id/nav_item_search_description"
             android:icon="@drawable/ic_search_black_24dp"
-            android:title="Item Search" />
+            android:title="Search Item by Description" />
+        <item
+            android:id="@+id/nav_item_search_qrcode"
+            android:icon="@drawable/ic_smartphone_black_24dp"
+            android:title="Search Item by QR Code" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_person_outline_black_24dp"
