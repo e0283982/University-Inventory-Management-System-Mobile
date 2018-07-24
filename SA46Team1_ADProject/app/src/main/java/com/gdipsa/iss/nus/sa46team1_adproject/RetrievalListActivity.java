@@ -3,6 +3,8 @@ package com.gdipsa.iss.nus.sa46team1_adproject;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -13,16 +15,21 @@ import java.util.List;
 
 public class RetrievalListActivity extends AppBaseActivity {
 
-    TextView textViewItemDescription;
+    private RecyclerView mRecyclerViewStockRetrievalList;
+    private RetrievalListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrieval_list);
-
         setTitle("Retrieval List");
 
-        textViewItemDescription = findViewById(R.id.test_retrieval_list);
+        mRecyclerViewStockRetrievalList = findViewById(R.id.recycler_view_retrieval_list);
+
+
+
+
+
 
         new MyTask().execute("localhost:49921");
 
@@ -38,11 +45,9 @@ public class RetrievalListActivity extends AppBaseActivity {
         @Override
         protected void onPostExecute(List<StockRetrieval> result) {
 
-            textViewItemDescription.setText(result.get(0).getItemDescription());
-
-
-
-
+            adapter = new RetrievalListAdapter(RetrievalListActivity.this, result);
+            mRecyclerViewStockRetrievalList.setAdapter(adapter);
+            mRecyclerViewStockRetrievalList.setLayoutManager(new LinearLayoutManager(RetrievalListActivity.this));
 
 
 
