@@ -40,6 +40,10 @@ public class Item {
             JSONObject jsonObject = JSONParser.getJSONFromUrl("http://192.168.1.3/adtest2/api/Restful/getitemsbyid/" + searchItemCode);
 //            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://192.168.1.3/adtest2/api/Restful/getitemsbyid/C001");
 
+            if (jsonObject == null){
+                return null;
+            }
+
             String dataItemCode;
             String dataCategory;
             String dataDescription;
@@ -64,6 +68,8 @@ public class Item {
 
 
         } catch (Exception e) {
+
+            return null;
         }
         return item;
 

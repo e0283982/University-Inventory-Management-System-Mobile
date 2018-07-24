@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +20,7 @@ import java.util.List;
 public class QRCodeSearchActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
+    Boolean backToActivity = false;
 
     public static final int CAPTURE_QRCODE = 1;
 
@@ -31,12 +33,19 @@ public class QRCodeSearchActivity extends AppCompatActivity {
 
         captureQRCode();
 
+    }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
 
-
-
+        if (backToActivity){
+            backToActivity = false;
+            recreate();
+        }
 
     }
+
 
     public void captureQRCode(){
         Intent intent = new Intent("la.droid.qr.scan");
@@ -56,22 +65,19 @@ public class QRCodeSearchActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 if (data.hasExtra("la.droid.qr.result")) {
 
-                    //TODO:
                     String res = data.getExtras().getString("la.droid.qr.result");
-//                    Toast.makeText(this, res, Toast.LENGTH_LONG).show();
 
                     new MyTask().execute(res);
-
-
-
 
 
                 }
             } else if (resultCode == RESULT_CANCELED) {
                 // Capture cancelled
+                finish();
 
             } else {
                 // Capture failed
+                finish();
             }
         }
 
@@ -83,17 +89,35 @@ public class QRCodeSearchActivity extends AppCompatActivity {
         @Override
         protected Item doInBackground(String... params) {
 
-//            List<Item> itemList = Item.listItems(params[0]);
+//            Item itemScanned = null;
+//
+//            try{
+//                itemScanned = Item.getItem(params[0]);
+//            } catch (Exception e){
+//                Toast.makeText(QRCodeSearchActivity.this, "Item Not Found", Toast.LENGTH_SHORT).show();
+//                finish();
+//            }
+//
+//            return itemScanned;
 
             return Item.getItem(params[0]);
+
         }
         @Override
         protected void onPostExecute(Item result) {
 
-            progressBar.setVisibility(View.GONE);
-
-
             Context context = QRCodeSearchActivity.this;
+
+            if (result == null){
+                Toast.makeText(context, "Item Not Found", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+            progressBar.setVisibility(View.GONE);
+            backToActivity = true;
+
+
+
             Intent intent = new Intent(context, SearchDetailsActivity.class);
 
             intent.putExtra("ItemCode", result.getItemCode());
