@@ -14,9 +14,7 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".RetrievalListActivity"
-            android:launchMode="singleTask">
-
-        </activity>
+            android:launchMode="singleTask" />
         <activity
             android:name=".DescriptionSearchActivity"
             android:launchMode="singleTask">
@@ -26,7 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchDetailsActivity"></activity>
+        <activity android:name=".SearchDetailsActivity" />
+        <activity
+            android:launchMode="singleTask"
+            android:name=".QRCodeSearchActivity">
+        </activity>
     </application>
 
 </manifest>

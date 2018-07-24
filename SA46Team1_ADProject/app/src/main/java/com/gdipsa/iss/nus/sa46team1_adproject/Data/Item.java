@@ -32,6 +32,46 @@ public class Item {
         this.active = active;
     }
 
+    public static Item getItem(String searchItemCode){
+        Item item = null;
+
+        try {
+
+            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://192.168.1.3/adtest2/api/Restful/getitemsbyid/" + searchItemCode);
+//            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://192.168.1.3/adtest2/api/Restful/getitemsbyid/C001");
+
+            String dataItemCode;
+            String dataCategory;
+            String dataDescription;
+            int dataQuantity;
+            String dataUoM;
+            String dataSupplier1;
+            String dataSupplier2;
+            String dataSupplier3;
+            int dataActive;
+
+            dataItemCode = jsonObject.getString("ItemCode");
+            dataCategory = jsonObject.getString("CategoryName");
+            dataDescription = jsonObject.getString("Description");
+            dataQuantity = jsonObject.getInt("Quantity");
+            dataUoM = jsonObject.getString("UoM");
+            dataSupplier1 = jsonObject.getString("s1");
+            dataSupplier2 = jsonObject.getString("s2");
+            dataSupplier3 = jsonObject.getString("s3");
+            dataActive = jsonObject.getInt("Active");
+
+            item = new Item(dataItemCode, dataCategory, dataDescription, dataQuantity, dataUoM, dataSupplier1, dataSupplier2, dataSupplier3, dataActive);
+
+
+        } catch (Exception e) {
+        }
+        return item;
+
+
+    }
+
+
+
     public static List<Item> listItems(String IPAddress){
         List<Item> list = new ArrayList<Item>();
 
@@ -41,7 +81,8 @@ public class Item {
 //
 //            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host+"/StoR-3");
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/getitemslist/");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/getitemslist/");
+//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/getitemslist/");
 
             JSONObject jsonObject;
 
