@@ -14,7 +14,9 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".RetrievalListActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask">
+
+        </activity>
         <activity
             android:name=".DescriptionSearchActivity"
             android:launchMode="singleTask">

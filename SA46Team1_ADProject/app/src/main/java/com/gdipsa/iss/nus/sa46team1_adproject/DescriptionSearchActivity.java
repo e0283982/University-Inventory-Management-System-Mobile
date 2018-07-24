@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.Item;
@@ -18,6 +20,7 @@ public class DescriptionSearchActivity extends AppBaseActivity implements Search
     private RecyclerView mRecyclerViewSearchItemDescription;
     private DescriptionSearchAdapter adapter;
     SearchView editsearch;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +29,12 @@ public class DescriptionSearchActivity extends AppBaseActivity implements Search
         setTitle("Search");
 
         mRecyclerViewSearchItemDescription = findViewById(R.id.recycler_view_search_description_store);
+        progressBar = findViewById(R.id.progressbar_description_search);
 
         editsearch = findViewById(R.id.search_item_by_description_store);
         editsearch.setOnQueryTextListener(this);
 
         new MyTask().execute("Test");
-
 
     }
 
@@ -55,6 +58,7 @@ public class DescriptionSearchActivity extends AppBaseActivity implements Search
         @Override
         protected void onPostExecute(List<Item> result) {
 
+            progressBar.setVisibility(View.GONE);
             adapter = new DescriptionSearchAdapter(DescriptionSearchActivity.this, result);
             mRecyclerViewSearchItemDescription.setAdapter(adapter);
             mRecyclerViewSearchItemDescription.setLayoutManager(new LinearLayoutManager(DescriptionSearchActivity.this));

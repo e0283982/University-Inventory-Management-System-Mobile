@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
-public class SearchDetailsActivity extends AppCompatActivity {
+public class SearchDetailsActivity extends AppBaseActivity {
 
     private TextView itemCodeTextView;
     private TextView itemCategoryTextView;
@@ -33,6 +33,7 @@ public class SearchDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_details);
 
+
         itemCodeTextView = findViewById(R.id.textView_search_details_item_code);
         itemCategoryTextView = findViewById(R.id.textView_search_details_item_category);
         itemDescriptionTextView = findViewById(R.id.textView_search_details_item_description);
@@ -53,6 +54,8 @@ public class SearchDetailsActivity extends AppCompatActivity {
         supplier2 = data.getStringExtra("Supplier2");
         supplier3 = data.getStringExtra("Supplier3");
         active = data.getIntExtra("Active", 0);
+
+        setTitle(itemCode);
 
         itemCodeTextView.setText("Item Code: " + itemCode);
         itemCategoryTextView.setText("Item Category: " + category);
@@ -75,11 +78,7 @@ public class SearchDetailsActivity extends AppCompatActivity {
         quantityTextView.setText("Balance: " + quantityText + " " + UoM);
 
 
-
-
     }
-
-
 
 
 }
