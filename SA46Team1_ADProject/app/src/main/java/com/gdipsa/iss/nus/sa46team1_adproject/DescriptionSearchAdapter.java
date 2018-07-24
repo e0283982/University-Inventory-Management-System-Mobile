@@ -27,6 +27,16 @@ public class DescriptionSearchAdapter extends RecyclerView.Adapter<DescriptionSe
 
         private TextView searchItemTextView;
 
+        private String itemCode;
+        private String category;
+        private String description;
+        private int quantity;
+        private String UoM;
+        private String supplier1;
+        private String supplier2;
+        private String supplier3;
+        private int active;
+
 
         public DescriptionSearchViewHolder(View itemView) {
             super(itemView);
@@ -43,7 +53,15 @@ public class DescriptionSearchAdapter extends RecyclerView.Adapter<DescriptionSe
 
             Intent intent = new Intent(context, SearchDetailsActivity.class);
 
-
+            intent.putExtra("ItemCode", itemCode);
+            intent.putExtra("Category", category);
+            intent.putExtra("Description", description);
+            intent.putExtra("Quantity", quantity);
+            intent.putExtra("UoM", UoM);
+            intent.putExtra("Supplier1", supplier1);
+            intent.putExtra("Supplier2", supplier2);
+            intent.putExtra("Supplier3", supplier3);
+            intent.putExtra("Active", active);
 
             ((Activity) context).startActivity(intent);
 
