@@ -112,6 +112,9 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
 
         } else if (id == R.id.nav_item_search_description) {
 
+            Intent intent = new Intent(this, DescriptionSearchActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_item_search_qrcode) {
 
         } else if (id == R.id.nav_logout) {

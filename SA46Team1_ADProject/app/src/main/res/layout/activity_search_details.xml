@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchDetailsActivity">
+
+    <TextView
+        android:id="@+id/textView_search_details_item_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Item Code: C001"
+        android:textAppearance="?android:textAppearanceMedium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_search_details_item_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_code"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_code"
+        android:layout_marginTop="6dp"
+        android:text="Item Category: Clip"
+        android:textAppearance="?android:textAppearanceMedium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_search_details_item_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_category"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_category"
+        android:layout_marginTop="6dp"
+        android:text="Description: Clips Double 1"
+        android:textAppearance="?android:textAppearanceMedium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_search_details_item_active"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_description"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_description"
+        android:layout_marginTop="6dp"
+        android:text="Active: Yes"
+        android:textAppearance="?android:textAppearanceMedium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_search_details_item_supplier1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_active"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_active"
+        android:layout_marginTop="24dp"
+        android:text="Supplier1: ALPHA"
+        android:textAppearance="?android:textAppearanceMedium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_search_details_item_supplier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier1"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier1"
+        android:layout_marginTop="6dp"
+        android:text="Supplier2: BANES"
+        android:textAppearance="?android:textAppearanceMedium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_search_details_item_supplier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier2"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier2"
+        android:layout_marginTop="6dp"
+        android:text="Supplier3: CHEAP"
+        android:textAppearance="?android:textAppearanceMedium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_search_details_item_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier3"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier3"
+        android:layout_marginTop="24dp"
+        android:text="Balance: 100 Dozens"
+        android:textAppearance="?android:textAppearanceMedium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+
+</android.support.constraint.ConstraintLayout>
