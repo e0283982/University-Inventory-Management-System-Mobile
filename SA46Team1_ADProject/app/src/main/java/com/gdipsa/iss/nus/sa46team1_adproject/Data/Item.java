@@ -1,5 +1,13 @@
 package com.gdipsa.iss.nus.sa46team1_adproject.Data;
 
+import com.gdipsa.iss.nus.sa46team1_adproject.JSONParser;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Item {
 
     private String itemCode;
@@ -12,20 +20,64 @@ public class Item {
     private String supplier3;
     private int active;
 
-    public Item(String description){
-        this.description = description;
-    }
-
-    public Item(String itemCode, String description, String category, int quantity, String UoM, String supplier1, String supplier2, String supplier3, int active) {
+    public Item(String itemCode, String category, String description, int quantity, String UoM, String supplier1, String supplier2, String supplier3, int active) {
         this.itemCode = itemCode;
-        this.description = description;
         this.category = category;
+        this.description = description;
         this.quantity = quantity;
         this.UoM = UoM;
         this.supplier1 = supplier1;
         this.supplier2 = supplier2;
         this.supplier3 = supplier3;
         this.active = active;
+    }
+
+    public static List<Item> listItems(String IPAddress){
+        List<Item> list = new ArrayList<Item>();
+
+        try {
+
+//            final String host = "http://" + IPAddress + "/api/Restful/GetStockRetrievalList";
+//
+//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host+"/StoR-3");
+
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/getitemslist/");
+
+            JSONObject jsonObject;
+
+            String dataItemCode;
+            String dataCategory;
+            String dataDescription;
+            int dataQuantity;
+            String dataUoM;
+            String dataSupplier1;
+            String dataSupplier2;
+            String dataSupplier3;
+            int dataActive;
+
+            for (int i=0; i<jsonArray.length(); i++) {
+
+                jsonObject = jsonArray.getJSONObject(i);
+
+                dataItemCode = jsonObject.getString("ItemCode");
+                dataCategory = jsonObject.getString("CategoryName");
+                dataDescription = jsonObject.getString("Description");
+                dataQuantity = jsonObject.getInt("Quantity");
+                dataUoM = jsonObject.getString("UoM");
+                dataSupplier1 = jsonObject.getString("s1");
+                dataSupplier2 = jsonObject.getString("s2");
+                dataSupplier3 = jsonObject.getString("s3");
+                dataActive = jsonObject.getInt("Active");
+
+                Item item = new Item(dataItemCode, dataCategory, dataDescription, dataQuantity, dataUoM, dataSupplier1, dataSupplier2, dataSupplier3, dataActive);
+
+                list.add(item);
+            }
+        } catch (Exception e) {
+        }
+        return list;
+
+
     }
 
     //Getter and setter

@@ -1,5 +1,6 @@
 package com.gdipsa.iss.nus.sa46team1_adproject;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.SearchView;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.Item;
+import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockRetrieval;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,22 +27,10 @@ public class DescriptionSearchActivity extends AppBaseActivity implements Search
 
         mRecyclerViewSearchItemDescription = findViewById(R.id.recycler_view_search_description_store);
 
-        //Temporary put in data first
-        List<Item> itemList = new ArrayList<Item>();
-
-        Item item1 = new Item("Test1");
-        Item item2 = new Item("Test2");
-        Item item3 = new Item("Test3");
-        itemList.add(item1);
-        itemList.add(item2);
-        itemList.add(item3);
-
-        adapter = new DescriptionSearchAdapter(DescriptionSearchActivity.this, itemList);
-        mRecyclerViewSearchItemDescription.setAdapter(adapter);
-        mRecyclerViewSearchItemDescription.setLayoutManager(new LinearLayoutManager(DescriptionSearchActivity.this));
-
         editsearch = findViewById(R.id.search_item_by_description_store);
         editsearch.setOnQueryTextListener(this);
+
+        new MyTask().execute("Test");
 
 
     }
@@ -57,6 +47,21 @@ public class DescriptionSearchActivity extends AppBaseActivity implements Search
         return false;
     }
 
+    private class MyTask extends AsyncTask<String, Void, List<Item>> {
+        @Override
+        protected List<Item> doInBackground(String... params) {
+            return Item.listItems(params[0]);
+        }
+        @Override
+        protected void onPostExecute(List<Item> result) {
+
+            adapter = new DescriptionSearchAdapter(DescriptionSearchActivity.this, result);
+            mRecyclerViewSearchItemDescription.setAdapter(adapter);
+            mRecyclerViewSearchItemDescription.setLayoutManager(new LinearLayoutManager(DescriptionSearchActivity.this));
+
+
+        }
+    }
 
 
 }

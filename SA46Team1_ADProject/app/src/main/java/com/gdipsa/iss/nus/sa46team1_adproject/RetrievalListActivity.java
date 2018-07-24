@@ -26,14 +26,7 @@ public class RetrievalListActivity extends AppBaseActivity {
 
         mRecyclerViewStockRetrievalList = findViewById(R.id.recycler_view_retrieval_list);
 
-
-
-
-
-
-        new MyTask().execute("localhost:49921");
-
-
+        new MyTask().execute("Test");
 
     }
 

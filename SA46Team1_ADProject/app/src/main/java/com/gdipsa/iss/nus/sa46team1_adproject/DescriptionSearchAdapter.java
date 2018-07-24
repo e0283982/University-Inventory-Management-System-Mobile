@@ -43,6 +43,8 @@ public class DescriptionSearchAdapter extends RecyclerView.Adapter<DescriptionSe
 
             Intent intent = new Intent(context, SearchDetailsActivity.class);
 
+
+
             ((Activity) context).startActivity(intent);
 
         }
