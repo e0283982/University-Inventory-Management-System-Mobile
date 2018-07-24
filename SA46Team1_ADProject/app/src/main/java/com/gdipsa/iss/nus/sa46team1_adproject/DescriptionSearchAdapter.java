@@ -91,6 +91,17 @@ public class DescriptionSearchAdapter extends RecyclerView.Adapter<DescriptionSe
         Item current = mItems.get(position);
         holder.searchItemTextView.setText("Item: " + current.getDescription());
 
+        holder.itemCode = current.getItemCode();
+        holder.category = current.getCategory();
+        holder.description = current.getDescription();
+        holder.quantity = current.getQuantity();
+        holder.UoM = current.getUoM();
+        holder.supplier1 = current.getSupplier1();
+        holder.supplier2 = current.getSupplier2();
+        holder.supplier3 = current.getSupplier3();
+        holder.active = current.getActive();
+
+
     }
 
     @Override

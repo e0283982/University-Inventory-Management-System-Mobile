@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier1"
         app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier1"
         android:layout_marginTop="6dp"
-        android:text="Supplier2: BANES"
+        android:text="Supplier2: BANESA"
         android:textAppearance="?android:textAppearanceMedium"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />

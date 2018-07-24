@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class SearchDetailsActivity extends AppCompatActivity {
 
     private TextView itemCodeTextView;
@@ -38,7 +40,7 @@ public class SearchDetailsActivity extends AppCompatActivity {
         supplier1TextView = findViewById(R.id.textView_search_details_item_supplier1);
         supplier2TextView = findViewById(R.id.textView_search_details_item_supplier2);
         supplier3TextView = findViewById(R.id.textView_search_details_item_supplier3);
-        quantityTextView = supplier2TextView = findViewById(R.id.textView_search_details_item_quantity);
+        quantityTextView = findViewById(R.id.textView_search_details_item_quantity);
 
         Intent data = getIntent();
 
@@ -52,10 +54,25 @@ public class SearchDetailsActivity extends AppCompatActivity {
         supplier3 = data.getStringExtra("Supplier3");
         active = data.getIntExtra("Active", 0);
 
+        itemCodeTextView.setText("Item Code: " + itemCode);
+        itemCategoryTextView.setText("Item Category: " + category);
+        itemDescriptionTextView.setText("Description: " + description);
 
+        if (active == 1){
+            activeTextView.setText("Active: Yes");
+        } else{
+            activeTextView.setText("Active: No");
+        }
 
+        supplier1TextView.setText("Supplier1: " + supplier1);
+        supplier2TextView.setText("Supplier2: " + supplier2);
+        supplier3TextView.setText("Supplier3: " + supplier3);
 
+        DecimalFormat fmt = new DecimalFormat("#,##0");
 
+        String quantityText = fmt.format(quantity);
+
+        quantityTextView.setText("Balance: " + quantityText + " " + UoM);
 
 
 
