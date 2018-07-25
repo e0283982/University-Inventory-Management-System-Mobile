@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockRetrieval;
 
@@ -30,7 +31,23 @@ public class RetrievalListActivity extends AppBaseActivity {
         mRecyclerViewStockRetrievalList = findViewById(R.id.recycler_view_retrieval_list);
         progressBar = findViewById(R.id.progressbar_retrieval_list);
 
-        new MyTask().execute("Test");
+        new AsyncTask<Void, Void, String>() {
+            @Override
+            protected String doInBackground(Void... params) {
+                return StockRetrieval.getLatestStockRetrievalid();
+            }
+            @Override
+            protected void onPostExecute(String stockRetrievalId) {
+//                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+
+                new MyTask().execute(stockRetrievalId);
+            }
+        }.execute();
+
+
+
+
+//        new MyTask().execute("Test");
 
     }
 

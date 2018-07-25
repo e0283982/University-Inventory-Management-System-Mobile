@@ -23,7 +23,28 @@ public class StockRetrieval {
         this.collectionPointDescription = collectionPointDescription;
     }
 
-    public static List<StockRetrieval> listStockRetrievals(String IPAddress){
+    public static String getLatestStockRetrievalid(){
+        String stockRetrievalId = null;
+
+        try{
+
+            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://172.17.191.101/adtest2/api/Restful/GetLatestStockRetrievalId");
+
+            stockRetrievalId = jsonObject.getString("ID");
+
+        }catch (Exception e) {
+        }
+
+        return stockRetrievalId;
+
+    }
+
+
+
+
+
+
+    public static List<StockRetrieval> listStockRetrievals(String stockRetrievalId){
         List<StockRetrieval> list = new ArrayList<StockRetrieval>();
 
         try {
@@ -32,7 +53,7 @@ public class StockRetrieval {
 //
 //            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host+"/StoR-3");
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/GetStockRetrievalList/StoR-3");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/GetStockRetrievalList/" + stockRetrievalId);
 
             JSONObject jsonObject;
 
