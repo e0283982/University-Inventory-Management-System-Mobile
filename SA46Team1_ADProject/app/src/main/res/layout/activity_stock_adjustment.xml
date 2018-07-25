@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StockAdjustmentActivity">
+
+
+    <TextView
+        android:id="@+id/textView_stock_adjustment_item_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Staplet"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_stock_adjustment_adjust_quantity_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Adjust Quantity: "
+        app:layout_constraintTop_toBottomOf="@id/textView_stock_adjustment_item_description"
+        app:layout_constraintLeft_toLeftOf="@id/textView_stock_adjustment_item_description"
+        android:layout_marginTop="24dp"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <Spinner
+        android:id="@+id/spinner_stock_adjustment_quantity_adjusted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/textView_stock_adjustment_adjust_quantity_label"
+        app:layout_constraintTop_toTopOf="@id/textView_stock_adjustment_adjust_quantity_label"
+        android:layout_marginLeft="8dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="88dp" />
+
+    <TextView
+        android:id="@+id/textView_stock_adjustment_reason_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Reason: "
+        app:layout_constraintTop_toBottomOf="@id/textView_stock_adjustment_adjust_quantity_label"
+        app:layout_constraintLeft_toLeftOf="@id/textView_stock_adjustment_adjust_quantity_label"
+        android:layout_marginTop="24dp"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <Spinner
+        android:id="@+id/spinner_stock_adjustment_reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/reason_options"
+        app:layout_constraintLeft_toLeftOf="@id/spinner_stock_adjustment_quantity_adjusted"
+        app:layout_constraintTop_toTopOf="@id/textView_stock_adjustment_reason_label"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="88dp" />
+
+    <Button
+        android:id="@+id/button_stock_adjustment_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_stock_adjustment_reason_label"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="72dp"
+        android:text="Submit"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="154dp" />
+
+
+</android.support.constraint.ConstraintLayout>

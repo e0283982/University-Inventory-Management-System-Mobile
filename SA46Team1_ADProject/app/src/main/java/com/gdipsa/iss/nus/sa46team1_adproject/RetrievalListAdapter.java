@@ -1,11 +1,14 @@
 package com.gdipsa.iss.nus.sa46team1_adproject;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockRetrieval;
@@ -24,14 +27,26 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
         private TextView itemDescriptionTextView;
         private TextView itemsRetrievedTextView;
         private TextView collectionPointTextView;
+        private Button adjustButton;
 
-        public RetrievalListViewHolder(View itemView){
+        public RetrievalListViewHolder(final View itemView){
             super(itemView);
 
             binNumberTextView = itemView.findViewById(R.id.textView_binNumber);
             itemDescriptionTextView = itemView.findViewById(R.id.textView_itemDescription);
             itemsRetrievedTextView = itemView.findViewById(R.id.textView_itemsRetrieved);
             collectionPointTextView = itemView.findViewById(R.id.textView_collectionPoint);
+            adjustButton = itemView.findViewById(R.id.button_retrieval_stock_adjustment);
+
+            adjustButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, StockAdjustmentActivity.class);
+                    ((Activity) context).startActivity(intent);
+
+                }
+            });
 
         }
 

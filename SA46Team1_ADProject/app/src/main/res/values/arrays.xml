@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="reason_options">
+        <item>Damaged</item>
+        <item>Missing</item>
+    </string-array>
+</resources>

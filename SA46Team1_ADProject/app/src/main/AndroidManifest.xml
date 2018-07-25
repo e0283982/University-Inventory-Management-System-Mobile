@@ -26,9 +26,9 @@
         </activity>
         <activity android:name=".SearchDetailsActivity" />
         <activity
-            android:launchMode="singleTask"
-            android:name=".QRCodeSearchActivity">
-        </activity>
+            android:name=".QRCodeSearchActivity"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".StockAdjustmentActivity"></activity>
     </application>
 
 </manifest>
