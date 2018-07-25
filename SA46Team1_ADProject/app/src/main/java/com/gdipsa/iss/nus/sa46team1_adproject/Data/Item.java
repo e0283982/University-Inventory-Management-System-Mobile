@@ -73,7 +73,7 @@ public class Item {
 
 
 
-    public static List<Item> listItems(String IPAddress){
+    public static List<Item> listItems(){
         List<Item> list = new ArrayList<Item>();
 
         try {

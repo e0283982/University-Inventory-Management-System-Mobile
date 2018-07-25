@@ -48,10 +48,11 @@ public class StockAdjustmentActivity extends AppCompatActivity {
 
         final String itemAdjustedDescription = data.getStringExtra("ItemAdjusted");
         final String stockRetrievalId = data.getStringExtra("StockRetrievalId");
+        int quantityRetrieved = data.getIntExtra("QuantityRetrieved", 0);
 
         itemAdjustedTextView.setText(itemAdjustedDescription);
 
-        int quantityRetrieved = data.getIntExtra("QuantityRetrieved", 0);
+
         List<Integer> quantitySpinner = new ArrayList<Integer>();
 
         for (int i = 1; i <= quantityRetrieved; i++){
@@ -114,15 +115,23 @@ public class StockAdjustmentActivity extends AppCompatActivity {
 
             StockAdjustment.createStockAdjustment(params[0]);
 
-
             return null;
         }
+
         @Override
         protected void onPostExecute(Void result) {
 
             Toast.makeText(getApplicationContext(), "Stock adjustment successfully created", Toast.LENGTH_SHORT).show();
 
-            finish();
+            Intent data = getIntent();
+            String stockRetrievalId = data.getStringExtra("StockRetrievalId");
+            if (stockRetrievalId.equals("NoStockRetrieval")){
+                Intent intent = new Intent(StockAdjustmentActivity.this, DescriptionSearchActivity.class);
+                startActivity(intent);
+            } else{
+                finish();
+            }
+
         }
     }
 

@@ -1,9 +1,14 @@
 package com.gdipsa.iss.nus.sa46team1_adproject;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -17,6 +22,7 @@ public class SearchDetailsActivity extends AppBaseActivity {
     private TextView supplier2TextView;
     private TextView supplier3TextView;
     private TextView quantityTextView;
+    private Button adjustButton;
 
     private String itemCode;
     private String category;
@@ -42,6 +48,7 @@ public class SearchDetailsActivity extends AppBaseActivity {
         supplier2TextView = findViewById(R.id.textView_search_details_item_supplier2);
         supplier3TextView = findViewById(R.id.textView_search_details_item_supplier3);
         quantityTextView = findViewById(R.id.textView_search_details_item_quantity);
+        adjustButton = findViewById(R.id.button_search_details_adjust);
 
         Intent data = getIntent();
 
@@ -76,6 +83,20 @@ public class SearchDetailsActivity extends AppBaseActivity {
         String quantityText = fmt.format(quantity);
 
         quantityTextView.setText("Balance: " + quantityText + " " + UoM);
+
+        adjustButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Context context = v.getContext();
+                Intent intent = new Intent(context, StockAdjustmentActivity.class);
+                intent.putExtra("ItemAdjusted", description);
+                intent.putExtra("QuantityRetrieved", quantity);
+                intent.putExtra("StockRetrievalId", "NoStockRetrieval");
+                ((Activity) context).startActivity(intent);
+
+            }
+        });
 
 
     }

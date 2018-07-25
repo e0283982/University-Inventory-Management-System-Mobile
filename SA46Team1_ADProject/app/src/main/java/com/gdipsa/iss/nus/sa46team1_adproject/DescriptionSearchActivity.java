@@ -35,8 +35,14 @@ public class DescriptionSearchActivity extends AppBaseActivity implements Search
         editsearch = findViewById(R.id.search_item_by_description_store);
         editsearch.setOnQueryTextListener(this);
 
-        new MyTask().execute("Test");
+        new MyTask().execute();
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        new MyTask().execute();
     }
 
     @Override
@@ -51,10 +57,10 @@ public class DescriptionSearchActivity extends AppBaseActivity implements Search
         return false;
     }
 
-    private class MyTask extends AsyncTask<String, Void, List<Item>> {
+    private class MyTask extends AsyncTask<Void, Void, List<Item>> {
         @Override
-        protected List<Item> doInBackground(String... params) {
-            return Item.listItems(params[0]);
+        protected List<Item> doInBackground(Void... params) {
+            return Item.listItems();
         }
         @Override
         protected void onPostExecute(List<Item> result) {
@@ -67,6 +73,5 @@ public class DescriptionSearchActivity extends AppBaseActivity implements Search
 
         }
     }
-
 
 }
