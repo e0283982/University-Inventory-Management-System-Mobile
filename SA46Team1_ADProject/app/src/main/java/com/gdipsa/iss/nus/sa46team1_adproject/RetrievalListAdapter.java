@@ -29,6 +29,9 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
         private TextView collectionPointTextView;
         private Button adjustButton;
 
+        private String itemAdjusted;
+        private int quantityRetrieved;
+
         public RetrievalListViewHolder(final View itemView){
             super(itemView);
 
@@ -43,6 +46,8 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
                 public void onClick(View v) {
                     Context context = v.getContext();
                     Intent intent = new Intent(context, StockAdjustmentActivity.class);
+                    intent.putExtra("ItemAdjusted", itemAdjusted);
+                    intent.putExtra("QuantityRetrieved", quantityRetrieved);
                     ((Activity) context).startActivity(intent);
 
                 }
@@ -72,6 +77,9 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
         holder.itemDescriptionTextView.setText(current.getItemDescription());
         holder.itemsRetrievedTextView.setText("Quantity Retrieved: " + current.getItemsRetrieved());
         holder.collectionPointTextView.setText("Collection Point: " + current.getCollectionPointDescription());
+
+        holder.itemAdjusted = current.getItemDescription();
+        holder.quantityRetrieved = current.getItemsRetrieved();
 
     }
 

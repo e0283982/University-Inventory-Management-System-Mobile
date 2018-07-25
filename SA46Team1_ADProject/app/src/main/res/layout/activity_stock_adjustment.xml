@@ -34,7 +34,7 @@
 
     <Spinner
         android:id="@+id/spinner_stock_adjustment_quantity_adjusted"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@id/textView_stock_adjustment_adjust_quantity_label"
         app:layout_constraintTop_toTopOf="@id/textView_stock_adjustment_adjust_quantity_label"
