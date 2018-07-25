@@ -18,8 +18,8 @@ import java.util.List;
 public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdapter.RetrievalListViewHolder>{
 
     private LayoutInflater mInflater;
-
     List<StockRetrieval> mRetrievalList;
+    private String stockRetrievalId;
 
     class RetrievalListViewHolder extends RecyclerView.ViewHolder{
 
@@ -48,6 +48,7 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
                     Intent intent = new Intent(context, StockAdjustmentActivity.class);
                     intent.putExtra("ItemAdjusted", itemAdjusted);
                     intent.putExtra("QuantityRetrieved", quantityRetrieved);
+                    intent.putExtra("StockRetrievalId", stockRetrievalId);
                     ((Activity) context).startActivity(intent);
 
                 }
@@ -57,9 +58,10 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
 
     }
 
-    RetrievalListAdapter(Context context,List<StockRetrieval> mRetrievalList){
+    RetrievalListAdapter(Context context, List<StockRetrieval> mRetrievalList, String stockRetrievalId){
         mInflater = LayoutInflater.from(context);
         this.mRetrievalList = mRetrievalList;
+        this.stockRetrievalId = stockRetrievalId;
     }
 
     @NonNull

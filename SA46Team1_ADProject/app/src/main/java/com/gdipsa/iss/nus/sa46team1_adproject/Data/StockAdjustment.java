@@ -10,12 +10,14 @@ public class StockAdjustment {
     String itemDescription;
     int adjustedQuantity;
     String remarks;
+    String stockRetrievalId;
 
-    public StockAdjustment(String requestorId, String itemDescription, int adjustedQuantity, String remarks) {
+    public StockAdjustment(String requestorId, String itemDescription, int adjustedQuantity, String remarks, String stockRetrievalId) {
         this.requestorId = requestorId;
         this.itemDescription = itemDescription;
         this.adjustedQuantity = adjustedQuantity;
         this.remarks = remarks;
+        this.stockRetrievalId = stockRetrievalId;
     }
 
     public static void createStockAdjustment(StockAdjustment stockAdjustment) {
@@ -26,6 +28,7 @@ public class StockAdjustment {
             jStockAdjustment.put("ItemDescription", stockAdjustment.getItemDescription());
             jStockAdjustment.put("AdjustedQuantity", stockAdjustment.getAdjustedQuantity());
             jStockAdjustment.put("Remarks", stockAdjustment.getRemarks());
+            jStockAdjustment.put("StockRetrievalId", stockAdjustment.getStockRetrievalId());
 
         } catch (Exception e) {
         }
@@ -66,6 +69,13 @@ public class StockAdjustment {
         this.remarks = remarks;
     }
 
+    public String getStockRetrievalId() {
+        return stockRetrievalId;
+    }
+
+    public void setStockRetrievalId(String stockRetrievalId) {
+        this.stockRetrievalId = stockRetrievalId;
+    }
 
 
 

@@ -22,6 +22,8 @@ public class RetrievalListActivity extends AppBaseActivity {
     private RetrievalListAdapter adapter;
     private ProgressBar progressBar;
 
+    private String stoRetId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,7 @@ public class RetrievalListActivity extends AppBaseActivity {
             @Override
             protected void onPostExecute(String stockRetrievalId) {
 //                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                stoRetId = stockRetrievalId;
 
                 new MyTask().execute(stockRetrievalId);
             }
@@ -60,7 +63,7 @@ public class RetrievalListActivity extends AppBaseActivity {
         protected void onPostExecute(List<StockRetrieval> result) {
 
             progressBar.setVisibility(View.GONE);
-            adapter = new RetrievalListAdapter(RetrievalListActivity.this, result);
+            adapter = new RetrievalListAdapter(RetrievalListActivity.this, result, stoRetId);
             mRecyclerViewStockRetrievalList.setAdapter(adapter);
             mRecyclerViewStockRetrievalList.setLayoutManager(new LinearLayoutManager(RetrievalListActivity.this));
 
@@ -70,7 +73,9 @@ public class RetrievalListActivity extends AppBaseActivity {
     }
 
 
-
-
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
+    }
 }

@@ -47,6 +47,7 @@ public class StockAdjustmentActivity extends AppCompatActivity {
         Intent data = getIntent();
 
         final String itemAdjustedDescription = data.getStringExtra("ItemAdjusted");
+        final String stockRetrievalId = data.getStringExtra("StockRetrievalId");
 
         itemAdjustedTextView.setText(itemAdjustedDescription);
 
@@ -79,7 +80,7 @@ public class StockAdjustmentActivity extends AppCompatActivity {
 
                         //Temporary File
                         String requestorId = "E2";
-                        StockAdjustment newStockAdjustment = new StockAdjustment(requestorId, itemAdjustedDescription, quantityAdjusted, remarkSelected);
+                        StockAdjustment newStockAdjustment = new StockAdjustment(requestorId, itemAdjustedDescription, quantityAdjusted, remarkSelected, stockRetrievalId);
 
                         new MyTask().execute(newStockAdjustment);
 
@@ -99,6 +100,10 @@ public class StockAdjustmentActivity extends AppCompatActivity {
 
             }
         });
+
+
+//        Toast.makeText(getApplicationContext(), data.getStringExtra("StockRetrievalId"), Toast.LENGTH_SHORT).show();
+
 
     }
 
