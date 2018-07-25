@@ -1,9 +1,11 @@
 package com.gdipsa.iss.nus.sa46team1_adproject;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,6 +13,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.gdipsa.iss.nus.sa46team1_adproject.Data.Item;
+import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockAdjustment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +44,9 @@ public class StockAdjustmentActivity extends AppCompatActivity {
 
         Intent data = getIntent();
 
-        itemAdjustedTextView.setText(data.getStringExtra("ItemAdjusted"));
+        final String itemAdjustedDescription = data.getStringExtra("ItemAdjusted");
+
+        itemAdjustedTextView.setText(itemAdjustedDescription);
 
         int quantityRetrieved = data.getIntExtra("QuantityRetrieved", 0);
         List<Integer> quantitySpinner = new ArrayList<Integer>();
@@ -60,10 +67,15 @@ public class StockAdjustmentActivity extends AppCompatActivity {
 
                 String quantityAdjustedString = quantityAdjustedSpinner.getSelectedItem().toString();
                 int quantityAdjusted = Integer.parseInt(quantityAdjustedString);
-
                 String remarkSelected = reasonSpinner.getSelectedItem().toString();
 
-                Toast.makeText(getApplicationContext(), "" + quantityAdjusted, Toast.LENGTH_LONG).show();
+                //Temporary File
+                String requestorId = "E2";
+                StockAdjustment newStockAdjustment = new StockAdjustment(requestorId, itemAdjustedDescription, quantityAdjusted, remarkSelected);
+
+                new MyTask().execute(newStockAdjustment);
+
+//                Toast.makeText(getApplicationContext(), "" + quantityAdjusted, Toast.LENGTH_LONG).show();
 
             }
         });
@@ -73,6 +85,27 @@ public class StockAdjustmentActivity extends AppCompatActivity {
 
 
     }
+
+
+    private class MyTask extends AsyncTask<StockAdjustment, Void, Void> {
+        @Override
+        protected Void doInBackground(StockAdjustment... params) {
+
+            StockAdjustment.createStockAdjustment(params[0]);
+
+
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Void result) {
+
+
+
+
+        }
+    }
+
+
 
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
