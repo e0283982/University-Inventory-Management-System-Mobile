@@ -1,8 +1,10 @@
 package com.gdipsa.iss.nus.sa46team1_adproject;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -65,24 +67,38 @@ public class StockAdjustmentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String quantityAdjustedString = quantityAdjustedSpinner.getSelectedItem().toString();
-                int quantityAdjusted = Integer.parseInt(quantityAdjustedString);
-                String remarkSelected = reasonSpinner.getSelectedItem().toString();
+                AlertDialog.Builder builder = new AlertDialog.Builder(StockAdjustmentActivity.this);
+                builder.setMessage("Are you sure you want to submit?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-                //Temporary File
-                String requestorId = "E2";
-                StockAdjustment newStockAdjustment = new StockAdjustment(requestorId, itemAdjustedDescription, quantityAdjusted, remarkSelected);
+                        String quantityAdjustedString = quantityAdjustedSpinner.getSelectedItem().toString();
+                        int quantityAdjusted = Integer.parseInt(quantityAdjustedString);
+                        String remarkSelected = reasonSpinner.getSelectedItem().toString();
 
-                new MyTask().execute(newStockAdjustment);
+                        //Temporary File
+                        String requestorId = "E2";
+                        StockAdjustment newStockAdjustment = new StockAdjustment(requestorId, itemAdjustedDescription, quantityAdjusted, remarkSelected);
 
-//                Toast.makeText(getApplicationContext(), "" + quantityAdjusted, Toast.LENGTH_LONG).show();
+                        new MyTask().execute(newStockAdjustment);
+
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (dialog != null){
+                            dialog.dismiss();
+                        }
+                    }
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
 
             }
         });
-
-
-
-
 
     }
 
@@ -99,9 +115,9 @@ public class StockAdjustmentActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
 
+            Toast.makeText(getApplicationContext(), "Stock adjustment successfully created", Toast.LENGTH_SHORT).show();
 
-
-
+            finish();
         }
     }
 
