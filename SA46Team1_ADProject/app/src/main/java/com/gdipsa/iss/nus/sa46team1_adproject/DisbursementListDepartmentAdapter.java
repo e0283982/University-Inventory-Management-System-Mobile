@@ -1,6 +1,8 @@
 package com.gdipsa.iss.nus.sa46team1_adproject;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,6 +29,11 @@ public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<Disb
         private TextView disbursementIdTextView;
         private TextView disbursementDeptRepTextView;
 
+        private String disbursementId;
+        private String disbursementDate;
+        private String disbursementDepartment;
+        private String disbursementRepName;
+
         public DisbursementListDepartmentViewHolder(View itemView) {
             super(itemView);
 
@@ -41,6 +48,16 @@ public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<Disb
 
         @Override
         public void onClick(View v) {
+
+            Context context = v.getContext();
+
+            Intent intent = new Intent(context, DisbursementListDetailsActivity.class);
+            intent.putExtra("DisbursementId", disbursementId);
+            intent.putExtra("DisbursementDate", disbursementDate);
+            intent.putExtra("DisbursementDepartment", disbursementDepartment);
+            intent.putExtra("DisbursementRepName", disbursementRepName);
+
+            ((Activity) context).startActivity(intent);
 
         }
     }
@@ -78,6 +95,11 @@ public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<Disb
         holder.disbursementDepartmentDescriptionTextView.setText(current.getDepartmentName());
         holder.disbursementIdTextView.setText(current.getDisbursementId());
         holder.disbursementDeptRepTextView.setText(current.getRepresentativeName());
+
+        holder.disbursementId = current.getDisbursementId();
+        holder.disbursementDate = formatter.format(date);
+        holder.disbursementDepartment = current.getDepartmentName();
+        holder.disbursementRepName = current.getRepresentativeName();
 
     }
 
