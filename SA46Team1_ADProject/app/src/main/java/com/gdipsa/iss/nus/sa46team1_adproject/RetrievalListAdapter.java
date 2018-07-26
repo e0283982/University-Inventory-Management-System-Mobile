@@ -21,14 +21,13 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
     List<StockRetrieval> mRetrievalList;
     private String stockRetrievalId;
 
-    class RetrievalListViewHolder extends RecyclerView.ViewHolder{
+    class RetrievalListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView binNumberTextView;
         private TextView binLocationTextView;
         private TextView itemDescriptionTextView;
         private TextView itemsRetrievedTextView;
         private TextView collectionPointTextView;
-        private Button adjustButton;
 
         private String itemAdjusted;
         private int quantityRetrieved;
@@ -41,23 +40,20 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
             itemDescriptionTextView = itemView.findViewById(R.id.textView_retrieval_itemDescription);
             itemsRetrievedTextView = itemView.findViewById(R.id.textView_retrieval_itemsRetrieved);
             collectionPointTextView = itemView.findViewById(R.id.textView_retrieval_collectionPoint);
-            adjustButton = itemView.findViewById(R.id.button_retrieval_stock_adjustment);
 
-            adjustButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, StockAdjustmentActivity.class);
-                    intent.putExtra("ItemAdjusted", itemAdjusted);
-                    intent.putExtra("QuantityRetrieved", quantityRetrieved);
-                    intent.putExtra("StockRetrievalId", stockRetrievalId);
-                    ((Activity) context).startActivity(intent);
-
-                }
-            });
+            itemView.setOnClickListener(this);
 
         }
 
+        @Override
+        public void onClick(View v) {
+            Context context = v.getContext();
+            Intent intent = new Intent(context, StockAdjustmentActivity.class);
+            intent.putExtra("ItemAdjusted", itemAdjusted);
+            intent.putExtra("QuantityRetrieved", quantityRetrieved);
+            intent.putExtra("StockRetrievalId", stockRetrievalId);
+            ((Activity) context).startActivity(intent);
+        }
     }
 
     RetrievalListAdapter(Context context, List<StockRetrieval> mRetrievalList, String stockRetrievalId){
