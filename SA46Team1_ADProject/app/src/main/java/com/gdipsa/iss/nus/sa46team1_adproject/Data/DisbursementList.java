@@ -27,7 +27,7 @@ public class DisbursementList {
 
 
 
-    public static List<DisbursementList> listDepartmentDisbursementList(){
+    public static List<DisbursementList> listDepartmentDisbursementList(String collectionPointChosen){
 
         List<DisbursementList> list = new ArrayList<DisbursementList>();
 
@@ -56,7 +56,7 @@ public class DisbursementList {
                 DisbursementList disbursementList = new DisbursementList(dataDisbursementId, dataDateStr, dataDepartmentName, dataStatus, dataCollectionPointDescription);
 
 
-                if (dataStatus.equals("Open")){
+                if (dataStatus.equals("Open") && dataCollectionPointDescription.equals(collectionPointChosen)){
                     list.add(disbursementList);
                 }
 

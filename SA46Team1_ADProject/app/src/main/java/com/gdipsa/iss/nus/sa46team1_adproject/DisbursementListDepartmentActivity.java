@@ -1,5 +1,6 @@
 package com.gdipsa.iss.nus.sa46team1_adproject;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,16 +29,19 @@ public class DisbursementListDepartmentActivity extends AppCompatActivity {
         mRecyclerViewDisbursementListDepartment = findViewById(R.id.recycler_view_disbursement_list_department);
         progressBar = findViewById(R.id.progressbar_disbursement_list_department);
 
-        new MyTask().execute();
+        Intent data = getIntent();
+        String collectionPoint = data.getStringExtra("CollectionPointDescription");
+
+        new MyTask().execute(collectionPoint);
 
 
 
     }
 
-    private class MyTask extends AsyncTask<Void, Void, List<DisbursementList>> {
+    private class MyTask extends AsyncTask<String, Void, List<DisbursementList>> {
         @Override
-        protected List<DisbursementList> doInBackground(Void... params) {
-            return DisbursementList.listDepartmentDisbursementList();
+        protected List<DisbursementList> doInBackground(String... params) {
+            return DisbursementList.listDepartmentDisbursementList(params[0]);
         }
         @Override
         protected void onPostExecute(List<DisbursementList> result) {
