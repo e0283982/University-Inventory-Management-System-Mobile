@@ -106,8 +106,8 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
 
         } else if (id == R.id.nav_disbursement_list) {
 
-//            Intent intent = new Intent(this, DisbursementActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(this, DisbursementListActivity.class);
+            startActivity(intent);
 
 
         } else if (id == R.id.nav_item_search_description) {
