@@ -15,17 +15,16 @@ public class DisbursementList {
     private String departmentName;
     private String status;
     private String collectionPointDescription;
+    private String representativeName;
 
-
-    public DisbursementList(String disbursementId, String dateStr, String departmentName, String status, String collectionPointDescription) {
+    public DisbursementList(String disbursementId, String dateStr, String departmentName, String status, String collectionPointDescription, String representativeName) {
         this.disbursementId = disbursementId;
         this.dateStr = dateStr;
         this.departmentName = departmentName;
         this.status = status;
         this.collectionPointDescription = collectionPointDescription;
+        this.representativeName = representativeName;
     }
-
-
 
     public static List<DisbursementList> listDepartmentDisbursementList(String collectionPointChosen){
 
@@ -33,7 +32,9 @@ public class DisbursementList {
 
         try {
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/GetDisbursementList");
+//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/GetDisbursementList");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetDisbursementList");
+
             JSONObject jsonObject;
 
             String dataDisbursementId;
@@ -41,6 +42,7 @@ public class DisbursementList {
             String dataDepartmentName;
             String dataStatus;
             String dataCollectionPointDescription;
+            String dataRepresentativeName;
 
 
             for (int i=0; i<jsonArray.length(); i++) {
@@ -52,16 +54,13 @@ public class DisbursementList {
                 dataDepartmentName = jsonObject.getString("DepartmentName");
                 dataStatus = jsonObject.getString("Status");
                 dataCollectionPointDescription = jsonObject.getString("CollectionPointDescription");
+                dataRepresentativeName = jsonObject.getString("RepresentativeName");
 
-                DisbursementList disbursementList = new DisbursementList(dataDisbursementId, dataDateStr, dataDepartmentName, dataStatus, dataCollectionPointDescription);
-
+                DisbursementList disbursementList = new DisbursementList(dataDisbursementId, dataDateStr, dataDepartmentName, dataStatus, dataCollectionPointDescription, dataRepresentativeName);
 
                 if (dataStatus.equals("Open") && dataCollectionPointDescription.equals(collectionPointChosen)){
                     list.add(disbursementList);
                 }
-
-                //Test
-
 
 
             }
@@ -116,6 +115,13 @@ public class DisbursementList {
         this.collectionPointDescription = collectionPointDescription;
     }
 
+    public String getRepresentativeName() {
+        return representativeName;
+    }
+
+    public void setRepresentativeName(String representativeName) {
+        this.representativeName = representativeName;
+    }
 
 
 }

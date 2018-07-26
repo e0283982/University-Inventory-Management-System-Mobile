@@ -6,13 +6,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/textView_disbursement_department_date"
+        android:id="@+id/textView_disbursement_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="18dp"
+        android:text="DH-1"
+        android:textAppearance="?android:textAppearanceLarge"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_disbursement_department_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_disbursement_id"
+        app:layout_constraintLeft_toLeftOf="@id/textView_disbursement_id"
+        android:layout_marginTop="6dp"
         android:text="17/06/2018"
         android:textAppearance="?android:textAppearanceMedium"
         tools:layout_editor_absoluteX="16dp"
@@ -22,10 +34,22 @@
         android:id="@+id/textView_disbursement_department_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/textView_disbursement_department_date"
-        app:layout_constraintLeft_toRightOf="@id/textView_disbursement_department_date"
-        android:layout_marginLeft="12dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_disbursement_department_date"
+        app:layout_constraintLeft_toLeftOf="@id/textView_disbursement_department_date"
+        android:layout_marginTop="6dp"
         android:text="Commerce Dept"
+        android:textAppearance="?android:textAppearanceMedium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_disbursement_department_rep_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_disbursement_department_description"
+        app:layout_constraintLeft_toLeftOf="@id/textView_disbursement_department_description"
+        android:layout_marginTop="6dp"
+        android:text="Thomas Tan"
         android:textAppearance="?android:textAppearanceMedium"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />

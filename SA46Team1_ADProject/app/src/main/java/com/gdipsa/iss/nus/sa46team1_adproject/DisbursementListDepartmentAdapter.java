@@ -24,16 +24,18 @@ public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<Disb
 
         private TextView dateDisbursementDepartmentTextView;
         private TextView disbursementDepartmentDescriptionTextView;
+        private TextView disbursementIdTextView;
+        private TextView disbursementDeptRepTextView;
 
         public DisbursementListDepartmentViewHolder(View itemView) {
             super(itemView);
 
+            disbursementIdTextView = itemView.findViewById(R.id.textView_disbursement_id);
             dateDisbursementDepartmentTextView = itemView.findViewById(R.id.textView_disbursement_department_date);
             disbursementDepartmentDescriptionTextView = itemView.findViewById(R.id.textView_disbursement_department_description);
+            disbursementDeptRepTextView = itemView.findViewById(R.id.textView_disbursement_department_rep_name);
 
             itemView.setOnClickListener(this);
-
-
         }
 
 
@@ -74,6 +76,8 @@ public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<Disb
 
         holder.dateDisbursementDepartmentTextView.setText(formatter.format(date));
         holder.disbursementDepartmentDescriptionTextView.setText(current.getDepartmentName());
+        holder.disbursementIdTextView.setText(current.getDisbursementId());
+        holder.disbursementDeptRepTextView.setText(current.getRepresentativeName());
 
     }
 
