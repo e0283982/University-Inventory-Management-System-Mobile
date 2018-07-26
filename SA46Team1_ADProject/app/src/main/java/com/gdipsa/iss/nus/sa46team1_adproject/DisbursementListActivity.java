@@ -13,7 +13,7 @@ import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockRetrieval;
 
 import java.util.List;
 
-public class DisbursementListActivity extends AppCompatActivity {
+public class DisbursementListActivity extends AppBaseActivity {
 
     private RecyclerView mRecyclerViewDisbursementList;
     private DisbursementListAdapter adapter;
