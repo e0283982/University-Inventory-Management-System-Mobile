@@ -8,13 +8,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.CollectionPoint;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementList;
 
 import java.util.List;
 
-public class DisbursementListDepartmentActivity extends AppCompatActivity {
+public class DisbursementListDepartmentActivity extends AppBaseActivity {
 
     private RecyclerView mRecyclerViewDisbursementListDepartment;
     private DisbursementListDepartmentAdapter adapter;
@@ -24,7 +25,7 @@ public class DisbursementListDepartmentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disbursement_list_department);
-        setTitle("Department");
+        setTitle("Department List");
 
         mRecyclerViewDisbursementListDepartment = findViewById(R.id.recycler_view_disbursement_list_department);
         progressBar = findViewById(R.id.progressbar_disbursement_list_department);
@@ -33,9 +34,7 @@ public class DisbursementListDepartmentActivity extends AppCompatActivity {
         String collectionPoint = data.getStringExtra("CollectionPointDescription");
 
         new MyTask().execute(collectionPoint);
-
-
-
+        
     }
 
     private class MyTask extends AsyncTask<String, Void, List<DisbursementList>> {
@@ -45,6 +44,11 @@ public class DisbursementListDepartmentActivity extends AppCompatActivity {
         }
         @Override
         protected void onPostExecute(List<DisbursementList> result) {
+
+            if (result.size() == 0){
+                TextView emptyTextView = findViewById(R.id.textView_disbursement_list_empty);
+                emptyTextView.setVisibility(View.VISIBLE);
+            }
 
             progressBar.setVisibility(View.GONE);
             adapter = new DisbursementListDepartmentAdapter(DisbursementListDepartmentActivity.this, result);
