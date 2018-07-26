@@ -30,12 +30,12 @@
             android:launchMode="singleTask" />
         <activity android:name=".StockAdjustmentActivity" />
         <activity
-            android:launchMode="singleTask"
-            android:name=".DisbursementListActivity" />
+            android:name=".DisbursementListActivity"
+            android:launchMode="singleTask" />
         <activity
-            android:launchMode="singleTask"
-            android:name=".DisbursementListDepartmentActivity">
-        </activity>
+            android:name=".DisbursementListDepartmentActivity"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".DisbursementListDetailsActivity"></activity>
     </application>
 
 </manifest>
