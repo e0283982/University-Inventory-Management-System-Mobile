@@ -25,7 +25,6 @@ public class DisbursementListDepartmentActivity extends AppBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disbursement_list_department);
-        setTitle("Department List");
 
         mRecyclerViewDisbursementListDepartment = findViewById(R.id.recycler_view_disbursement_list_department);
         progressBar = findViewById(R.id.progressbar_disbursement_list_department);
@@ -33,8 +32,10 @@ public class DisbursementListDepartmentActivity extends AppBaseActivity {
         Intent data = getIntent();
         String collectionPoint = data.getStringExtra("CollectionPointDescription");
 
+        setTitle(collectionPoint);
+
         new MyTask().execute(collectionPoint);
-        
+
     }
 
     private class MyTask extends AsyncTask<String, Void, List<DisbursementList>> {
