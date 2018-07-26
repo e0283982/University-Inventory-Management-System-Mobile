@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/textView_binNumber"
+        android:id="@+id/textView_retrieval_binNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bin"
@@ -20,12 +20,25 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/textView_itemDescription"
+        android:id="@+id/textView_retrieval_binLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location: "
+        app:layout_constraintTop_toBottomOf="@id/textView_retrieval_binNumber"
+        app:layout_constraintLeft_toLeftOf="@id/textView_retrieval_binNumber"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:fontFamily="sans-serif"
+        android:layout_marginTop="6dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView_retrieval_itemDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Staplet"
-        app:layout_constraintTop_toBottomOf="@id/textView_binNumber"
-        app:layout_constraintLeft_toLeftOf="@id/textView_binNumber"
+        app:layout_constraintTop_toBottomOf="@id/textView_retrieval_binLocation"
+        app:layout_constraintLeft_toLeftOf="@id/textView_retrieval_binLocation"
         android:textAppearance="?android:textAppearanceMedium"
         android:fontFamily="sans-serif"
         android:layout_marginTop="6dp"
@@ -33,12 +46,12 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/textView_itemsRetrieved"
+        android:id="@+id/textView_retrieval_itemsRetrieved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quantity Retrieved: "
-        app:layout_constraintTop_toBottomOf="@id/textView_itemDescription"
-        app:layout_constraintLeft_toLeftOf="@id/textView_itemDescription"
+        app:layout_constraintTop_toBottomOf="@id/textView_retrieval_itemDescription"
+        app:layout_constraintLeft_toLeftOf="@id/textView_retrieval_itemDescription"
         android:textAppearance="?android:textAppearanceMedium"
         android:fontFamily="sans-serif"
         android:layout_marginTop="6dp"
@@ -46,12 +59,12 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/textView_collectionPoint"
+        android:id="@+id/textView_retrieval_collectionPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Collection Point: Stationery Store"
-        app:layout_constraintTop_toBottomOf="@id/textView_itemsRetrieved"
-        app:layout_constraintLeft_toLeftOf="@id/textView_itemsRetrieved"
+        app:layout_constraintTop_toBottomOf="@id/textView_retrieval_itemsRetrieved"
+        app:layout_constraintLeft_toLeftOf="@id/textView_retrieval_itemsRetrieved"
         android:textAppearance="?android:textAppearanceMedium"
         android:fontFamily="sans-serif"
         android:layout_marginTop="6dp"

@@ -49,9 +49,6 @@ public class RetrievalListActivity extends AppBaseActivity {
 
 
 
-
-//        new MyTask().execute("Test");
-
     }
 
     private class MyTask extends AsyncTask<String, Void, List<StockRetrieval>>{
@@ -66,8 +63,6 @@ public class RetrievalListActivity extends AppBaseActivity {
             adapter = new RetrievalListAdapter(RetrievalListActivity.this, result, stoRetId);
             mRecyclerViewStockRetrievalList.setAdapter(adapter);
             mRecyclerViewStockRetrievalList.setLayoutManager(new LinearLayoutManager(RetrievalListActivity.this));
-
-
 
         }
     }

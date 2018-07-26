@@ -24,6 +24,7 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
     class RetrievalListViewHolder extends RecyclerView.ViewHolder{
 
         private TextView binNumberTextView;
+        private TextView binLocationTextView;
         private TextView itemDescriptionTextView;
         private TextView itemsRetrievedTextView;
         private TextView collectionPointTextView;
@@ -35,10 +36,11 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
         public RetrievalListViewHolder(final View itemView){
             super(itemView);
 
-            binNumberTextView = itemView.findViewById(R.id.textView_binNumber);
-            itemDescriptionTextView = itemView.findViewById(R.id.textView_itemDescription);
-            itemsRetrievedTextView = itemView.findViewById(R.id.textView_itemsRetrieved);
-            collectionPointTextView = itemView.findViewById(R.id.textView_collectionPoint);
+            binNumberTextView = itemView.findViewById(R.id.textView_retrieval_binNumber);
+            binLocationTextView = itemView.findViewById(R.id.textView_retrieval_binLocation);
+            itemDescriptionTextView = itemView.findViewById(R.id.textView_retrieval_itemDescription);
+            itemsRetrievedTextView = itemView.findViewById(R.id.textView_retrieval_itemsRetrieved);
+            collectionPointTextView = itemView.findViewById(R.id.textView_retrieval_collectionPoint);
             adjustButton = itemView.findViewById(R.id.button_retrieval_stock_adjustment);
 
             adjustButton.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +78,7 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
 
         StockRetrieval current = mRetrievalList.get(position);
         holder.binNumberTextView.setText("Bin #" + current.getBinNumber());
+        holder.binLocationTextView.setText("Location: " + current.getBinLocation());
         holder.itemDescriptionTextView.setText(current.getItemDescription());
         holder.itemsRetrievedTextView.setText("Quantity Retrieved: " + current.getItemsRetrieved());
         holder.collectionPointTextView.setText("Collection Point: " + current.getCollectionPointDescription());

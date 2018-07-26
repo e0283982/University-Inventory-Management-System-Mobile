@@ -11,13 +11,15 @@ import java.util.List;
 public class StockRetrieval {
 
     private int binNumber;
+    private String binLocation;
     private String itemDescription;
     private int itemsRetrieved;
     private String collectionPointDescription;
 
 
-    public StockRetrieval(int binNumber, String itemDescription, int itemsRetrieved, String collectionPointDescription){
+    public StockRetrieval(int binNumber, String binLocation, String itemDescription, int itemsRetrieved, String collectionPointDescription){
         this.binNumber = binNumber;
+        this.binLocation = binLocation;
         this.itemDescription = itemDescription;
         this.itemsRetrieved = itemsRetrieved;
         this.collectionPointDescription = collectionPointDescription;
@@ -50,7 +52,6 @@ public class StockRetrieval {
         try {
 
 //            final String host = "http://" + IPAddress + "/api/Restful/GetStockRetrievalList";
-//
 //            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host+"/StoR-3");
 
             JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/GetStockRetrievalList/" + stockRetrievalId);
@@ -58,6 +59,7 @@ public class StockRetrieval {
             JSONObject jsonObject;
 
             int dataBinNumber = 0;
+            String dataLocation = null;
             String dataItemDescription = null;
             int dataItemsRetrieved = 0;
             String dataCollectionPointDescription = null;
@@ -67,11 +69,12 @@ public class StockRetrieval {
                 jsonObject = jsonArray.getJSONObject(i);
 
                 dataBinNumber = jsonObject.getInt("Bin");
+                dataLocation = jsonObject.getString("Location");
                 dataItemDescription = jsonObject.getString("Description");
                 dataItemsRetrieved = jsonObject.getInt("QuantityRetrieved");
                 dataCollectionPointDescription = jsonObject.getString("CollectionPointDescription");
 
-                StockRetrieval stockRetrieval = new StockRetrieval(dataBinNumber, dataItemDescription, dataItemsRetrieved, dataCollectionPointDescription);
+                StockRetrieval stockRetrieval = new StockRetrieval(dataBinNumber, dataLocation, dataItemDescription, dataItemsRetrieved, dataCollectionPointDescription);
 
                 list.add(stockRetrieval);
             }
@@ -99,6 +102,14 @@ public class StockRetrieval {
 
     public void setBinNumber(int binNumber) {
         this.binNumber = binNumber;
+    }
+
+    public String getBinLocation() {
+        return binLocation;
+    }
+
+    public void setBinLocation(String binLocation) {
+        this.binLocation = binLocation;
     }
 
     public int getItemsRetrieved() {
