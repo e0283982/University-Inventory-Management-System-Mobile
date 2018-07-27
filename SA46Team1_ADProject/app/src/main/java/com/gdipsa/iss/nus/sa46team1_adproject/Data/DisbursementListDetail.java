@@ -72,6 +72,8 @@ public class DisbursementListDetail {
         JSONObject jDisbursementDetail = new JSONObject();
         try {
 
+            //TODO: to link to the login id of the user, temporary put E2
+            jDisbursementDetail.put("RequestorId", "E2");
             jDisbursementDetail.put("DisbursementId", disbursementDetails.getDisbursementId());
             jDisbursementDetail.put("ItemDescription", disbursementDetails.getItemDescription());
             jDisbursementDetail.put("QuantityReceived", disbursementDetails.getQtyReceived());

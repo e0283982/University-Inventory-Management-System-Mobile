@@ -28,7 +28,6 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
 
     public static final int CAPTURE_QRCODE_CONFIRM_DELIVERY = 1;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,8 +90,6 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
                     Toast.makeText(getApplicationContext(), "Validation Failure", Toast.LENGTH_SHORT).show();
                 }
 
-
-
             }
 
 
@@ -140,6 +137,7 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
             Toast.makeText(getApplicationContext(), "Delivery successful", Toast.LENGTH_SHORT).show();
 
             finish();
+
 
         }
 

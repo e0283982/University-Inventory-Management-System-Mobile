@@ -59,6 +59,9 @@ public class DisbursementListDepartmentActivity extends AppBaseActivity {
         }
     }
 
-
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
+    }
 }
