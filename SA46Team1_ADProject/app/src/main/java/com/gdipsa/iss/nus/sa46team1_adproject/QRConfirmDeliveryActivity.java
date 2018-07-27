@@ -45,12 +45,17 @@ public class QRConfirmDeliveryActivity extends AppCompatActivity {
 
                     String res = data.getExtras().getString("la.droid.qr.result");
 
+                    Intent replyIntent = new Intent();
+
                     if (res.equals(employeeQRCodeValue)){
-                        Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_SHORT).show();
+                        replyIntent.putExtra("QRStatus", "Success");
+//                        Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_SHORT).show();
                     } else{
-                        Toast.makeText(getApplicationContext(), "Invalid QR Code", Toast.LENGTH_SHORT).show();
+                        replyIntent.putExtra("QRStatus", "Failure");
+//                        Toast.makeText(getApplicationContext(), "Invalid QR Code", Toast.LENGTH_SHORT).show();
                     }
 
+                    setResult(RESULT_OK, replyIntent);
                     finish();
 
                 }

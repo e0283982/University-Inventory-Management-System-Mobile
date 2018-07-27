@@ -50,12 +50,18 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
 
             itemView.setOnClickListener(this);
 
+
         }
 
         @Override
         public void onClick(View v) {
 
             Context context = v.getContext();
+
+            if (qtyReceived < 1){
+                Toast.makeText(context, "Quantity received is 0", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             final Dialog dialog = new Dialog(context);
             dialog.setContentView(R.layout.dialog_adjust_quantity_received_disbursement);
@@ -79,8 +85,6 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
             submitButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    Toast.makeText(v.getContext(), adjustSpinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
 
                     int qtyAdjusted = Integer.parseInt(adjustSpinner.getSelectedItem().toString());
 

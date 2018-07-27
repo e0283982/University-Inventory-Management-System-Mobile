@@ -69,7 +69,6 @@ public class QRCodeSearchActivity extends AppCompatActivity {
 
                     new MyTask().execute(res);
 
-
                 }
             } else if (resultCode == RESULT_CANCELED) {
                 // Capture cancelled

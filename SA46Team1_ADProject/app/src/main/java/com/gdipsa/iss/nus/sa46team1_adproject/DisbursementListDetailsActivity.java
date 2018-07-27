@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementList;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementListDetail;
@@ -21,6 +22,11 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
     private RecyclerView mRecyclerViewDisbursementListDetails;
     private DisbursementListDetailsAdapter adapter;
     private ProgressBar progressBar;
+
+    private List<DisbursementListDetail> disbursementDetailsList;
+
+    public static final int CAPTURE_QRCODE_CONFIRM_DELIVERY = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +60,7 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
 
                 Intent intent = new Intent(DisbursementListDetailsActivity.this, QRConfirmDeliveryActivity.class);
                 intent.putExtra("DisbursementId", disbursementId);
-                startActivity(intent);
+                startActivityForResult(intent, CAPTURE_QRCODE_CONFIRM_DELIVERY);
 
             }
         });
@@ -62,6 +68,36 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
         new MyTask().execute(disbursementId);
 
     }
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAPTURE_QRCODE_CONFIRM_DELIVERY) {
+            if (resultCode == RESULT_OK) {
+
+                if (data.getStringExtra("QRStatus").equals("Success")){
+                    Toast.makeText(getApplicationContext(), "Validation Success", Toast.LENGTH_SHORT).show();
+                } else{
+                    Toast.makeText(getApplicationContext(), "Validation Failure", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+
+
+        } else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Capture QR Code failed",
+                    Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+
 
     private class MyTask extends AsyncTask<String, Void, List<DisbursementListDetail>> {
         @Override
@@ -75,6 +111,8 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
             adapter = new DisbursementListDetailsAdapter(DisbursementListDetailsActivity.this, result);
             mRecyclerViewDisbursementListDetails.setAdapter(adapter);
             mRecyclerViewDisbursementListDetails.setLayoutManager(new LinearLayoutManager(DisbursementListDetailsActivity.this));
+
+            disbursementDetailsList = result;
 
         }
     }
