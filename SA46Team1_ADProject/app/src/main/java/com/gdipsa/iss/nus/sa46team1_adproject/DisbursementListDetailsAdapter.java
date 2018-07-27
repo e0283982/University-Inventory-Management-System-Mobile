@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementList;
@@ -36,6 +37,8 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
         private String itemDescription;
         private int qtyReceived;
 
+        private int currentPosition;
+
 
         public DisbursementListDetailsViewHolder(View itemView) {
             super(itemView);
@@ -60,17 +63,7 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
             TextView itemDescriptionTextView = dialog.findViewById(R.id.textView_dialog_adjust_qty_received_item_description);
             itemDescriptionTextView.setText(itemDescription);
 
-            Button submitButton = dialog.findViewById(R.id.button_dialog_adjust_qty_received_submit);
-            submitButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-
-                    dialog.dismiss();
-                }
-            });
-
-            Spinner adjustSpinner = dialog.findViewById(R.id.spinner_dialog_adjust_qty_received);
+            final Spinner adjustSpinner = dialog.findViewById(R.id.spinner_dialog_adjust_qty_received);
             List<Integer> quantitySpinner = new ArrayList<Integer>();
             for (int i = 1; i <= qtyReceived; i++){
                 quantitySpinner.add(i);
@@ -81,6 +74,26 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
             quantitySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
             adjustSpinner.setAdapter(quantitySpinnerAdapter);
+
+            Button submitButton = dialog.findViewById(R.id.button_dialog_adjust_qty_received_submit);
+            submitButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Toast.makeText(v.getContext(), adjustSpinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+
+                    int qtyAdjusted = Integer.parseInt(adjustSpinner.getSelectedItem().toString());
+
+                    qtyReceived = qtyReceived - qtyAdjusted;
+
+                    mDisbursementListDetails.get(currentPosition).setQtyReceived(qtyReceived);
+
+                    notifyDataSetChanged();
+                    dialog.dismiss();
+                }
+            });
+
+
 
             dialog.show();
 
@@ -112,6 +125,8 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
 
         holder.itemDescription = current.getItemDescription();
         holder.qtyReceived = current.getQtyReceived();
+
+        holder.currentPosition = position;
 
     }
 
