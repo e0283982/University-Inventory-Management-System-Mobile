@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -30,7 +31,7 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
         progressBar = findViewById(R.id.progressbar_disbursement_list_detail);
 
         Intent data = getIntent();
-        String disbursementId = data.getStringExtra("DisbursementId");
+        final String disbursementId = data.getStringExtra("DisbursementId");
         String disbursementDate = data.getStringExtra("DisbursementDate");
         String disbursementDepartment = data.getStringExtra("DisbursementDepartment");
         String disbursementRepName = data.getStringExtra("DisbursementRepName");
@@ -41,9 +42,22 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
         TextView disbursementListDetailDepName = findViewById(R.id.textView_disbursement_list_detail_department_name);
         TextView disbursementListDetailRepName = findViewById(R.id.textView_disbursement_list_detail_rep_name);
 
+        Button confirmDeliveryButton = findViewById(R.id.button_disbursement_list_detail_confirm_delivery);
+
         disbursementListDetailDate.setText(disbursementDate);
         disbursementListDetailDepName.setText(disbursementDepartment);
         disbursementListDetailRepName.setText(disbursementRepName);
+
+        confirmDeliveryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(DisbursementListDetailsActivity.this, QRConfirmDeliveryActivity.class);
+                intent.putExtra("DisbursementId", disbursementId);
+                startActivity(intent);
+
+            }
+        });
 
         new MyTask().execute(disbursementId);
 

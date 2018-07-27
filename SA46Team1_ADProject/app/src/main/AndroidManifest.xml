@@ -34,8 +34,9 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".DisbursementListDepartmentActivity"
-            android:launchMode="singleTask"></activity>
-        <activity android:name=".DisbursementListDetailsActivity"></activity>
+            android:launchMode="singleTask" />
+        <activity android:name=".DisbursementListDetailsActivity" />
+        <activity android:name=".QRConfirmDeliveryActivity"></activity>
     </application>
 
 </manifest>

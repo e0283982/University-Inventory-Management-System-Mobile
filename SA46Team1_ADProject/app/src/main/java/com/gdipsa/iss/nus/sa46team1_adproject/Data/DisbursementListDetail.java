@@ -30,8 +30,9 @@ public class DisbursementListDetail {
 
         try {
 
-//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/GetDisbursementList");
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
+
+//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
 
             JSONObject jsonObject;
 
