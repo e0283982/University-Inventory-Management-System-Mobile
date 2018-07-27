@@ -87,9 +87,12 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
                 public void onClick(View v) {
 
                     int qtyAdjusted = Integer.parseInt(adjustSpinner.getSelectedItem().toString());
-
                     qtyReceived = qtyReceived - qtyAdjusted;
 
+                    int qtyAdjustedListDetail = mDisbursementListDetails.get(currentPosition).getQtyAdjusted();
+                    qtyAdjustedListDetail = qtyAdjustedListDetail + qtyAdjusted;
+
+                    mDisbursementListDetails.get(currentPosition).setQtyAdjusted(qtyAdjustedListDetail);
                     mDisbursementListDetails.get(currentPosition).setQtyReceived(qtyReceived);
 
                     notifyDataSetChanged();

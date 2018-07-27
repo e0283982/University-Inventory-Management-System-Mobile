@@ -15,6 +15,8 @@ public class DisbursementListDetail {
     private String itemUoM;
     private int qtyOrdered;
     private int qtyReceived;
+    private int qtyAdjusted = 0;
+
 
     public DisbursementListDetail(String disbursementId, String itemDescription, String itemUoM, int qtyOrdered, int qtyReceived) {
         this.disbursementId = disbursementId;
@@ -65,6 +67,24 @@ public class DisbursementListDetail {
     }
 
 
+    //TODO: To change to updateDisbursementDetail
+    public static void updateDisbursementDetail(DisbursementListDetail disbursementDetails) {
+        JSONObject jDisbursementDetail = new JSONObject();
+        try {
+
+            jDisbursementDetail.put("DisbursementId", disbursementDetails.getDisbursementId());
+            jDisbursementDetail.put("ItemDescription", disbursementDetails.getItemDescription());
+            jDisbursementDetail.put("QuantityReceived", disbursementDetails.getQtyReceived());
+            jDisbursementDetail.put("QuantityAdjusted", disbursementDetails.getQtyAdjusted());
+
+        } catch (Exception e) {
+        }
+
+        String result = JSONParser.postStream("http://172.17.191.101/adtest2/api/Restful/updatedisbursement", jDisbursementDetail.toString());
+
+    }
+
+
 
 
     //Getter and setter
@@ -108,7 +128,13 @@ public class DisbursementListDetail {
         this.qtyReceived = qtyReceived;
     }
 
+    public int getQtyAdjusted() {
+        return qtyAdjusted;
+    }
 
+    public void setQtyAdjusted(int qtyAdjusted) {
+        this.qtyAdjusted = qtyAdjusted;
+    }
 
 
 }

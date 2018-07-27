@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementList;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementListDetail;
+import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockAdjustment;
 
 import java.util.List;
 
@@ -77,7 +78,15 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
             if (resultCode == RESULT_OK) {
 
                 if (data.getStringExtra("QRStatus").equals("Success")){
+
                     Toast.makeText(getApplicationContext(), "Validation Success", Toast.LENGTH_SHORT).show();
+
+                    //TODO
+                    for(DisbursementListDetail dld : disbursementDetailsList){
+                        new UpdateDisbursementTask().execute(dld);
+//                        Toast.makeText(getApplicationContext(), "" + dld.getQtyAdjusted(), Toast.LENGTH_SHORT).show();
+                    }
+
                 } else{
                     Toast.makeText(getApplicationContext(), "Validation Failure", Toast.LENGTH_SHORT).show();
                 }
@@ -117,6 +126,25 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
         }
     }
 
+    private class UpdateDisbursementTask extends AsyncTask<DisbursementListDetail, Void, Void>{
+
+        @Override
+        protected Void doInBackground(DisbursementListDetail... params) {
+            DisbursementListDetail.updateDisbursementDetail(params[0]);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            Toast.makeText(getApplicationContext(), "Delivery successful", Toast.LENGTH_SHORT).show();
+
+            finish();
+
+        }
+
+
+    }
 
 
 
