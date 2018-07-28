@@ -82,9 +82,9 @@ public class Item {
 //
 //            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host+"/StoR-3");
 
-//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/getitemslist/");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/getitemslist/");
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/getitemslist/");
+//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.101/adtest2/api/Restful/getitemslist/");
 
             JSONObject jsonObject;
 

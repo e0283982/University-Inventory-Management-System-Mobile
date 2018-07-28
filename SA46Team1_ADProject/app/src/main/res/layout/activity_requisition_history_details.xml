@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Department.RequisitionHistoryDetailsActivity">
 
-
     <LinearLayout
         android:id="@+id/linearLayout_requisition_history_detail_table_layout_header"
         android:layout_marginTop="6dp"
