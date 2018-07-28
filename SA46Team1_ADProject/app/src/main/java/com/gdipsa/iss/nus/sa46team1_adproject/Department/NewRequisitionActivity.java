@@ -11,6 +11,9 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_requisition);
+        setTitle("New Requisition");
+
+
 
 
     }

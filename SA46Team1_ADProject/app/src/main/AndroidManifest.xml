@@ -14,9 +14,7 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".RetrievalListActivity"
-            android:launchMode="singleTask">
-
-        </activity>
+            android:launchMode="singleTask"></activity>
         <activity
             android:name=".DescriptionSearchActivity"
             android:launchMode="singleTask" />
@@ -34,14 +32,15 @@
         <activity android:name=".DisbursementListDetailsActivity" />
         <activity android:name=".QRConfirmDeliveryActivity" />
         <activity
-            android:launchMode="singleTask"
-            android:name=".Department.NewRequisitionActivity">
+            android:name=".Department.NewRequisitionActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Department.RequisitionHistoryActivity"></activity>
     </application>
 
 </manifest>
