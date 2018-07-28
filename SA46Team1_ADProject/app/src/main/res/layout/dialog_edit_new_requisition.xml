@@ -7,10 +7,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/textView_dialog_new_requisition_add_label"
+        android:id="@+id/textView_dialog_edit_new_requisition_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add New Item"
+        android:text="Edit New Item"
         android:textAppearance="?android:textAppearanceLarge"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,59 +20,58 @@
         tools:layout_editor_absoluteY="41dp" />
 
     <View
-        android:id="@+id/view_horizontal_line_dialog_new_requisition"
+        android:id="@+id/view_horizontal_line_dialog_edit_new_requisition"
         android:layout_width="match_parent"
         android:background="#000000"
         android:layout_marginTop="6dp"
         android:layout_height="1dp"
-        app:layout_constraintTop_toBottomOf="@id/textView_dialog_new_requisition_add_label">
+        app:layout_constraintTop_toBottomOf="@id/textView_dialog_edit_new_requisition_label">
     </View>
 
     <TextView
-        android:id="@+id/textView_dialog_new_requisition_item_list_label"
+        android:id="@+id/textView_dialog_edit_new_requisition_item_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Item Description"
+        android:text="Clips Double"
         android:layout_marginTop="12dp"
         android:textAppearance="?android:textAppearanceMedium"
-        app:layout_constraintTop_toBottomOf="@id/textView_dialog_new_requisition_add_label"
-        app:layout_constraintLeft_toLeftOf="@id/textView_dialog_new_requisition_add_label"
+        app:layout_constraintTop_toBottomOf="@id/textView_dialog_edit_new_requisition_label"
+        app:layout_constraintLeft_toLeftOf="@id/textView_dialog_edit_new_requisition_label"
         tools:layout_editor_absoluteX="37dp"
         tools:layout_editor_absoluteY="41dp" />
 
     <Spinner
-        android:id="@+id/spinner_dialog_new_requisition_item"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/textView_dialog_new_requisition_item_list_label"
-        app:layout_constraintLeft_toLeftOf="@id/textView_dialog_new_requisition_item_list_label"
-        android:layout_marginLeft="8dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="88dp" />
-
-    <Spinner
-        android:id="@+id/spinner_dialog_new_requisition_item_quantity"
+        android:id="@+id/spinner_dialog_edit_new_requisition_item_quantity"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/spinner_dialog_new_requisition_item"
-        app:layout_constraintLeft_toLeftOf="@id/spinner_dialog_new_requisition_item"
+        app:layout_constraintTop_toBottomOf="@id/textView_dialog_edit_new_requisition_item_description"
+        app:layout_constraintLeft_toLeftOf="@id/textView_dialog_edit_new_requisition_item_description"
         android:layout_marginLeft="8dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="88dp" />
 
 
     <Button
-        android:id="@+id/button_dialog_new_requisition_submit"
+        android:id="@+id/button_dialog_edit_new_requisition_submit"
         android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/spinner_dialog_new_requisition_item_quantity"
-        app:layout_constraintLeft_toLeftOf="@id/spinner_dialog_new_requisition_item_quantity"
-        android:text="Submit"
+        app:layout_constraintTop_toBottomOf="@id/spinner_dialog_edit_new_requisition_item_quantity"
+        app:layout_constraintLeft_toLeftOf="@id/spinner_dialog_edit_new_requisition_item_quantity"
         android:background="#6Ab187"
+        android:text="Submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/button_dialog_edit_new_requisition_delete"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/spinner_dialog_edit_new_requisition_item_quantity"
+        app:layout_constraintLeft_toRightOf="@id/button_dialog_edit_new_requisition_submit"
+        android:layout_marginLeft="24dp"
+        android:background="#D32D41"
+        android:text="Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </android.support.constraint.ConstraintLayout>

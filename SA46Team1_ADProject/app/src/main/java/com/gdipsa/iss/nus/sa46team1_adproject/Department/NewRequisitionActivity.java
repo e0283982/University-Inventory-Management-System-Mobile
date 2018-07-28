@@ -125,11 +125,6 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
                 dialog.show();
 
 
-
-
-
-//                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
-
             }
         });
 
