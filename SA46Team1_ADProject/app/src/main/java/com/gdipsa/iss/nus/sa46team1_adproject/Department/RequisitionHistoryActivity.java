@@ -59,9 +59,9 @@ public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
         }
     }
 
-
-
-
-
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
+    }
 }

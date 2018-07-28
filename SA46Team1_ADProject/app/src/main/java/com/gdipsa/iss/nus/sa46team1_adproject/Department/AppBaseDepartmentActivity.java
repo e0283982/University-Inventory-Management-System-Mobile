@@ -109,13 +109,13 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
 
         if (id == R.id.nav_department_new_requisition) {
 
-
+            Intent intent = new Intent(this, NewRequisitionActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_department_requisition_history) {
 
             Intent intent = new Intent(this, RequisitionHistoryActivity.class);
             startActivity(intent);
-
 
         } else if (id == R.id.nav_department_logout) {
 

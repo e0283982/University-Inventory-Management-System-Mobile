@@ -36,14 +36,19 @@
         <activity
             android:name=".Department.NewRequisitionActivity"
             android:launchMode="singleTask">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:name=".Department.RequisitionHistoryActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Department.RequisitionHistoryActivity" />
-        <activity android:name=".Department.RequisitionHistoryDetailsActivity"></activity>
+        <activity
+            android:launchMode="singleTask"
+            android:name=".Department.RequisitionHistoryDetailsActivity"></activity>
     </application>
 
 </manifest>

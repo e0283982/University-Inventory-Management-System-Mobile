@@ -2,6 +2,7 @@ package com.gdipsa.iss.nus.sa46team1_adproject.Department;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementListDetail;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.Item;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.NewRequisition;
 import com.gdipsa.iss.nus.sa46team1_adproject.DescriptionSearchActivity;
@@ -128,14 +130,18 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
             }
         });
 
+        Button submitRequisitionButton = findViewById(R.id.button_new_requisition_submit_requisition);
+        submitRequisitionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-
-
+                for (NewRequisition newRequisition : newRequisitionList){
+                    new CreateNewRequisitionTask().execute(newRequisition);
+                }
+            }
+        });
 
     }
-
-
-
 
 
     private class MyTask extends AsyncTask<Void, Void, List<Item>> {
@@ -151,6 +157,25 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
             fab.setEnabled(true);
 
         }
+    }
+
+    private class CreateNewRequisitionTask extends AsyncTask<NewRequisition, Void, Void>{
+
+        @Override
+        protected Void doInBackground(NewRequisition... params) {
+            NewRequisition.createStockAdjustment(params[0]);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            Toast.makeText(getApplicationContext(), "New requisition is successful", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(NewRequisitionActivity.this, RequisitionHistoryActivity.class);
+            startActivity(intent);
+
+        }
+
     }
 
 

@@ -80,7 +80,6 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
 
                     Toast.makeText(getApplicationContext(), "Validation Success", Toast.LENGTH_SHORT).show();
 
-                    //TODO
                     for(DisbursementListDetail dld : disbursementDetailsList){
                         new UpdateDisbursementTask().execute(dld);
 //                        Toast.makeText(getApplicationContext(), "" + dld.getQtyAdjusted(), Toast.LENGTH_SHORT).show();
