@@ -11,14 +11,16 @@ public class NewRequisition {
     private String itemUoM;
     private int orderQty;
 
+    //New thing
+    private int requisitionSize;
+    private int requisitionIdAndroid;
+
     public NewRequisition(String employeeId, String itemDescription, String itemUoM, int orderQty) {
         this.employeeId = employeeId;
         this.itemDescription = itemDescription;
         this.itemUoM = itemUoM;
         this.orderQty = orderQty;
     }
-
-
 
     public static void createStockAdjustment(NewRequisition newRequisition) {
         JSONObject jNewRequisition = new JSONObject();
@@ -27,6 +29,8 @@ public class NewRequisition {
             jNewRequisition.put("EmployeeId", newRequisition.getEmployeeId());
             jNewRequisition.put("ItemDescription", newRequisition.getItemDescription());
             jNewRequisition.put("OrderedQuantity", newRequisition.getOrderQty());
+            jNewRequisition.put("RequisitionSize", newRequisition.getRequisitionSize());
+            jNewRequisition.put("RequisitionId", newRequisition.getRequisitionIdAndroid());
 
         } catch (Exception e) {
         }
@@ -68,8 +72,21 @@ public class NewRequisition {
         this.orderQty = orderQty;
     }
 
+    public int getRequisitionSize() {
+        return requisitionSize;
+    }
 
+    public void setRequisitionSize(int requisitionSize) {
+        this.requisitionSize = requisitionSize;
+    }
 
+    public int getRequisitionIdAndroid() {
+        return requisitionIdAndroid;
+    }
+
+    public void setRequisitionIdAndroid(int requisitionIdAndroid) {
+        this.requisitionIdAndroid = requisitionIdAndroid;
+    }
 
 
 }

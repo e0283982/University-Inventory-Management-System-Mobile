@@ -122,10 +122,7 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
                     }
                 });
 
-
-
                 dialog.show();
-
 
             }
         });
@@ -135,7 +132,15 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
             @Override
             public void onClick(View v) {
 
+                for(int i = 0; i < newRequisitionList.size(); i++){
+                    NewRequisition newRequisition = newRequisitionList.get(i);
+                    newRequisition.setRequisitionSize(newRequisitionList.size());
+                    newRequisition.setRequisitionIdAndroid(newRequisitionList.size() - i);
+
+                }
+
                 for (NewRequisition newRequisition : newRequisitionList){
+                    newRequisition.setRequisitionSize(newRequisitionList.size());
                     new CreateNewRequisitionTask().execute(newRequisition);
                 }
             }
