@@ -1,6 +1,8 @@
 package com.gdipsa.iss.nus.sa46team1_adproject.Department;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementList;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.StaffRequisitionHeader;
 import com.gdipsa.iss.nus.sa46team1_adproject.DisbursementListDepartmentAdapter;
+import com.gdipsa.iss.nus.sa46team1_adproject.DisbursementListDetailsActivity;
 import com.gdipsa.iss.nus.sa46team1_adproject.R;
 
 import java.text.SimpleDateFormat;
@@ -28,6 +31,8 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
         private TextView requisitionHistoryDateRequested;
         private TextView requisitionHistoryApprovalStatus;
 
+        private String reqFormId;
+
         public RequisitionHistoryViewHolder(View itemView) {
             super(itemView);
 
@@ -41,7 +46,13 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
 
         @Override
         public void onClick(View v) {
-            //TODO:
+
+            Context context = v.getContext();
+
+            Intent intent = new Intent(context, RequisitionHistoryDetailsActivity.class);
+            intent.putExtra("RequisitionFormId", reqFormId);
+
+            ((Activity) context).startActivity(intent);
 
         }
     }
@@ -79,6 +90,8 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
         holder.requisitionHistoryId.setText(current.getRequisitionFormId());
         holder.requisitionHistoryDateRequested.setText(formatter.format(date));
         holder.requisitionHistoryApprovalStatus.setText(current.getApprovalStatus());
+
+        holder.reqFormId = current.getRequisitionFormId();
 
 
     }

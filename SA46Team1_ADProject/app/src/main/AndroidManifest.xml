@@ -14,7 +14,7 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".RetrievalListActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity
             android:name=".DescriptionSearchActivity"
             android:launchMode="singleTask" />
@@ -40,7 +40,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Department.RequisitionHistoryActivity"></activity>
+        <activity android:name=".Department.RequisitionHistoryActivity" />
+        <activity android:name=".Department.RequisitionHistoryDetailsActivity"></activity>
     </application>
 
 </manifest>

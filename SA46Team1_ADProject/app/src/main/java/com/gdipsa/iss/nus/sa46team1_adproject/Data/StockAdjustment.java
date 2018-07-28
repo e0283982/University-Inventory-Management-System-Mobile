@@ -6,11 +6,11 @@ import org.json.JSONObject;
 
 public class StockAdjustment {
 
-    String requestorId;
-    String itemDescription;
-    int adjustedQuantity;
-    String remarks;
-    String stockRetrievalId;
+    private String requestorId;
+    private String itemDescription;
+    private int adjustedQuantity;
+    private String remarks;
+    private String stockRetrievalId;
 
     public StockAdjustment(String requestorId, String itemDescription, int adjustedQuantity, String remarks, String stockRetrievalId) {
         this.requestorId = requestorId;

@@ -10,9 +10,9 @@ import java.util.List;
 
 public class StaffRequisitionHeader {
 
-    String requisitionFormId;
-    String dateRequestedStr;
-    String approvalStatus;
+    private String requisitionFormId;
+    private String dateRequestedStr;
+    private String approvalStatus;
 
     public StaffRequisitionHeader(String requisitionFormId, String dateRequestedStr, String approvalStatus) {
         this.requisitionFormId = requisitionFormId;
@@ -60,8 +60,6 @@ public class StaffRequisitionHeader {
         return list;
 
     }
-
-
 
 
     //Getter and setter
