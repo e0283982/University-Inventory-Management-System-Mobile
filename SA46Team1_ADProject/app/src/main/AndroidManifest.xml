@@ -15,11 +15,7 @@
         <activity
             android:name=".RetrievalListActivity"
             android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".DescriptionSearchActivity"
@@ -36,7 +32,16 @@
             android:name=".DisbursementListDepartmentActivity"
             android:launchMode="singleTask" />
         <activity android:name=".DisbursementListDetailsActivity" />
-        <activity android:name=".QRConfirmDeliveryActivity"></activity>
+        <activity android:name=".QRConfirmDeliveryActivity" />
+        <activity
+            android:launchMode="singleTask"
+            android:name=".Department.NewRequisitionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
