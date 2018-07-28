@@ -13,6 +13,14 @@
             android:icon="@drawable/ic_format_list_bulleted_black_24dp"
             android:title="New Requisition" />
         <item
+            android:id="@+id/nav_department_rep_req_history"
+            android:icon="@drawable/ic_select_all_black_24dp"
+            android:title="Department Requisition" />
+        <item
+            android:id="@+id/nav_department_rep_qr_code"
+            android:icon="@drawable/ic_code_black_24dp"
+            android:title="My QR Code" />
+        <item
             android:id="@+id/nav_department_logout"
             android:icon="@drawable/ic_person_outline_black_24dp"
             android:title="Logout" />

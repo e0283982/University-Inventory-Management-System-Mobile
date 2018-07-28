@@ -43,6 +43,10 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
         drawerMenu = navigation_view.getMenu();
         for(int i = 0; i < drawerMenu.size(); i++) {
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);
+
+            //Set whether visible or not
+//            drawerMenu.getItem(1).setVisible(false);
+
         }
 
     }
@@ -116,6 +120,14 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
 
             Intent intent = new Intent(this, RequisitionHistoryActivity.class);
             startActivity(intent);
+
+        } else if (id == R.id.nav_department_rep_req_history) {
+
+        } else if (id == R.id.nav_department_rep_qr_code) {
+
+            Intent intent = new Intent(this, DepartmentRepQRCodeActivity.class);
+            startActivity(intent);
+
 
         } else if (id == R.id.nav_department_logout) {
 
