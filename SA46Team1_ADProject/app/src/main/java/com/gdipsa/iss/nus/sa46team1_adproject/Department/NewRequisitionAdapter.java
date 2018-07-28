@@ -87,6 +87,18 @@ public class NewRequisitionAdapter extends RecyclerView.Adapter<NewRequisitionAd
                 }
             });
 
+            Button deleteButton = dialog.findViewById(R.id.button_dialog_edit_new_requisition_delete);
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    NewRequisition newRequisition = mNewRequisitionList.get(currentPosition);
+                    mNewRequisitionList.remove(newRequisition);
+
+                    notifyDataSetChanged();
+                    dialog.dismiss();
+                }
+            });
 
 
             dialog.show();
