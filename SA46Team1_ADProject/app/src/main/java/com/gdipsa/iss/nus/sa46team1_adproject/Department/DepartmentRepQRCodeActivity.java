@@ -27,7 +27,7 @@ public class DepartmentRepQRCodeActivity extends AppBaseDepartmentActivity {
 
         imageView = (ImageView)findViewById(R.id.imageView_department_rep_qr_code);
 
-        //Assuming Employee Id is E4
+        //Assuming Employee Id is E4, key is SSIS
         String employeeId = "E4";
         String qrCodeValue = "SSIS" + employeeId;
 

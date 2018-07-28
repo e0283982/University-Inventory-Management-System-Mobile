@@ -61,6 +61,44 @@ public class StaffRequisitionHeader {
 
     }
 
+    public static List<StaffRequisitionHeader> listStaffRequisitionHeaderDepartmentRep(String departmentId){
+
+        List<StaffRequisitionHeader> list = new ArrayList<StaffRequisitionHeader>();
+
+        try {
+
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
+
+            JSONObject jsonObject;
+
+            String dataRequisitionFormId;
+            String dataDateRequestedStr;
+            String dataApprovalStatus;
+
+            String dataEmployeeId;
+
+            for (int i=0; i<jsonArray.length(); i++) {
+
+                jsonObject = jsonArray.getJSONObject(i);
+
+                dataRequisitionFormId = jsonObject.getString("FormID");
+                dataDateRequestedStr = jsonObject.getString("DateRequested");
+                dataApprovalStatus = jsonObject.getString("ApprovalStatus");
+
+                StaffRequisitionHeader staffRequisitionHeader = new StaffRequisitionHeader(dataRequisitionFormId, dataDateRequestedStr, dataApprovalStatus);
+
+                list.add(staffRequisitionHeader);
+
+            }
+        } catch (Exception e) {
+        }
+
+        return list;
+
+    }
+
+
+
 
     //Getter and setter
     public String getRequisitionFormId() {

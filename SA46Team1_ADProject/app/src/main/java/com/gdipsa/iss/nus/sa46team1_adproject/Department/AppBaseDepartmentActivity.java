@@ -123,6 +123,9 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
 
         } else if (id == R.id.nav_department_rep_req_history) {
 
+            Intent intent = new Intent(this, DepartmentRepRequisitionHistoryActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_department_rep_qr_code) {
 
             Intent intent = new Intent(this, DepartmentRepQRCodeActivity.class);

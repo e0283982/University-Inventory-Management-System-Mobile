@@ -14,7 +14,7 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".RetrievalListActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity
             android:name=".DescriptionSearchActivity"
             android:launchMode="singleTask" />
@@ -33,7 +33,7 @@
         <activity android:name=".QRConfirmDeliveryActivity" />
         <activity
             android:name=".Department.NewRequisitionActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity
             android:name=".Department.RequisitionHistoryActivity"
             android:launchMode="singleTask">
@@ -44,9 +44,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Department.RequisitionHistoryDetailsActivity"
-            android:launchMode="singleTask" />
-        <activity android:name=".Department.DepartmentRepQRCodeActivity"></activity>
+            android:name=".Department.RequisitionHistoryDetailsActivity"/>
+        <activity android:name=".Department.DepartmentRepQRCodeActivity" />
+        <activity
+            android:launchMode="singleTask"
+            android:name=".Department.DepartmentRepRequisitionHistoryActivity">
+        </activity>
     </application>
 
 </manifest>

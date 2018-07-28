@@ -1,6 +1,5 @@
 package com.gdipsa.iss.nus.sa46team1_adproject.Department;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,15 +9,12 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementList;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.StaffRequisitionHeader;
-import com.gdipsa.iss.nus.sa46team1_adproject.DisbursementListDepartmentActivity;
-import com.gdipsa.iss.nus.sa46team1_adproject.DisbursementListDepartmentAdapter;
 import com.gdipsa.iss.nus.sa46team1_adproject.R;
 
 import java.util.List;
 
-public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
+public class DepartmentRepRequisitionHistoryActivity extends AppBaseDepartmentActivity {
 
     private RecyclerView mRecyclerViewRequisitionHistory;
     private RequisitionHistoryAdapter adapter;
@@ -28,24 +24,25 @@ public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requisition_history);
-        setTitle("Requisition History");
+
+        setTitle("Department Requisition History");
 
         mRecyclerViewRequisitionHistory = findViewById(R.id.recycler_view_requisition_history);
         progressBar = findViewById(R.id.progressbar_requisition_history);
 
-        Intent data = getIntent();
-
-        //TODO: Temporary putting the login id as E4
-        //This is the case of normal user
-        new MyTask().execute("E4");
+        //TODO: Temporary putting the department as COMM
+        //This is the case of dep req history
+        new MyDepRepTask().execute("COMM");
 
 
     }
 
-    private class MyTask extends AsyncTask<String, Void, List<StaffRequisitionHeader>> {
+
+
+    private class MyDepRepTask extends AsyncTask<String, Void, List<StaffRequisitionHeader>> {
         @Override
         protected List<StaffRequisitionHeader> doInBackground(String... params) {
-            return StaffRequisitionHeader.listStaffRequisitionHeader(params[0]);
+            return StaffRequisitionHeader.listStaffRequisitionHeaderDepartmentRep(params[0]);
         }
         @Override
         protected void onPostExecute(List<StaffRequisitionHeader> result) {
@@ -56,17 +53,11 @@ public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
             }
 
             progressBar.setVisibility(View.GONE);
-            adapter = new RequisitionHistoryAdapter(RequisitionHistoryActivity.this, result);
+            adapter = new RequisitionHistoryAdapter(DepartmentRepRequisitionHistoryActivity.this, result);
             mRecyclerViewRequisitionHistory.setAdapter(adapter);
-            mRecyclerViewRequisitionHistory.setLayoutManager(new LinearLayoutManager(RequisitionHistoryActivity.this));
+            mRecyclerViewRequisitionHistory.setLayoutManager(new LinearLayoutManager(DepartmentRepRequisitionHistoryActivity.this));
 
         }
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        recreate();
     }
 
 }

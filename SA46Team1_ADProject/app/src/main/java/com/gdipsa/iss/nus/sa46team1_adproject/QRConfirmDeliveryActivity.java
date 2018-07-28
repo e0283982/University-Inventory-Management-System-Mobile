@@ -17,7 +17,10 @@ public class QRConfirmDeliveryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrconfirm_delivery);
 
-        employeeQRCodeValue = "Testing123";
+        //Assuming Employee Id is E4, key is SSIS
+
+        String employeeId = "E4";
+        employeeQRCodeValue = "SSIS" + employeeId;
 
         captureQRCode();
 
