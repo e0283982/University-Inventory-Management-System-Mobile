@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.Item;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.NewRequisition;
@@ -101,6 +102,16 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
 
                         //Assuming Employee Id is E4
                         NewRequisition newRequisition = new NewRequisition("E4", itemOrdered, itemUoM, orderedQuantity);
+
+                        for(NewRequisition existingRequisition : newRequisitionList){
+                            if (existingRequisition.getItemDescription().equals(itemOrdered)){
+                                Toast.makeText(getApplicationContext(), "Item has already been added", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                                return;
+                            }
+
+                        }
+
 
                         newRequisitionList.add(newRequisition);
 
