@@ -1,8 +1,10 @@
 package com.gdipsa.iss.nus.sa46team1_adproject.Department;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -43,11 +45,20 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
         drawerMenu = navigation_view.getMenu();
         for(int i = 0; i < drawerMenu.size(); i++) {
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);
-
-            //Set whether visible or not
-//            drawerMenu.getItem(1).setVisible(false);
-
         }
+
+        SharedPreferences pref =
+                PreferenceManager.getDefaultSharedPreferences
+                        (getApplicationContext());
+
+        String employeeRole = pref.getString("EmployeeRole", "Employee Role");
+
+        if (employeeRole.equals("Employee")){
+            //Set visibility of the drawer menu based on the roles
+            drawerMenu.getItem(2).setVisible(false);
+            drawerMenu.getItem(3).setVisible(false);
+        }
+        
 
     }
 

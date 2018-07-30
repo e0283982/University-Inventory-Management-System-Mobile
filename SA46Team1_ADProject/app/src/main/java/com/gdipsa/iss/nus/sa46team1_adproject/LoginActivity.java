@@ -137,13 +137,6 @@ public class LoginActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(Void result) {
-
-//                Intent intent = new Intent(LoginActivity.this, LoginSuccessActivity.class);
-//                startActivity(intent);
-//                finish();
-                //Put if else for other user roles
-
-
                 SharedPreferences pref =
                         PreferenceManager.getDefaultSharedPreferences
                                 (getApplicationContext());
