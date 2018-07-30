@@ -1,8 +1,10 @@
 package com.gdipsa.iss.nus.sa46team1_adproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -121,6 +123,18 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
             startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
+
+            SharedPreferences pref =
+                    PreferenceManager.getDefaultSharedPreferences
+                            (getApplicationContext());
+
+            SharedPreferences.Editor editor = pref.edit();
+            editor.clear();
+            editor.commit();
+
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
 
         }
         return false;

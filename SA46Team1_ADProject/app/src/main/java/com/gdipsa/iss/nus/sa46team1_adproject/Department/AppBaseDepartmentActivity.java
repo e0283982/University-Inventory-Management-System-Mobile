@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.DescriptionSearchActivity;
 import com.gdipsa.iss.nus.sa46team1_adproject.DisbursementListActivity;
+import com.gdipsa.iss.nus.sa46team1_adproject.LoginActivity;
 import com.gdipsa.iss.nus.sa46team1_adproject.QRCodeSearchActivity;
 import com.gdipsa.iss.nus.sa46team1_adproject.R;
 import com.gdipsa.iss.nus.sa46team1_adproject.RetrievalListActivity;
@@ -153,6 +154,17 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
 
         } else if (id == R.id.nav_department_logout) {
 
+            SharedPreferences pref =
+                    PreferenceManager.getDefaultSharedPreferences
+                            (getApplicationContext());
+
+            SharedPreferences.Editor editor = pref.edit();
+            editor.clear();
+            editor.commit();
+
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         return false;
