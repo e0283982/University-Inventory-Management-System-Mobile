@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 public abstract class AppBaseActivity extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
     private FrameLayout view_stub;
@@ -38,6 +39,20 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
         for(int i = 0; i < drawerMenu.size(); i++) {
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);
         }
+
+        //Change the employee and employee email
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        View headerView = navigation_view.getHeaderView(0);
+        TextView employeeNameTextView = headerView.findViewById(R.id.textView_employee_name_nav_header_main);
+        employeeNameTextView.setText(pref.getString("EmployeeName", "Employee Role"));
+
+        TextView employeeEmailTextView = headerView.findViewById(R.id.textView_employee_email_nav_header_main);
+        employeeEmailTextView.setText(pref.getString("EmployeeEmail", "Employee Email"));
+
+
+
+
 
     }
 
@@ -133,6 +148,7 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
             editor.commit();
 
             Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             finish();
 

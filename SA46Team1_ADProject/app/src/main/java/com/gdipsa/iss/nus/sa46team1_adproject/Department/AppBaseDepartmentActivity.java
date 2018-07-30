@@ -49,9 +49,7 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);
         }
 
-        SharedPreferences pref =
-                PreferenceManager.getDefaultSharedPreferences
-                        (getApplicationContext());
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         String employeeRole = pref.getString("EmployeeRole", "Employee Role");
 
@@ -163,6 +161,7 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
             editor.commit();
 
             Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             finish();
         }
