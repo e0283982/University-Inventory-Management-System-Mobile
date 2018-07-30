@@ -1,7 +1,9 @@
 package com.gdipsa.iss.nus.sa46team1_adproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -17,10 +19,12 @@ public class QRConfirmDeliveryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrconfirm_delivery);
 
-        //Assuming Employee Id is E4, key is SSIS
+        //Assuming key is SSIS + representative name
+        //TODO: done
+        Intent data = getIntent();
+        String repName = data.getStringExtra("DisbursementRepName");
 
-        String employeeId = "E4";
-        employeeQRCodeValue = "SSIS" + employeeId;
+        employeeQRCodeValue = "SSIS" + repName;
 
         captureQRCode();
 

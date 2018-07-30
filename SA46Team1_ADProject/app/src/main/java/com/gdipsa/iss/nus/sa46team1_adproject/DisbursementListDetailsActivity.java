@@ -39,8 +39,8 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
         Intent data = getIntent();
         final String disbursementId = data.getStringExtra("DisbursementId");
         String disbursementDate = data.getStringExtra("DisbursementDate");
-        String disbursementDepartment = data.getStringExtra("DisbursementDepartment");
-        String disbursementRepName = data.getStringExtra("DisbursementRepName");
+        final String disbursementDepartment = data.getStringExtra("DisbursementDepartment");
+        final String disbursementRepName = data.getStringExtra("DisbursementRepName");
 
         setTitle(disbursementId);
 
@@ -60,6 +60,7 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
 
                 Intent intent = new Intent(DisbursementListDetailsActivity.this, QRConfirmDeliveryActivity.class);
                 intent.putExtra("DisbursementId", disbursementId);
+                intent.putExtra("DisbursementRepName", disbursementRepName);
                 startActivityForResult(intent, CAPTURE_QRCODE_CONFIRM_DELIVERY);
 
             }
@@ -80,6 +81,7 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
 
                     Toast.makeText(getApplicationContext(), "Validation Success", Toast.LENGTH_SHORT).show();
 
+                    //TODO: to change the code to only use one stock adjustment header
                     for(DisbursementListDetail dld : disbursementDetailsList){
                         new UpdateDisbursementTask().execute(dld);
 //                        Toast.makeText(getApplicationContext(), "" + dld.getQtyAdjusted(), Toast.LENGTH_SHORT).show();

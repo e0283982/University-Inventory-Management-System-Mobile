@@ -2,7 +2,9 @@ package com.gdipsa.iss.nus.sa46team1_adproject;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -79,8 +81,8 @@ public class StockAdjustmentActivity extends AppCompatActivity {
                         int quantityAdjusted = Integer.parseInt(quantityAdjustedString);
                         String remarkSelected = reasonSpinner.getSelectedItem().toString();
 
-                        //Temporary File
-                        String requestorId = "E2";
+                        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        String requestorId = pref.getString("EmployeeID", "Employee ID");
                         StockAdjustment newStockAdjustment = new StockAdjustment(requestorId, itemAdjustedDescription, quantityAdjusted, remarkSelected, stockRetrievalId);
 
                         new MyTask().execute(newStockAdjustment);

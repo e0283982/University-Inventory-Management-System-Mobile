@@ -1,6 +1,8 @@
 package com.gdipsa.iss.nus.sa46team1_adproject.Department;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -27,9 +29,12 @@ public class DepartmentRepQRCodeActivity extends AppBaseDepartmentActivity {
 
         imageView = (ImageView)findViewById(R.id.imageView_department_rep_qr_code);
 
-        //Assuming Employee Id is E4, key is SSIS
-        String employeeId = "E4";
-        String qrCodeValue = "SSIS" + employeeId;
+        //TODO
+        //key is SSIS + employeeName
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String employeeName = pref.getString("EmployeeName", "Employee Name");
+
+        String qrCodeValue = "SSIS" + employeeName;
 
         try {
             bitmap = TextToImageEncode(qrCodeValue);

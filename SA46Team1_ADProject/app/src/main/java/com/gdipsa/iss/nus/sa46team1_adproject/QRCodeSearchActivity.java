@@ -87,20 +87,7 @@ public class QRCodeSearchActivity extends AppCompatActivity {
     private class MyTask extends AsyncTask<String, Void, Item> {
         @Override
         protected Item doInBackground(String... params) {
-
-//            Item itemScanned = null;
-//
-//            try{
-//                itemScanned = Item.getItem(params[0]);
-//            } catch (Exception e){
-//                Toast.makeText(QRCodeSearchActivity.this, "Item Not Found", Toast.LENGTH_SHORT).show();
-//                finish();
-//            }
-//
-//            return itemScanned;
-
             return Item.getItem(params[0]);
-
         }
         @Override
         protected void onPostExecute(Item result) {
