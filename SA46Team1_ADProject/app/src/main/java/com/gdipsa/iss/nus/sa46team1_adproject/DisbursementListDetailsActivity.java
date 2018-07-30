@@ -126,7 +126,7 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
 
         @Override
         protected Void doInBackground(DisbursementListDetail... params) {
-            DisbursementListDetail.updateDisbursementDetail(params[0]);
+            DisbursementListDetail.updateDisbursementDetail(params[0], DisbursementListDetailsActivity.this);
             return null;
         }
 

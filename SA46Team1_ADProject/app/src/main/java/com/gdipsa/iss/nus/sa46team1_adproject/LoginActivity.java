@@ -119,9 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                     Employee employee = Employee.getEmployeeRole(params[0]);
 
                     //Shared preferences
-                    SharedPreferences pref =
-                            PreferenceManager.getDefaultSharedPreferences
-                                    (getApplicationContext());
+                    SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("EmployeeID", employee.getEmployeeId());
@@ -138,9 +136,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(Void result) {
-                SharedPreferences pref =
-                        PreferenceManager.getDefaultSharedPreferences
-                                (getApplicationContext());
+                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
                 String employeeRole = pref.getString("EmployeeRole", "Employee Role");
 

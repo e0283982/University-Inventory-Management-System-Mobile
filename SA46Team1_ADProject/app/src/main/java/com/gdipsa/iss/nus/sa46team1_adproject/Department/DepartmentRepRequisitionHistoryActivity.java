@@ -1,6 +1,8 @@
 package com.gdipsa.iss.nus.sa46team1_adproject.Department;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,14 +32,13 @@ public class DepartmentRepRequisitionHistoryActivity extends AppBaseDepartmentAc
         mRecyclerViewRequisitionHistory = findViewById(R.id.recycler_view_requisition_history);
         progressBar = findViewById(R.id.progressbar_requisition_history);
 
-        //TODO: Temporary putting the department as COMM
+        //TODO: Temporary putting the department as COMM (done)
         //This is the case of dep req history
-        new MyDepRepTask().execute("COMM");
-
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String requestorDepartmentCode = pref.getString("DepartmentCode", "Department Code");
+        new MyDepRepTask().execute(requestorDepartmentCode);
 
     }
-
-
 
     private class MyDepRepTask extends AsyncTask<String, Void, List<StaffRequisitionHeader>> {
         @Override

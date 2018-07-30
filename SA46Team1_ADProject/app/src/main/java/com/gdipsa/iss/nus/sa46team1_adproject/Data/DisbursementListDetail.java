@@ -1,5 +1,9 @@
 package com.gdipsa.iss.nus.sa46team1_adproject.Data;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import com.gdipsa.iss.nus.sa46team1_adproject.JSONParser;
 
 import org.json.JSONArray;
@@ -67,13 +71,15 @@ public class DisbursementListDetail {
     }
 
 
-    //TODO: To change to updateDisbursementDetail
-    public static void updateDisbursementDetail(DisbursementListDetail disbursementDetails) {
+    public static void updateDisbursementDetail(DisbursementListDetail disbursementDetails, Context context) {
         JSONObject jDisbursementDetail = new JSONObject();
         try {
 
-            //TODO: to link to the login id of the user, temporary put E2
-            jDisbursementDetail.put("RequestorId", "E2");
+            //TODO: to link to the login id of the user, temporary put E2(done)
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+            String requestorId = pref.getString("EmployeeID", "Employee ID");
+
+            jDisbursementDetail.put("RequestorId", requestorId);
             jDisbursementDetail.put("DisbursementId", disbursementDetails.getDisbursementId());
             jDisbursementDetail.put("ItemDescription", disbursementDetails.getItemDescription());
             jDisbursementDetail.put("QuantityReceived", disbursementDetails.getQtyReceived());

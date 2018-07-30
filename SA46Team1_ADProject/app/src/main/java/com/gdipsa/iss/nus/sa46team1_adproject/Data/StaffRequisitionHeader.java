@@ -48,7 +48,7 @@ public class StaffRequisitionHeader {
 
                 StaffRequisitionHeader staffRequisitionHeader = new StaffRequisitionHeader(dataRequisitionFormId, dataDateRequestedStr, dataApprovalStatus);
 
-                //TODO: For now assume that the employee id is E4 which is passed from the req history activity
+                //TODO: For now assume that the employee id is E4 which is passed from the req history activity (done)
                 if (dataEmployeeId.equals(employeeId)){
                     list.add(staffRequisitionHeader);
                 }

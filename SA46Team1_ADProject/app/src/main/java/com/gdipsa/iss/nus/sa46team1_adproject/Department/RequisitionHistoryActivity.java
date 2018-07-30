@@ -1,7 +1,9 @@
 package com.gdipsa.iss.nus.sa46team1_adproject.Department;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,9 +37,11 @@ public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
 
         Intent data = getIntent();
 
-        //TODO: Temporary putting the login id as E4
+        //TODO: Temporary putting the login id as E4 (done)
         //This is the case of normal user
-        new MyTask().execute("E4");
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String requestorId = pref.getString("EmployeeID", "Employee ID");
+        new MyTask().execute(requestorId);
 
 
     }
