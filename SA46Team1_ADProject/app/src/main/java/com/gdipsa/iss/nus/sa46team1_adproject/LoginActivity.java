@@ -128,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("EmployeeName", employee.getEmployeeName());
                     editor.putString("DepartmentCode", employee.getDepartmentCode());
                     editor.putString("EmployeeRole", employee.getRole());
+                    editor.putString("EmployeeEmail", employee.getEmail());
                     editor.commit();
 
                 } catch (MalformedURLException e) {

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.DescriptionSearchActivity;
 import com.gdipsa.iss.nus.sa46team1_adproject.DisbursementListActivity;
@@ -58,7 +59,14 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
             drawerMenu.getItem(2).setVisible(false);
             drawerMenu.getItem(3).setVisible(false);
         }
-        
+
+        //Change the employee and employee email
+        View headerView = navigation_view.getHeaderView(0);
+        TextView employeeNameTextView = headerView.findViewById(R.id.textView_employee_name_nav_header_main);
+        employeeNameTextView.setText(pref.getString("EmployeeName", "Employee Role"));
+
+        TextView employeeEmailTextView = headerView.findViewById(R.id.textView_employee_email_nav_header_main);
+        employeeEmailTextView.setText(pref.getString("EmployeeEmail", "Employee Email"));
 
     }
 
