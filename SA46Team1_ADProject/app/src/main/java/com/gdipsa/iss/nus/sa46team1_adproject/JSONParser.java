@@ -17,7 +17,7 @@ import java.net.URL;
 
 public class JSONParser {
 
-    static String readStream(InputStream is) {
+    public static String readStream(InputStream is) {
         StringBuilder sb = new StringBuilder();
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
