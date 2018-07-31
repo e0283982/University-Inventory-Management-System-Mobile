@@ -30,7 +30,7 @@ public class StockRetrieval {
 
         try{
 
-            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://172.17.191.74/adtest2/api/Restful/GetLatestStockRetrievalId");
+            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://172.17.50.85/AdProj/api/Restful/GetLatestStockRetrievalId");
 
 //            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://192.168.1.3/adtest2/api/Restful/GetLatestStockRetrievalId");
 
@@ -52,7 +52,7 @@ public class StockRetrieval {
 //            final String host = "http://" + IPAddress + "/api/Restful/GetStockRetrievalList";
 //            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host+"/StoR-3");
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.74/adtest2/api/Restful/GetStockRetrievalList/" + stockRetrievalId);
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.50.85/AdProj/api/Restful/GetStockRetrievalList/" + stockRetrievalId);
 
 //            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetStockRetrievalList/" + stockRetrievalId);
 

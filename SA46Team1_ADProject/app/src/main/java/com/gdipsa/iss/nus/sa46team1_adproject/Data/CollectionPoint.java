@@ -29,7 +29,7 @@ public class CollectionPoint {
 
         try {
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.74/adtest2/api/Restful/GetCollectionPointList");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.50.85/AdProj/api/Restful/GetCollectionPointList");
 
 //            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetCollectionPointList");
 
