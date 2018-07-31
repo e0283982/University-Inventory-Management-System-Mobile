@@ -2,7 +2,6 @@ package com.gdipsa.iss.nus.sa46team1_adproject;
 
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,9 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementList;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementListDetail;
-import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockAdjustment;
 
 import java.util.List;
 
@@ -81,11 +78,24 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
 
                     Toast.makeText(getApplicationContext(), "Validation Success", Toast.LENGTH_SHORT).show();
 
-                    //TODO: to change the code to only use one stock adjustment header
+                    boolean firstStockAdjustedItem = false;
+
                     for(DisbursementListDetail dld : disbursementDetailsList){
-                        new UpdateDisbursementTask().execute(dld);
-//                        Toast.makeText(getApplicationContext(), "" + dld.getQtyAdjusted(), Toast.LENGTH_SHORT).show();
+                        if (dld.getQtyAdjusted() > 0){
+                            dld.setDisbursementIdAndroid(1);
+                        }
+
+                        break;
                     }
+
+                    for(int i = 0; i < disbursementDetailsList.size(); i++){
+                        DisbursementListDetail disbursementListDetail = disbursementDetailsList.get(i);
+                        new UpdateDisbursementTask().execute(disbursementListDetail);
+                    }
+
+//                    for(DisbursementListDetail dld : disbursementDetailsList){
+//                        new UpdateDisbursementTask().execute(dld);
+//                    }
 
                 } else{
                     Toast.makeText(getApplicationContext(), "Validation Failure", Toast.LENGTH_SHORT).show();

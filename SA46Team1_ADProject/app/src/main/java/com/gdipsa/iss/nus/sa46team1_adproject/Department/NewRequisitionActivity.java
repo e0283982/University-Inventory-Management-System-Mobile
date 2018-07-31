@@ -3,7 +3,9 @@ package com.gdipsa.iss.nus.sa46team1_adproject.Department;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -102,8 +104,9 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
                             }
                         }
 
-                        //Assuming Employee Id is E4
-                        NewRequisition newRequisition = new NewRequisition("E4", itemOrdered, itemUoM, orderedQuantity);
+                        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        String employeeId = pref.getString("EmployeeID", "Employee ID");
+                        NewRequisition newRequisition = new NewRequisition(employeeId, itemOrdered, itemUoM, orderedQuantity);
 
                         for(NewRequisition existingRequisition : newRequisitionList){
                             if (existingRequisition.getItemDescription().equals(itemOrdered)){

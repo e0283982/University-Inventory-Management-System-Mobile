@@ -21,6 +21,7 @@ public class DisbursementListDetail {
     private int qtyReceived;
     private int qtyAdjusted = 0;
 
+    private int disbursementIdAndroid = 0;
 
     public DisbursementListDetail(String disbursementId, String itemDescription, String itemUoM, int qtyOrdered, int qtyReceived) {
         this.disbursementId = disbursementId;
@@ -85,10 +86,13 @@ public class DisbursementListDetail {
             jDisbursementDetail.put("QuantityReceived", disbursementDetails.getQtyReceived());
             jDisbursementDetail.put("QuantityAdjusted", disbursementDetails.getQtyAdjusted());
 
+            jDisbursementDetail.put("DisbursementAndroidId", disbursementDetails.getDisbursementIdAndroid());
+
+
         } catch (Exception e) {
         }
 
-        String result = JSONParser.postStream("http://172.17.191.101/adtest2/api/Restful/updatedisbursement", jDisbursementDetail.toString());
+        String result = JSONParser.postStream("http://172.17.191.74/adtest2/api/Restful/updatedisbursement", jDisbursementDetail.toString());
 
     }
 
@@ -144,5 +148,12 @@ public class DisbursementListDetail {
         this.qtyAdjusted = qtyAdjusted;
     }
 
+    public int getDisbursementIdAndroid() {
+        return disbursementIdAndroid;
+    }
+
+    public void setDisbursementIdAndroid(int disbursementIdAndroid) {
+        this.disbursementIdAndroid = disbursementIdAndroid;
+    }
 
 }

@@ -11,7 +11,6 @@ public class NewRequisition {
     private String itemUoM;
     private int orderQty;
 
-    //New thing
     private int requisitionSize;
     private int requisitionIdAndroid;
 
@@ -30,7 +29,7 @@ public class NewRequisition {
             jNewRequisition.put("ItemDescription", newRequisition.getItemDescription());
             jNewRequisition.put("OrderedQuantity", newRequisition.getOrderQty());
             jNewRequisition.put("RequisitionSize", newRequisition.getRequisitionSize());
-            jNewRequisition.put("RequisitionId", newRequisition.getRequisitionIdAndroid());
+            jNewRequisition.put("RequisitionAndroidId", newRequisition.getRequisitionIdAndroid());
 
         } catch (Exception e) {
         }

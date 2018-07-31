@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockRetrieval;
 
@@ -48,6 +49,13 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
         @Override
         public void onClick(View v) {
             Context context = v.getContext();
+
+            if (quantityRetrieved <= 0){
+                Toast.makeText(v.getContext(), "Invalid stock adjustment as quantity retrieved is 0", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
             Intent intent = new Intent(context, StockAdjustmentActivity.class);
             intent.putExtra("ItemAdjusted", itemAdjusted);
             intent.putExtra("QuantityRetrieved", quantityRetrieved);
