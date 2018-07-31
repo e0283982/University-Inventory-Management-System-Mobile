@@ -78,8 +78,6 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
 
                     Toast.makeText(getApplicationContext(), "Validation Success", Toast.LENGTH_SHORT).show();
 
-                    boolean firstStockAdjustedItem = false;
-
                     for(DisbursementListDetail dld : disbursementDetailsList){
                         if (dld.getQtyAdjusted() > 0){
                             dld.setDisbursementIdAndroid(1);
