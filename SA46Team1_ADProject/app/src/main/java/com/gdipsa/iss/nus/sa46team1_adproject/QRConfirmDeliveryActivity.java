@@ -20,7 +20,6 @@ public class QRConfirmDeliveryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_qrconfirm_delivery);
 
         //Assuming key is SSIS + representative name
-        //TODO: done
         Intent data = getIntent();
         String repName = data.getStringExtra("DisbursementRepName");
 

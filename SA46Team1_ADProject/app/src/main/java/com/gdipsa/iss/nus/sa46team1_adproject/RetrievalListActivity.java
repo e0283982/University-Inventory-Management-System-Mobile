@@ -33,22 +33,6 @@ public class RetrievalListActivity extends AppBaseActivity {
         mRecyclerViewStockRetrievalList = findViewById(R.id.recycler_view_retrieval_list);
         progressBar = findViewById(R.id.progressbar_retrieval_list);
 
-        new AsyncTask<Void, Void, String>() {
-            @Override
-            protected String doInBackground(Void... params) {
-                return StockRetrieval.getLatestStockRetrievalid();
-            }
-            @Override
-            protected void onPostExecute(String stockRetrievalId) {
-//                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                stoRetId = stockRetrievalId;
-
-                new MyTask().execute(stockRetrievalId);
-            }
-        }.execute();
-
-
-
     }
 
     private class MyTask extends AsyncTask<String, Void, List<StockRetrieval>>{
@@ -67,10 +51,25 @@ public class RetrievalListActivity extends AppBaseActivity {
         }
     }
 
-
     @Override
-    protected void onRestart() {
-        super.onRestart();
-        recreate();
+    protected void onResume() {
+        super.onResume();
+
+        new AsyncTask<Void, Void, String>() {
+            @Override
+            protected String doInBackground(Void... params) {
+                return StockRetrieval.getLatestStockRetrievalid();
+            }
+            @Override
+            protected void onPostExecute(String stockRetrievalId) {
+//                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                stoRetId = stockRetrievalId;
+
+                new MyTask().execute(stockRetrievalId);
+            }
+        }.execute();
+
     }
+
+
 }

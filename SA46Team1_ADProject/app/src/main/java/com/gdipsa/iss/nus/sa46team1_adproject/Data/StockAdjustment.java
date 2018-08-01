@@ -33,7 +33,7 @@ public class StockAdjustment {
         } catch (Exception e) {
         }
         //String result = JSONParser.postStream("http://192.168.1.75/AdProj/api/Restful/CreateNewStockAdjustment", jStockAdjustment.toString());
-        String result = JSONParser.postStream("http://172.17.50.85/AdProj/api/Restful/CreateNewStockAdjustment", jStockAdjustment.toString());
+        String result = JSONParser.postStream("http://172.17.191.74/adtest2/api/Restful/CreateNewStockAdjustment", jStockAdjustment.toString());
 
     }
 

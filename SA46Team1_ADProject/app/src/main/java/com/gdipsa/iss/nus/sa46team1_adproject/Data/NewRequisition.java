@@ -37,7 +37,7 @@ public class NewRequisition {
 //        String result = JSONParser.postStream("http://192.168.1.3/adtest2/api/Restful/CreateNewRequisition", jNewRequisition.toString());
 
         //String result = JSONParser.postStream("http://192.168.1.75/AdProj/api/Restful/CreateNewRequisition", jNewRequisition.toString());
-        String result = JSONParser.postStream("http://172.17.50.85/AdProj/api/Restful/CreateNewRequisition", jNewRequisition.toString());
+        String result = JSONParser.postStream("http://172.17.191.74/adtest2/api/Restful/CreateNewRequisition", jNewRequisition.toString());
     }
 
 
