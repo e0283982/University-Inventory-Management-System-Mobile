@@ -30,9 +30,9 @@ public class StockRetrieval {
 
         try{
 
-            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://172.17.50.85/AdProj/api/Restful/GetLatestStockRetrievalId");
+//            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://172.17.50.85/AdProj/api/Restful/GetLatestStockRetrievalId");
 
-//            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://192.168.1.75/AdProj/api/Restful/GetLatestStockRetrievalId");
+            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://192.168.1.75/AdProj/api/Restful/GetLatestStockRetrievalId");
 
             stockRetrievalId = jsonObject.getString("ID");
 

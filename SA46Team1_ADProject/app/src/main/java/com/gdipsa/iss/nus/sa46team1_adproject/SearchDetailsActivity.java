@@ -62,21 +62,21 @@ public class SearchDetailsActivity extends AppBaseActivity {
         supplier3 = data.getStringExtra("Supplier3");
         active = data.getIntExtra("Active", 0);
 
-        setTitle(itemCode);
+        setTitle("Item Details");
 
-        itemCodeTextView.setText("Item Code: " + itemCode);
-        itemCategoryTextView.setText("Item Category: " + category);
-        itemDescriptionTextView.setText("Description: " + description);
+        itemCodeTextView.setText(itemCode);
+        itemCategoryTextView.setText(category);
+        itemDescriptionTextView.setText(description);
 
         if (active == 1){
-            activeTextView.setText("Active: Yes");
+            activeTextView.setText("Yes");
         } else{
-            activeTextView.setText("Active: No");
+            activeTextView.setText("No");
         }
 
-        supplier1TextView.setText("Supplier1: " + supplier1);
-        supplier2TextView.setText("Supplier2: " + supplier2);
-        supplier3TextView.setText("Supplier3: " + supplier3);
+        supplier1TextView.setText(supplier1);
+        supplier2TextView.setText(supplier2);
+        supplier3TextView.setText(supplier3);
 
         DecimalFormat fmt = new DecimalFormat("#,##0");
 

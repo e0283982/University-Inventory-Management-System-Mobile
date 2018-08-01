@@ -37,8 +37,8 @@ public class DisbursementListDetail {
 
         try {
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.50.85/AdProj/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
-            //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
+            //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.50.85/AdProj/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
 
 //            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
 
@@ -93,8 +93,8 @@ public class DisbursementListDetail {
         } catch (Exception e) {
         }
 
-        String result = JSONParser.postStream("http://172.17.50.85/AdProj/api/Restful/updatedisbursement", jDisbursementDetail.toString());
-        //String result = JSONParser.postStream("http://192.168.1.75/AdProj/api/Restful/updatedisbursement", jDisbursementDetail.toString());
+        //String result = JSONParser.postStream("http://172.17.50.85/AdProj/api/Restful/updatedisbursement", jDisbursementDetail.toString());
+        String result = JSONParser.postStream("http://192.168.1.75/AdProj/api/Restful/updatedisbursement", jDisbursementDetail.toString());
 
     }
 

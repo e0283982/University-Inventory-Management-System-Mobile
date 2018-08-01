@@ -1,119 +1,304 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchDetailsActivity">
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp">
 
     <TextView
-        android:id="@+id/textView_search_details_item_code"
+        android:id="@+id/textView_search_details_item_code_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
+        android:text="Item Code"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18dp"
+        android:textColor="#342d34"/>
+
+    <View
+        android:id="@+id/textView_search_details_item_code_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_code_header"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_code_header"
+        android:background="#c0c0c0"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/textView_search_details_item_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_code_divider"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_code_divider"
+        android:layout_marginTop="8dp"
         android:text="Item Code: C001"
-        android:textAppearance="?android:textAppearanceMedium"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18dp"
+        android:layout_marginLeft="8dp"/>
+
+    <TextView
+        android:id="@+id/textView_search_details_item_category_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_code"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="24dp"
+        android:text="Category"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18dp"
+        android:textColor="#342d34" />
+    <View
+        android:id="@+id/textView_search_details_item_category_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_category_header"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_category_header"
+        android:background="#c0c0c0"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/textView_search_details_item_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_code"
-        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_code"
-        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_category_divider"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_category_divider"
+        android:layout_marginTop="8dp"
         android:text="Item Category: Clip"
-        android:textAppearance="?android:textAppearanceMedium"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18dp"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/textView_search_details_item_description_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_category"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="24dp"
+        android:text="Description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18dp"
+        android:textColor="#342d34" />
+
+    <View
+        android:id="@+id/textView_search_details_item_description_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_description_header"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_description_header"
+        android:background="#c0c0c0"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/textView_search_details_item_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_category"
-        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_category"
-        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_description_divider"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_description_divider"
+        android:layout_marginTop="8dp"
         android:text="Description: Clips Double 1"
-        android:textAppearance="?android:textAppearanceMedium"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18dp"
+        android:layout_marginLeft="8dp"  />
+
+    <TextView
+        android:id="@+id/textView_search_details_item_active_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_description"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="24dp"
+        android:text="Active"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18dp"
+        android:textColor="#342d34" />
+
+    <View
+        android:id="@+id/textView_search_details_item_active_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_active_header"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_active_header"
+        android:background="#c0c0c0"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/textView_search_details_item_active"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_description"
-        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_description"
-        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_active_divider"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_active_divider"
+        android:layout_marginTop="8dp"
         android:text="Active: Yes"
-        android:textAppearance="?android:textAppearanceMedium"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18dp"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/textView_search_details_item_supplier1_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_active"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="24dp"
+        android:text="Supplier 1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18dp"
+        android:textColor="#342d34" />
+
+    <View
+        android:id="@+id/textView_search_details_item_supplier1_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier1_header"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier1_header"
+        android:background="#c0c0c0"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/textView_search_details_item_supplier1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_active"
-        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_active"
-        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier1_divider"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier1_divider"
+        android:layout_marginTop="8dp"
         android:text="Supplier1: ALPHA"
-        android:textAppearance="?android:textAppearanceMedium"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18dp"
+        android:layout_marginLeft="8dp" />
 
+    <TextView
+        android:id="@+id/textView_search_details_item_supplier2_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="24dp"
+        android:text="Supplier 2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18dp"
+        android:textColor="#342d34" />
+
+    <View
+        android:id="@+id/textView_search_details_item_supplier2_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier2_header"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier2_header"
+        android:background="#c0c0c0"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"/>
     <TextView
         android:id="@+id/textView_search_details_item_supplier2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier1"
-        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier1"
-        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier2_divider"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier2_divider"
+        android:layout_marginTop="8dp"
         android:text="Supplier2: BANESA"
-        android:textAppearance="?android:textAppearanceMedium"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18dp"
+        android:layout_marginLeft="8dp" />
+    <TextView
+        android:id="@+id/textView_search_details_item_supplier3_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="24dp"
+        android:text="Supplier 3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18dp"
+        android:textColor="#342d34" />
 
+    <View
+        android:id="@+id/textView_search_details_item_supplier3_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier3_header"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier3_header"
+        android:background="#c0c0c0"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"/>
     <TextView
         android:id="@+id/textView_search_details_item_supplier3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier2"
-        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier2"
-        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier3_divider"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier3_divider"
+        android:layout_marginTop="8dp"
         android:text="Supplier3: CHEAP"
-        android:textAppearance="?android:textAppearanceMedium"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18dp"
+        android:layout_marginLeft="8dp" />
+    <TextView
+        android:id="@+id/textView_search_details_item_quantity_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="24dp"
+        android:text="Balance"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18dp"
+        android:textColor="#342d34" />
+    <View
+        android:id="@+id/textView_search_details_item_quantity_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_quantity_header"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_quantity_header"
+        android:background="#c0c0c0"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"/>
     <TextView
         android:id="@+id/textView_search_details_item_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_supplier3"
-        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_supplier3"
-        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_quantity_divider"
+        app:layout_constraintLeft_toLeftOf="@id/textView_search_details_item_quantity_divider"
+        android:layout_marginTop="8dp"
         android:text="Balance: 100 Dozens"
-        android:textAppearance="?android:textAppearanceMedium"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18dp"
+        android:layout_marginLeft="8dp" />
     <Button
         android:id="@+id/button_search_details_adjust"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Adjust"
         app:layout_constraintTop_toBottomOf="@id/textView_search_details_item_quantity"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="24dp"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="323dp" />
-
-
+        android:layout_marginBottom="24dp"/>
 </android.support.constraint.ConstraintLayout>
+</ScrollView>
