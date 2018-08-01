@@ -74,7 +74,7 @@ public class DisbursementListAdapter extends RecyclerView.Adapter<DisbursementLi
 
         holder.collectionPointIdTextView.setText(current.getCollectionPointId());
         holder.collectionPointDescriptionTextView.setText(current.getCollectionPointDescription());
-        holder.collectionPointTimeTextView.setText("Collection Time: " + current.getCollectionPointTime());
+        holder.collectionPointTimeTextView.setText("Time: " + current.getCollectionPointTime());
 
     }
 
