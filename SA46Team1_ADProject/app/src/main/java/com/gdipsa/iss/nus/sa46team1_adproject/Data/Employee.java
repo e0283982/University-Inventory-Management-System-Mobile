@@ -30,12 +30,8 @@ public class Employee {
     private String employeeName;
     private String departmentCode;
 
-    static  final String host = "http://172.17.191.74/adtest2";
+    static  final String host = "http://192.168.1.3/adtest2";
     //static  final String host = "http://192.168.1.75/AdProj";
-
-//    static  final String host = "http://192.168.1.3/adtest2";
-
-//    static  final String host = "http://172.17.191.74/adtest2";
 
     public Employee(String email, String password){
         this.email = email;

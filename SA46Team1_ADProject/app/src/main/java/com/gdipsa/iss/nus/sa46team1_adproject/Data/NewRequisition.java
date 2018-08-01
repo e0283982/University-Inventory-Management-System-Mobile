@@ -14,6 +14,8 @@ public class NewRequisition {
     private int requisitionSize;
     private int requisitionIdAndroid;
 
+    private static String host = "http://192.168.1.3/adtest2";
+
     public NewRequisition(String employeeId, String itemDescription, String itemUoM, int orderQty) {
         this.employeeId = employeeId;
         this.itemDescription = itemDescription;
@@ -34,10 +36,7 @@ public class NewRequisition {
         } catch (Exception e) {
         }
 
-//        String result = JSONParser.postStream("http://192.168.1.3/adtest2/api/Restful/CreateNewRequisition", jNewRequisition.toString());
-
-        //String result = JSONParser.postStream("http://192.168.1.75/AdProj/api/Restful/CreateNewRequisition", jNewRequisition.toString());
-        String result = JSONParser.postStream("http://172.17.191.74/adtest2/api/Restful/CreateNewRequisition", jNewRequisition.toString());
+        String result = JSONParser.postStream(host + "/api/Restful/CreateNewRequisition", jNewRequisition.toString());
     }
 
 

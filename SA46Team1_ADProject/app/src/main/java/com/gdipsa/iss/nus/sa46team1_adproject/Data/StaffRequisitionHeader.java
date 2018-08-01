@@ -14,6 +14,8 @@ public class StaffRequisitionHeader {
     private String dateRequestedStr;
     private String approvalStatus;
 
+    private static String host = "http://192.168.1.3/adtest2";
+
     public StaffRequisitionHeader(String requisitionFormId, String dateRequestedStr, String approvalStatus) {
         this.requisitionFormId = requisitionFormId;
         this.dateRequestedStr = dateRequestedStr;
@@ -26,8 +28,7 @@ public class StaffRequisitionHeader {
 
         try {
 
-            //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetStaffRequisitionHeader");
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.74/adtest2/api/Restful/GetStaffRequisitionHeader");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetStaffRequisitionHeader");
 
             JSONObject jsonObject;
 
@@ -48,7 +49,6 @@ public class StaffRequisitionHeader {
 
                 StaffRequisitionHeader staffRequisitionHeader = new StaffRequisitionHeader(dataRequisitionFormId, dataDateRequestedStr, dataApprovalStatus);
 
-                //TODO: For now assume that the employee id is E4 which is passed from the req history activity (done)
                 if (dataEmployeeId.equals(employeeId)){
                     list.add(staffRequisitionHeader);
                 }
@@ -67,9 +67,7 @@ public class StaffRequisitionHeader {
 
         try {
 
-           JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.74/adtest2/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
-
-           // JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
+           JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
 
             JSONObject jsonObject;
 

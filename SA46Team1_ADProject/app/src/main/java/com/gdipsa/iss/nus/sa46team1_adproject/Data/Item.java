@@ -20,6 +20,8 @@ public class Item {
     private String supplier3;
     private int active;
 
+    private static String host = "http://192.168.1.3/adtest2";
+
     public Item(String itemCode, String category, String description, int quantity, String UoM, String supplier1, String supplier2, String supplier3, int active) {
         this.itemCode = itemCode;
         this.category = category;
@@ -37,10 +39,7 @@ public class Item {
 
         try {
 
-            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://172.17.191.74/adtest2/api/Restful/getitemsbyid/" + searchItemCode);
-            //JSONObject jsonObject = JSONParser.getJSONFromUrl("http://192.168.1.75/AdProj/api/Restful/getitemsbyid/" + searchItemCode);
-
-//            JSONObject jsonObject = JSONParser.getJSONFromUrl("http://192.168.1.3/adtest2/api/Restful/getitemsbyid/" + searchItemCode);
+            JSONObject jsonObject = JSONParser.getJSONFromUrl(host + "/api/Restful/getitemsbyid/" + searchItemCode);
 
             String dataItemCode;
             String dataCategory;
@@ -79,14 +78,7 @@ public class Item {
 
         try {
 
-//            final String host = "http://" + IPAddress + "/api/Restful/GetStockRetrievalList";
-//
-//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host+"/StoR-3");
-
-//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/getitemslist/");
-
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.74/adtest2/api/Restful/getitemslist/");
-            //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/getitemslist/");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/getitemslist/");
 
             JSONObject jsonObject;
 

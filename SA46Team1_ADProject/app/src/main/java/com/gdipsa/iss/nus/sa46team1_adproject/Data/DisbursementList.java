@@ -17,6 +17,8 @@ public class DisbursementList {
     private String collectionPointDescription;
     private String representativeName;
 
+    private static String host = "http://192.168.1.3/adtest2";
+
     public DisbursementList(String disbursementId, String dateStr, String departmentName, String status, String collectionPointDescription, String representativeName) {
         this.disbursementId = disbursementId;
         this.dateStr = dateStr;
@@ -31,12 +33,8 @@ public class DisbursementList {
         List<DisbursementList> list = new ArrayList<DisbursementList>();
 
         try {
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetDisbursementList");
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.74/adtest2/api/Restful/GetDisbursementList");
-            //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetDisbursementList");
-
-            //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetDisbursementList");
-            //192.168.1.75
             JSONObject jsonObject;
 
             String dataDisbursementId;

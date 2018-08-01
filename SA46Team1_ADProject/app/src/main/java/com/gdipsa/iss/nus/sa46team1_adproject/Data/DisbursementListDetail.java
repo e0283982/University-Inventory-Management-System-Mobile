@@ -14,6 +14,8 @@ import java.util.List;
 
 public class DisbursementListDetail {
 
+    private static String host = "http://192.168.1.3/adtest2";
+
     private String disbursementId;
     private String itemDescription;
     private String itemUoM;
@@ -37,10 +39,7 @@ public class DisbursementListDetail {
 
         try {
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.74/adtest2/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
-            //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
-
-//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetDisbursementListDetails/" + disbursementIdChosen);
 
             JSONObject jsonObject;
 
@@ -77,7 +76,6 @@ public class DisbursementListDetail {
         JSONObject jDisbursementDetail = new JSONObject();
         try {
 
-            //TODO: to link to the login id of the user, temporary put E2(done)
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
             String requestorId = pref.getString("EmployeeID", "Employee ID");
 
@@ -93,9 +91,7 @@ public class DisbursementListDetail {
         } catch (Exception e) {
         }
 
-        String result = JSONParser.postStream("http://172.17.191.74/adtest2/api/Restful/updatedisbursement", jDisbursementDetail.toString());
-        //String result = JSONParser.postStream("http://192.168.1.75/AdProj/api/Restful/updatedisbursement", jDisbursementDetail.toString());
-
+        String result = JSONParser.postStream(host + "/api/Restful/updatedisbursement", jDisbursementDetail.toString());
     }
 
 

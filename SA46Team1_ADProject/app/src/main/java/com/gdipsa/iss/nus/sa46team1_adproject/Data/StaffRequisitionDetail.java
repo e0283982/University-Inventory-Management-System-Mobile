@@ -18,6 +18,8 @@ public class StaffRequisitionDetail {
     private int qtyDelivered;
     private int qtyBackOrdered;
 
+    private static String host = "http://192.168.1.3/adtest2";
+
     public StaffRequisitionDetail(String itemDescription, String itemUoM, int qtyOrdered, int qtyDelivered, int qtyBackOrdered) {
         this.itemDescription = itemDescription;
         this.itemUoM = itemUoM;
@@ -33,8 +35,7 @@ public class StaffRequisitionDetail {
 
         try {
 
-            //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetRequisitionHistoryDetail/" + formId);
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.74/adtest2/api/Restful/GetRequisitionHistoryDetail/" + formId);
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetRequisitionHistoryDetail/" + formId);
 
             JSONObject jsonObject;
 

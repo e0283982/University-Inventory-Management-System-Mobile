@@ -15,6 +15,8 @@ public class CollectionPoint {
     private String collectionPointTime;
     private int active;
 
+    private static String host = "http://192.168.1.3/adtest2";
+
     public CollectionPoint(String collectionPointId, String collectionPointDescription, String collectionPointTime, int active) {
         this.collectionPointId = collectionPointId;
         this.collectionPointDescription = collectionPointDescription;
@@ -29,9 +31,7 @@ public class CollectionPoint {
 
         try {
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.191.74/adtest2/api/Restful/GetCollectionPointList");
-            //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetCollectionPointList");
-//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetCollectionPointList");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetCollectionPointList");
 
             JSONObject jsonObject;
 
