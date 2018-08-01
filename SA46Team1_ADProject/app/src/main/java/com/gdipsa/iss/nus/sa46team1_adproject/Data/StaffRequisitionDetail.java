@@ -34,7 +34,7 @@ public class StaffRequisitionDetail {
         try {
 
             //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetRequisitionHistoryDetail/" + formId);
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.50.85/AdProj/api/Restful/GetDisbursementList");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.50.85/AdProj/api/Restful/GetRequisitionHistoryDetail/" + formId);
 
             JSONObject jsonObject;
 
