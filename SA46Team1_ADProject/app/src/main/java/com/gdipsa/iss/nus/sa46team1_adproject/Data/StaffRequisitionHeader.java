@@ -26,8 +26,8 @@ public class StaffRequisitionHeader {
 
         try {
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.50.85/AdProj/api/Restful/GetStaffRequisitionHeader");
-//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetDisbursementList");
+            //JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetStaffRequisitionHeader");
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.50.85/AdProj/api/Restful/GetDisbursementList");
 
             JSONObject jsonObject;
 
@@ -67,9 +67,9 @@ public class StaffRequisitionHeader {
 
         try {
 
-//            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.3/adtest2/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
+           JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.50.85/AdProj/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
 
-            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://172.17.50.85/AdProj/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
+           // JSONArray jsonArray = JSONParser.getJSONArrayFromUrl("http://192.168.1.75/AdProj/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
 
             JSONObject jsonObject;
 

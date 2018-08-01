@@ -84,8 +84,8 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
         holder.binNumberTextView.setText("Bin #" + current.getBinNumber());
         holder.binLocationTextView.setText("Location: " + current.getBinLocation());
         holder.itemDescriptionTextView.setText(current.getItemDescription());
-        holder.itemsRetrievedTextView.setText("Quantity Retrieved: " + current.getItemsRetrieved());
-        holder.collectionPointTextView.setText("Collection Point: " + current.getCollectionPointDescription());
+        holder.itemsRetrievedTextView.setText("Qty: " + current.getItemsRetrieved());
+        holder.collectionPointTextView.setText(current.getCollectionPointDescription());
 
         holder.itemAdjusted = current.getItemDescription();
         holder.quantityRetrieved = current.getItemsRetrieved();

@@ -24,7 +24,8 @@
         <activity
             android:name=".QRCodeSearchActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".StockAdjustmentActivity" />
+        <activity android:name=".StockAdjustmentActivity"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert"/>
         <activity
             android:name=".DisbursementListActivity"
             android:launchMode="singleTask" />
