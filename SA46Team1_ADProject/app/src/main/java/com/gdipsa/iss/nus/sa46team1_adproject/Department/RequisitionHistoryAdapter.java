@@ -30,6 +30,7 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
         private TextView requisitionHistoryId;
         private TextView requisitionHistoryDateRequested;
         private TextView requisitionHistoryApprovalStatus;
+        private TextView requisitionHistoryStatus;
 
         private String reqFormId;
 
@@ -39,6 +40,7 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
             requisitionHistoryId = itemView.findViewById(R.id.textView_requisition_history_requisition_id);
             requisitionHistoryDateRequested = itemView.findViewById(R.id.textView_requisition_history_requisition_date_requested);
             requisitionHistoryApprovalStatus = itemView.findViewById(R.id.textView_requisition_history_approval_status);
+            requisitionHistoryStatus = itemView.findViewById(R.id.textView_requisition_history_status);
 
             itemView.setOnClickListener(this);
 
@@ -90,10 +92,10 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
         holder.requisitionHistoryId.setText(current.getRequisitionFormId());
         holder.requisitionHistoryDateRequested.setText(formatter.format(date));
         holder.requisitionHistoryApprovalStatus.setText(current.getApprovalStatus());
+        holder.requisitionHistoryStatus.setText(current.getStatus());
 
         holder.reqFormId = current.getRequisitionFormId();
-
-
+        
     }
 
     @Override

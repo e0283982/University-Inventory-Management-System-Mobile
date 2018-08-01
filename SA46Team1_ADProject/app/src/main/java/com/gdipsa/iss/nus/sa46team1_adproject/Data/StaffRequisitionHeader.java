@@ -13,13 +13,15 @@ public class StaffRequisitionHeader {
     private String requisitionFormId;
     private String dateRequestedStr;
     private String approvalStatus;
+    private String status;
 
     private static String host = "http://192.168.1.3/adtest2";
 
-    public StaffRequisitionHeader(String requisitionFormId, String dateRequestedStr, String approvalStatus) {
+    public StaffRequisitionHeader(String requisitionFormId, String dateRequestedStr, String approvalStatus, String status) {
         this.requisitionFormId = requisitionFormId;
         this.dateRequestedStr = dateRequestedStr;
         this.approvalStatus = approvalStatus;
+        this.status = status;
     }
 
     public static List<StaffRequisitionHeader> listStaffRequisitionHeader(String employeeId){
@@ -35,6 +37,7 @@ public class StaffRequisitionHeader {
             String dataRequisitionFormId;
             String dataDateRequestedStr;
             String dataApprovalStatus;
+            String dataStatus;
 
             String dataEmployeeId;
 
@@ -46,8 +49,9 @@ public class StaffRequisitionHeader {
                 dataDateRequestedStr = jsonObject.getString("DateRequested");
                 dataApprovalStatus = jsonObject.getString("ApprovalStatus");
                 dataEmployeeId = jsonObject.getString("EmployeeID");
+                dataStatus = jsonObject.getString("Status");
 
-                StaffRequisitionHeader staffRequisitionHeader = new StaffRequisitionHeader(dataRequisitionFormId, dataDateRequestedStr, dataApprovalStatus);
+                StaffRequisitionHeader staffRequisitionHeader = new StaffRequisitionHeader(dataRequisitionFormId, dataDateRequestedStr, dataApprovalStatus, dataStatus);
 
                 if (dataEmployeeId.equals(employeeId)){
                     list.add(staffRequisitionHeader);
@@ -67,15 +71,17 @@ public class StaffRequisitionHeader {
 
         try {
 
-           JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
+//           JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
+
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetStaffRequisitionHeader");
 
             JSONObject jsonObject;
 
             String dataRequisitionFormId;
             String dataDateRequestedStr;
             String dataApprovalStatus;
-
-            String dataEmployeeId;
+            String dataDepartmentCode;
+            String dataStatus;
 
             for (int i=0; i<jsonArray.length(); i++) {
 
@@ -84,10 +90,17 @@ public class StaffRequisitionHeader {
                 dataRequisitionFormId = jsonObject.getString("FormID");
                 dataDateRequestedStr = jsonObject.getString("DateRequested");
                 dataApprovalStatus = jsonObject.getString("ApprovalStatus");
+                dataDepartmentCode = jsonObject.getString("DepartmentCode");
+                dataStatus = jsonObject.getString("Status");
 
-                StaffRequisitionHeader staffRequisitionHeader = new StaffRequisitionHeader(dataRequisitionFormId, dataDateRequestedStr, dataApprovalStatus);
+                StaffRequisitionHeader staffRequisitionHeader = new StaffRequisitionHeader(dataRequisitionFormId, dataDateRequestedStr, dataApprovalStatus, dataStatus);
 
-                list.add(staffRequisitionHeader);
+
+                if (dataDepartmentCode.equals(departmentId)){
+                    list.add(staffRequisitionHeader);
+                }
+
+
 
             }
         } catch (Exception e) {
@@ -125,7 +138,13 @@ public class StaffRequisitionHeader {
         this.approvalStatus = approvalStatus;
     }
 
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 
 
