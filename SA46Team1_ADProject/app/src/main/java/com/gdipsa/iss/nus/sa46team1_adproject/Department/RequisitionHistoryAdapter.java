@@ -95,7 +95,7 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
         holder.requisitionHistoryStatus.setText(current.getStatus());
 
         holder.reqFormId = current.getRequisitionFormId();
-        
+
     }
 
     @Override

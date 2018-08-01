@@ -4,4 +4,10 @@
         <item>Damaged</item>
         <item>Missing</item>
     </string-array>
+
+    <string-array name="status_filter">
+        <item>All</item>
+        <item>Disbursed</item>
+        <item>Completed</item>
+    </string-array>
 </resources>

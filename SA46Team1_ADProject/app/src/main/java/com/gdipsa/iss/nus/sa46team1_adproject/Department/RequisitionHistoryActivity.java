@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementList;
@@ -19,6 +21,7 @@ import com.gdipsa.iss.nus.sa46team1_adproject.DisbursementListDepartmentActivity
 import com.gdipsa.iss.nus.sa46team1_adproject.DisbursementListDepartmentAdapter;
 import com.gdipsa.iss.nus.sa46team1_adproject.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
@@ -26,6 +29,10 @@ public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
     private RecyclerView mRecyclerViewRequisitionHistory;
     private RequisitionHistoryAdapter adapter;
     private ProgressBar progressBar;
+    private Spinner filterSpinner;
+
+    private List<StaffRequisitionHeader> resultList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +44,12 @@ public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
 
         Intent data = getIntent();
 
-        //TODO: Temporary putting the login id as E4 (done)
         //This is the case of normal user
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String requestorId = pref.getString("EmployeeID", "Employee ID");
         new MyTask().execute(requestorId);
 
+        filterSpinner = findViewById(R.id.spinner_requisition_history_status_filter);
 
     }
 
@@ -54,6 +61,8 @@ public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
         @Override
         protected void onPostExecute(List<StaffRequisitionHeader> result) {
 
+            resultList = result;
+
             if (result.size() == 0){
                 TextView emptyTextView = findViewById(R.id.textView_requisition_history_empty);
                 emptyTextView.setVisibility(View.VISIBLE);
@@ -63,6 +72,39 @@ public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
             adapter = new RequisitionHistoryAdapter(RequisitionHistoryActivity.this, result);
             mRecyclerViewRequisitionHistory.setAdapter(adapter);
             mRecyclerViewRequisitionHistory.setLayoutManager(new LinearLayoutManager(RequisitionHistoryActivity.this));
+
+            filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                    String selectedItem = parent.getItemAtPosition(position).toString();
+
+                    List<StaffRequisitionHeader> filterResult = new ArrayList<StaffRequisitionHeader>();
+
+                    for(StaffRequisitionHeader staffRequisitionHeader : resultList){
+
+                        if (staffRequisitionHeader.getStatus().equals(selectedItem)){
+                            filterResult.add(staffRequisitionHeader);
+                        }
+
+                    }
+
+                    if (selectedItem.equals("All")){
+                        filterResult = resultList;
+                    }
+
+                    adapter = new RequisitionHistoryAdapter(RequisitionHistoryActivity.this, filterResult);
+                    mRecyclerViewRequisitionHistory.setAdapter(adapter);
+                    mRecyclerViewRequisitionHistory.setLayoutManager(new LinearLayoutManager(RequisitionHistoryActivity.this));
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
 
         }
     }
