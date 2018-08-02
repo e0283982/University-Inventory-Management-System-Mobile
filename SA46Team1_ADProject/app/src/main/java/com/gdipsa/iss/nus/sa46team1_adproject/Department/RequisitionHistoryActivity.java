@@ -104,7 +104,6 @@ public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
                 }
             });
 
-
         }
     }
 
