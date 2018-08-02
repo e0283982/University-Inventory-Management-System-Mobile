@@ -21,6 +21,7 @@ public class RetrievalListActivity extends AppBaseActivity {
     private RecyclerView mRecyclerViewStockRetrievalList;
     private RetrievalListAdapter adapter;
     private ProgressBar progressBar;
+    private TextView retrievalListDisbursedTextView;
 
     private String stoRetId;
 
@@ -32,6 +33,7 @@ public class RetrievalListActivity extends AppBaseActivity {
 
         mRecyclerViewStockRetrievalList = findViewById(R.id.recycler_view_retrieval_list);
         progressBar = findViewById(R.id.progressbar_retrieval_list);
+        retrievalListDisbursedTextView = findViewById(R.id.textView_retrieval_list_disbursed);
 
     }
 
@@ -55,17 +57,24 @@ public class RetrievalListActivity extends AppBaseActivity {
     protected void onResume() {
         super.onResume();
 
-        new AsyncTask<Void, Void, String>() {
+        new AsyncTask<Void, Void, StockRetrieval>() {
             @Override
-            protected String doInBackground(Void... params) {
+            protected StockRetrieval doInBackground(Void... params) {
                 return StockRetrieval.getLatestStockRetrievalid();
             }
             @Override
-            protected void onPostExecute(String stockRetrievalId) {
-//                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                stoRetId = stockRetrievalId;
+            protected void onPostExecute(StockRetrieval stockRetrieval) {
 
-                new MyTask().execute(stockRetrievalId);
+                if (stockRetrieval.getStockDisbursed() == 1){
+
+                    retrievalListDisbursedTextView.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                    return;
+                }
+
+                stoRetId = stockRetrieval.getStockRetrievalId();
+
+                new MyTask().execute(stockRetrieval.getStockRetrievalId());
             }
         }.execute();
 

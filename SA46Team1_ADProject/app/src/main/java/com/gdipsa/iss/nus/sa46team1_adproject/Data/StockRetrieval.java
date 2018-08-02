@@ -16,6 +16,15 @@ public class StockRetrieval {
     private int itemsRetrieved;
     private String collectionPointDescription;
 
+    public StockRetrieval(String stockRetrievalId, int stockDisbursed) {
+        this.stockRetrievalId = stockRetrievalId;
+        this.stockDisbursed = stockDisbursed;
+    }
+
+    //2 results just for stockretrievalid and whether all is disbursed
+    private String stockRetrievalId;
+    private int stockDisbursed;
+
     private static String host = "http://172.17.191.74/adtest2";
 
     public StockRetrieval(int binNumber, String binLocation, String itemDescription, int itemsRetrieved, String collectionPointDescription){
@@ -26,19 +35,25 @@ public class StockRetrieval {
         this.collectionPointDescription = collectionPointDescription;
     }
 
-    public static String getLatestStockRetrievalid(){
-        String stockRetrievalId = null;
+    public static StockRetrieval getLatestStockRetrievalid(){
+//        String stockRetrievalId = null;
+
+        StockRetrieval stockRetrieval = null;
 
         try{
 
             JSONObject jsonObject = JSONParser.getJSONFromUrl(host + "/api/Restful/GetLatestStockRetrievalId");
 
-            stockRetrievalId = jsonObject.getString("ID");
+            String dataStockRetrievalId = jsonObject.getString("ID");
+            int dataStockDisbursed = jsonObject.getInt("Disbursed");
+
+            //Just for getting the id and disbursed status
+            stockRetrieval = new StockRetrieval(dataStockRetrievalId, dataStockDisbursed);
 
         }catch (Exception e) {
         }
 
-        return stockRetrievalId;
+        return stockRetrieval;
 
     }
 
@@ -121,5 +136,22 @@ public class StockRetrieval {
     public void setCollectionPointDescription(String collectionPointDescription) {
         this.collectionPointDescription = collectionPointDescription;
     }
+
+    public String getStockRetrievalId() {
+        return stockRetrievalId;
+    }
+
+    public void setStockRetrievalId(String stockRetrievalId) {
+        this.stockRetrievalId = stockRetrievalId;
+    }
+
+    public int getStockDisbursed() {
+        return stockDisbursed;
+    }
+
+    public void setStockDisbursed(int stockDisbursed) {
+        this.stockDisbursed = stockDisbursed;
+    }
+
 
 }
