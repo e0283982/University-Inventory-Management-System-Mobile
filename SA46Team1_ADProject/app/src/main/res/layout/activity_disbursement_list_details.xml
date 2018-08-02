@@ -139,6 +139,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm Delivery"
+        android:background="@color/colorGreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_editor_absoluteX="147dp"

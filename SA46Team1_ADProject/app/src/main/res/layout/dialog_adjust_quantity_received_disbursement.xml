@@ -57,6 +57,7 @@
         app:layout_constraintTop_toBottomOf="@id/spinner_dialog_adjust_qty_received"
         app:layout_constraintLeft_toLeftOf="@id/spinner_dialog_adjust_qty_received"
         android:text="Submit"
+        android:background="@color/colorGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

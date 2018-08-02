@@ -6,5 +6,5 @@
     <color name="QRCodeBlackColor">#000000</color>
     <color name="QRCodeWhiteColor">#FFFFFF</color>
     <color name="LoginBackground">#ffffff</color>
-    <color name="LoginButton">#6AB187</color>
+    <color name="colorGreen">#6AB187</color>
 </resources>
