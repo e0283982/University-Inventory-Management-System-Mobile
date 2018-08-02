@@ -41,8 +41,6 @@ public class CollectionListRepDetailsActivity extends AppBaseDepartmentActivity 
         progressBar = findViewById(R.id.progressbar_disbursement_list_detail_rep);
 
         new MyTask().execute(disbursementId);
-
-
     }
 
     private class MyTask extends AsyncTask<String, Void, List<DisbursementListDetail>> {
