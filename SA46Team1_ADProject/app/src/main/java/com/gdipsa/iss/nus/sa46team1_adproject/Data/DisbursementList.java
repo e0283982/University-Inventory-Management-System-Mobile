@@ -71,6 +71,52 @@ public class DisbursementList {
 
     }
 
+
+    public static List<DisbursementList> listCollectionList(String departmentChosen){
+
+        List<DisbursementList> list = new ArrayList<DisbursementList>();
+
+        try {
+            JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetDisbursementList");
+
+            JSONObject jsonObject;
+
+            String dataDisbursementId;
+            String dataDateStr;
+            String dataDepartmentName;
+            String dataStatus;
+            String dataCollectionPointDescription;
+            String dataRepresentativeName;
+
+
+            for (int i=0; i<jsonArray.length(); i++) {
+
+                jsonObject = jsonArray.getJSONObject(i);
+
+                dataDisbursementId = jsonObject.getString("Id");
+                dataDateStr = jsonObject.getString("Date");
+                dataDepartmentName = jsonObject.getString("DepartmentName");
+                dataStatus = jsonObject.getString("Status");
+                dataCollectionPointDescription = jsonObject.getString("CollectionPointDescription");
+                dataRepresentativeName = jsonObject.getString("RepresentativeName");
+
+                DisbursementList disbursementList = new DisbursementList(dataDisbursementId, dataDateStr, dataDepartmentName, dataStatus, dataCollectionPointDescription, dataRepresentativeName);
+
+                if (dataStatus.equals("Open") && dataDepartmentName.equals(departmentChosen)){
+                    list.add(disbursementList);
+                }
+
+
+            }
+        } catch (Exception e) {
+        }
+
+        return list;
+
+    }
+
+
+
     //Getter and Setter
     public String getDateStr() {
         return dateStr;

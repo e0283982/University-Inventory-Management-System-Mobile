@@ -29,7 +29,6 @@ public class DepartmentRepQRCodeActivity extends AppBaseDepartmentActivity {
 
         imageView = (ImageView)findViewById(R.id.imageView_department_rep_qr_code);
 
-        //TODO
         //key is SSIS + employeeName
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String employeeName = pref.getString("EmployeeName", "Employee Name");
