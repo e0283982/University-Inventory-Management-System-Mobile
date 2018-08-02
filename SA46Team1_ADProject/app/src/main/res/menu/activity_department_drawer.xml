@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_select_all_black_24dp"
             android:title="Department Requisition" />
         <item
+            android:id="@+id/nav_department_rep_collection_list"
+            android:icon="@drawable/ic_collections_black_24dp"
+            android:title="Collection List" />
+        <item
             android:id="@+id/nav_department_rep_qr_code"
             android:icon="@drawable/ic_code_black_24dp"
             android:title="My QR Code" />

@@ -139,6 +139,11 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
             Intent intent = new Intent(this, RequisitionHistoryActivity.class);
             startActivity(intent);
 
+        } else if (id == R.id.nav_department_rep_collection_list) {
+
+            Intent intent = new Intent(this, CollectionListRepActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_department_rep_req_history) {
 
             Intent intent = new Intent(this, DepartmentRepRequisitionHistoryActivity.class);

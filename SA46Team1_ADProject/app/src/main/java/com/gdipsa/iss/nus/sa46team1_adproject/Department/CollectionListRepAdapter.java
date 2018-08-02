@@ -1,4 +1,4 @@
-package com.gdipsa.iss.nus.sa46team1_adproject;
+package com.gdipsa.iss.nus.sa46team1_adproject.Department;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,20 +9,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.gdipsa.iss.nus.sa46team1_adproject.Data.CollectionPoint;
 import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementList;
+import com.gdipsa.iss.nus.sa46team1_adproject.DisbursementListDepartmentAdapter;
+import com.gdipsa.iss.nus.sa46team1_adproject.DisbursementListDetailsActivity;
+import com.gdipsa.iss.nus.sa46team1_adproject.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<DisbursementListDepartmentAdapter.DisbursementListDepartmentViewHolder>{
+public class CollectionListRepAdapter extends RecyclerView.Adapter<CollectionListRepAdapter.CollectionListRepViewHolder>{
 
     private LayoutInflater mInflater;
     List<DisbursementList> mDisbursementList;
 
-    class DisbursementListDepartmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class CollectionListRepViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView dateDisbursementDepartmentTextView;
         private TextView disbursementDepartmentDescriptionTextView;
@@ -34,7 +37,7 @@ public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<Disb
         private String disbursementDepartment;
         private String disbursementRepName;
 
-        public DisbursementListDepartmentViewHolder(View itemView) {
+        public CollectionListRepViewHolder(View itemView) {
             super(itemView);
 
             disbursementIdTextView = itemView.findViewById(R.id.textView_disbursement_id);
@@ -51,7 +54,7 @@ public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<Disb
 
             Context context = v.getContext();
 
-            Intent intent = new Intent(context, DisbursementListDetailsActivity.class);
+            Intent intent = new Intent(context, CollectionListRepDetailsActivity.class);
             intent.putExtra("DisbursementId", disbursementId);
             intent.putExtra("DisbursementDate", disbursementDate);
             intent.putExtra("DisbursementDepartment", disbursementDepartment);
@@ -60,9 +63,10 @@ public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<Disb
             ((Activity) context).startActivity(intent);
 
         }
+
     }
 
-    public DisbursementListDepartmentAdapter(Context context, List<DisbursementList> mDisbursementList){
+    public CollectionListRepAdapter(Context context, List<DisbursementList> mDisbursementList){
         mInflater = LayoutInflater.from(context);
         this.mDisbursementList = mDisbursementList;
     }
@@ -70,13 +74,13 @@ public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<Disb
 
     @NonNull
     @Override
-    public DisbursementListDepartmentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CollectionListRepViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.recyclerview_disbursement_department, parent, false);
-        return new DisbursementListDepartmentViewHolder(itemView);
+        return new CollectionListRepAdapter.CollectionListRepViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DisbursementListDepartmentViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CollectionListRepViewHolder holder, int position) {
 
         DisbursementList current = mDisbursementList.get(position);
 
@@ -112,5 +116,5 @@ public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<Disb
 
 
 
-
 }
+

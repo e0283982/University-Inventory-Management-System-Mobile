@@ -13,9 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".RetrievalListActivity"
-            android:launchMode="singleTask">
-
-        </activity>
+            android:launchMode="singleTask" />
         <activity
             android:name=".DescriptionSearchActivity"
             android:launchMode="singleTask" />
@@ -23,8 +21,9 @@
         <activity
             android:name=".QRCodeSearchActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".StockAdjustmentActivity"
-            android:theme="@style/Theme.AppCompat.Dialog.Alert"/>
+        <activity
+            android:name=".StockAdjustmentActivity"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert" />
         <activity
             android:name=".DisbursementListActivity"
             android:launchMode="singleTask" />
@@ -38,19 +37,23 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".Department.RequisitionHistoryActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity android:name=".Department.RequisitionHistoryDetailsActivity" />
         <activity android:name=".Department.DepartmentRepQRCodeActivity" />
         <activity
             android:name=".Department.DepartmentRepRequisitionHistoryActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Notitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Department.CollectionListRepActivity" />
+        <activity android:name=".Department.CollectionListRepDetailsActivity"></activity>
     </application>
+
 </manifest>

@@ -107,7 +107,7 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
         }
     }
 
-    DisbursementListDetailsAdapter(Context context, List<DisbursementListDetail> mDisbursementListDetails){
+    public DisbursementListDetailsAdapter(Context context, List<DisbursementListDetail> mDisbursementListDetails){
         mInflater = LayoutInflater.from(context);
         this.mDisbursementListDetails = mDisbursementListDetails;
     }
