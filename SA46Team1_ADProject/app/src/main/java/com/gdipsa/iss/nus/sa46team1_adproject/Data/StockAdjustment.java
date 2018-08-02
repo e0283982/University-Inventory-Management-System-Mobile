@@ -12,7 +12,7 @@ public class StockAdjustment {
     private String remarks;
     private String stockRetrievalId;
 
-    private static String host = "http://192.168.1.3/adtest2";
+    private static String host = "http://172.17.191.74/adtest2";
 
     public StockAdjustment(String requestorId, String itemDescription, int adjustedQuantity, String remarks, String stockRetrievalId) {
         this.requestorId = requestorId;
@@ -34,8 +34,8 @@ public class StockAdjustment {
 
         } catch (Exception e) {
         }
-        String result = JSONParser.postStream(host + "/api/Restful/CreateNewStockAdjustment", jStockAdjustment.toString());
 
+        String result = JSONParser.postStream(host + "/api/Restful/CreateNewStockAdjustment", jStockAdjustment.toString());
     }
 
 

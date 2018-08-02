@@ -20,7 +20,7 @@ public class Item {
     private String supplier3;
     private int active;
 
-    private static String host = "http://192.168.1.3/adtest2";
+    private static String host = "http://172.17.191.74/adtest2";
 
     public Item(String itemCode, String category, String description, int quantity, String UoM, String supplier1, String supplier2, String supplier3, int active) {
         this.itemCode = itemCode;

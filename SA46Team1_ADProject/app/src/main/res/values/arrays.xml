@@ -7,7 +7,9 @@
 
     <string-array name="status_filter">
         <item>All</item>
-        <item>Disbursed</item>
         <item>Completed</item>
+        <item>Open</item>
+        <item>Outstanding</item>
     </string-array>
+    
 </resources>

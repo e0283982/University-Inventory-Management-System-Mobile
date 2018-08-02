@@ -15,7 +15,7 @@ public class StaffRequisitionHeader {
     private String approvalStatus;
     private String status;
 
-    private static String host = "http://192.168.1.3/adtest2";
+    private static String host = "http://172.17.191.74/adtest2";
 
     public StaffRequisitionHeader(String requisitionFormId, String dateRequestedStr, String approvalStatus, String status) {
         this.requisitionFormId = requisitionFormId;
