@@ -62,7 +62,6 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="88dp" />
 
-
     <Button
         android:id="@+id/button_dialog_new_requisition_submit"
         android:layout_marginTop="24dp"

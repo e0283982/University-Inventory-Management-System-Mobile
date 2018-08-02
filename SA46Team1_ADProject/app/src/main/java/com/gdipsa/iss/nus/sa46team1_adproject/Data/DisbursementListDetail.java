@@ -94,9 +94,6 @@ public class DisbursementListDetail {
         String result = JSONParser.postStream(host + "/api/Restful/updatedisbursement", jDisbursementDetail.toString());
     }
 
-
-
-
     //Getter and setter
     public String getDisbursementId() {
         return disbursementId;

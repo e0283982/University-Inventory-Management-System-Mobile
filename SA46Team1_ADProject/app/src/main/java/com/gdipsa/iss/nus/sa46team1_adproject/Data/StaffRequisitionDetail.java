@@ -10,8 +10,6 @@ import java.util.List;
 
 public class StaffRequisitionDetail {
 
-//    private String formId;
-
     private String itemDescription;
     private String itemUoM;
     private int qtyOrdered;
@@ -109,15 +107,6 @@ public class StaffRequisitionDetail {
     public void setQtyBackOrdered(int qtyBackOrdered) {
         this.qtyBackOrdered = qtyBackOrdered;
     }
-
-
-
-
-
-
-
-
-
 
 
 }

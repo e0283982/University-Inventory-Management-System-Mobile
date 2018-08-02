@@ -113,8 +113,6 @@ public class Item {
         } catch (Exception e) {
         }
         return list;
-
-
     }
 
     //Getter and setter
@@ -189,6 +187,5 @@ public class Item {
     public void setActive(int active) {
         this.active = active;
     }
-
 
 }

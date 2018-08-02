@@ -38,7 +38,6 @@ public class StockAdjustment {
         String result = JSONParser.postStream(host + "/api/Restful/CreateNewStockAdjustment", jStockAdjustment.toString());
     }
 
-
     //Getter and Setter
     public String getRequestorId() {
         return requestorId;
@@ -79,9 +78,5 @@ public class StockAdjustment {
     public void setStockRetrievalId(String stockRetrievalId) {
         this.stockRetrievalId = stockRetrievalId;
     }
-
-
-
-
 
 }

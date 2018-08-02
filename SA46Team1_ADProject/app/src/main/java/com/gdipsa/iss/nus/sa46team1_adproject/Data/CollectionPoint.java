@@ -66,9 +66,6 @@ public class CollectionPoint {
 
     }
 
-
-
-
     //Getter and setter
     public String getCollectionPointId() {
         return collectionPointId;

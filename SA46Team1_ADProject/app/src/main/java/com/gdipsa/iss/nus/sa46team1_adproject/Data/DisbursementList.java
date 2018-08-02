@@ -115,8 +115,6 @@ public class DisbursementList {
 
     }
 
-
-
     //Getter and Setter
     public String getDateStr() {
         return dateStr;

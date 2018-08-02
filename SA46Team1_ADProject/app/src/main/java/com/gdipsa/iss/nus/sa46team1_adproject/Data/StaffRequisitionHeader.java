@@ -71,8 +71,6 @@ public class StaffRequisitionHeader {
 
         try {
 
-//           JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetRequisitionHistoryDepartmentRep/" + departmentId);
-
             JSONArray jsonArray = JSONParser.getJSONArrayFromUrl(host + "/api/Restful/GetStaffRequisitionHeader");
 
             JSONObject jsonObject;
@@ -99,9 +97,6 @@ public class StaffRequisitionHeader {
                 if (dataDepartmentCode.equals(departmentId)){
                     list.add(staffRequisitionHeader);
                 }
-
-
-
             }
         } catch (Exception e) {
         }
@@ -109,9 +104,6 @@ public class StaffRequisitionHeader {
         return list;
 
     }
-
-
-
 
     //Getter and setter
     public String getRequisitionFormId() {
@@ -145,9 +137,5 @@ public class StaffRequisitionHeader {
     public void setStatus(String status) {
         this.status = status;
     }
-
-
-
-
 
 }

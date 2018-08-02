@@ -28,7 +28,6 @@ public class DepartmentDetails {
         this.collectionPointName = collectionPointName;
     }
 
-
     public static List<DepartmentDetails> departmentDetailsList(){
 
         List<DepartmentDetails> list = new ArrayList<DepartmentDetails>();
@@ -66,9 +65,6 @@ public class DepartmentDetails {
         return list;
 
     }
-
-
-
 
     //Getter and Setter
     public String getDepartmentName() {
@@ -118,9 +114,5 @@ public class DepartmentDetails {
     public void setCollectionPointName(String collectionPointName) {
         this.collectionPointName = collectionPointName;
     }
-
-
-
-
 
 }

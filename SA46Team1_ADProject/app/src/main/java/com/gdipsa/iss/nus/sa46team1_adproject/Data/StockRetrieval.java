@@ -36,8 +36,6 @@ public class StockRetrieval {
     }
 
     public static StockRetrieval getLatestStockRetrievalid(){
-//        String stockRetrievalId = null;
-
         StockRetrieval stockRetrieval = null;
 
         try{
@@ -93,9 +91,7 @@ public class StockRetrieval {
 
 
     }
-
-
-
+    
     //Getter and setter
     public String getItemDescription() {
         return itemDescription;
