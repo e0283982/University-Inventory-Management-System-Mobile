@@ -48,23 +48,17 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
 
         @Override
         public void onClick(View v) {
-
             Context context = v.getContext();
-
             Intent intent = new Intent(context, RequisitionHistoryDetailsActivity.class);
             intent.putExtra("RequisitionFormId", reqFormId);
-
             ((Activity) context).startActivity(intent);
-
         }
     }
-
 
     RequisitionHistoryAdapter(Context context, List<StaffRequisitionHeader> mStaffRequisitionHeaderList){
         mInflater = LayoutInflater.from(context);
         this.mStaffRequisitionHeaderList = mStaffRequisitionHeaderList;
     }
-
 
     @NonNull
     @Override
@@ -77,10 +71,8 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
     public void onBindViewHolder(@NonNull RequisitionHistoryViewHolder holder, int position) {
 
         StaffRequisitionHeader current = mStaffRequisitionHeaderList.get(position);
-
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
-
         Date date = null;
 
         try{
@@ -104,8 +96,5 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
             return mStaffRequisitionHeaderList.size();
         else return 0;
     }
-
-
-
 
 }

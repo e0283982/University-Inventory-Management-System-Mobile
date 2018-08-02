@@ -62,13 +62,8 @@ public class DescriptionSearchAdapter extends RecyclerView.Adapter<DescriptionSe
             intent.putExtra("Supplier2", supplier2);
             intent.putExtra("Supplier3", supplier3);
             intent.putExtra("Active", active);
-
             ((Activity) context).startActivity(intent);
-
         }
-
-
-
     }
 
     DescriptionSearchAdapter(Context context, List<Item> mItems){
@@ -100,8 +95,6 @@ public class DescriptionSearchAdapter extends RecyclerView.Adapter<DescriptionSe
         holder.supplier2 = current.getSupplier2();
         holder.supplier3 = current.getSupplier3();
         holder.active = current.getActive();
-
-
     }
 
     @Override
@@ -128,8 +121,5 @@ public class DescriptionSearchAdapter extends RecyclerView.Adapter<DescriptionSe
 
         notifyDataSetChanged();
     }
-
-
-
 
 }

@@ -36,7 +36,6 @@ public class DescriptionSearchActivity extends AppBaseActivity implements Search
         editsearch.setOnQueryTextListener(this);
 
         new MyTask().execute();
-
     }
 
     @Override

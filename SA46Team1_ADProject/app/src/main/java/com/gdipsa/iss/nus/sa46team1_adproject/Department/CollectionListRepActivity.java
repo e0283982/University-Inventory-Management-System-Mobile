@@ -37,27 +37,11 @@ public class CollectionListRepActivity extends AppBaseDepartmentActivity {
         mRecyclerViewDisbursementRepListDepartment = findViewById(R.id.recycler_view_disbursement_list_rep);
         progressBar = findViewById(R.id.progressbar_disbursement_list_rep);
 
-        //Temporary Data
-//        List<DisbursementList> result = new ArrayList<DisbursementList>();
-//        DisbursementList disbursementList = new DisbursementList("DH-074", "2018-08-02T00:00:00", "Registrar Dept", "Open", "University Hospital", "Edwin Teo");
-//        result.add(disbursementList);
-//
-//        progressBar.setVisibility(View.GONE);
-//        adapter = new CollectionListRepAdapter(CollectionListRepActivity.this, result);
-//        mRecyclerViewDisbursementRepListDepartment.setAdapter(adapter);
-//        mRecyclerViewDisbursementRepListDepartment.setLayoutManager(new LinearLayoutManager(CollectionListRepActivity.this));
-
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         employeeDeptCode = pref.getString("DepartmentCode", "Department Code");
 
         new DepartmentDetailsTask().execute();
-
-
-//        new MyTask().execute(collectionPoint);
-
     }
-
-
 
     private class MyTask extends AsyncTask<String, Void, List<DisbursementList>> {
         @Override
@@ -97,15 +81,7 @@ public class CollectionListRepActivity extends AppBaseDepartmentActivity {
 
             new MyTask().execute(collectionPoint);
 
-
-
-
-
         }
     }
-
-
-
-
 
 }

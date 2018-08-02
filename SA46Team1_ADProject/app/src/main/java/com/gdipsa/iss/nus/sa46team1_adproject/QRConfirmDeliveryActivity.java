@@ -26,10 +26,7 @@ public class QRConfirmDeliveryActivity extends AppCompatActivity {
         employeeQRCodeValue = "SSIS" + repName;
 
         captureQRCode();
-
     }
-
-
 
     public void captureQRCode(){
         Intent intent = new Intent("la.droid.qr.scan");
@@ -41,7 +38,6 @@ public class QRConfirmDeliveryActivity extends AppCompatActivity {
                     Uri.parse("market://details?id=la.droid.qr.priva")));
         }
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -55,10 +51,8 @@ public class QRConfirmDeliveryActivity extends AppCompatActivity {
 
                     if (res.equals(employeeQRCodeValue)){
                         replyIntent.putExtra("QRStatus", "Success");
-//                        Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_SHORT).show();
                     } else{
                         replyIntent.putExtra("QRStatus", "Failure");
-//                        Toast.makeText(getApplicationContext(), "Invalid QR Code", Toast.LENGTH_SHORT).show();
                     }
 
                     setResult(RESULT_OK, replyIntent);

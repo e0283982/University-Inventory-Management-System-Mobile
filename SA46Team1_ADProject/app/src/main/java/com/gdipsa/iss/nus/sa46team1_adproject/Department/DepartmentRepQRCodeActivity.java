@@ -43,11 +43,7 @@ public class DepartmentRepQRCodeActivity extends AppBaseDepartmentActivity {
         } catch (WriterException e) {
             e.printStackTrace();
         }
-
-
-
     }
-
 
     Bitmap TextToImageEncode(String Value) throws WriterException {
         BitMatrix bitMatrix;
@@ -82,8 +78,5 @@ public class DepartmentRepQRCodeActivity extends AppBaseDepartmentActivity {
         bitmap.setPixels(pixels, 0, 500, 0, 0, bitMatrixWidth, bitMatrixHeight);
         return bitmap;
     }
-
-
-
 
 }

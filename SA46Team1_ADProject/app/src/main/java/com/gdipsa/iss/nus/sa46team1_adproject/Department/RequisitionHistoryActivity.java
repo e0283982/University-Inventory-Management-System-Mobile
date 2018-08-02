@@ -50,7 +50,6 @@ public class RequisitionHistoryActivity extends AppBaseDepartmentActivity {
         new MyTask().execute(requestorId);
 
         filterSpinner = findViewById(R.id.spinner_requisition_history_status_filter);
-
     }
 
     private class MyTask extends AsyncTask<String, Void, List<StaffRequisitionHeader>> {

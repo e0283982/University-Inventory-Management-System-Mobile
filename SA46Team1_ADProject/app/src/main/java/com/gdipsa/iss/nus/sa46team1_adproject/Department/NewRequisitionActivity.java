@@ -29,7 +29,7 @@ import java.util.List;
 public class NewRequisitionActivity extends AppBaseDepartmentActivity {
 
     List<Item> mItemList;
-    private int maxNewItemQuantity = 50;
+    private int maxNewItemQuantity = 200;
 
     FloatingActionButton fab;
 
@@ -117,7 +117,6 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
 
                         }
 
-
                         newRequisitionList.add(newRequisition);
 
                         adapter.notifyDataSetChanged();
@@ -159,11 +158,8 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
         }
         @Override
         protected void onPostExecute(List<Item> result) {
-
             mItemList = result;
-
             fab.setEnabled(true);
-
         }
     }
 
@@ -185,10 +181,5 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
         }
 
     }
-
-
-
-
-
 
 }

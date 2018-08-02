@@ -26,7 +26,6 @@ import com.gdipsa.iss.nus.sa46team1_adproject.RetrievalListActivity;
 
 public class AppBaseDepartmentActivity extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
 
-
     private FrameLayout view_stub;
     private NavigationView navigation_view;
     private DrawerLayout mDrawerLayout;
@@ -36,7 +35,7 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContentView(R.layout.activity_app_department_base);// The base layout that contains your navigation drawer.
+        super.setContentView(R.layout.activity_app_department_base);
         view_stub = (FrameLayout) findViewById(R.id.view_department_stub);
         navigation_view = (NavigationView) findViewById(R.id.navigation_department_view);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.department_drawer_layout);
@@ -81,9 +80,6 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-    /* Override all setContentView methods to put the content view to the FrameLayout view_stub
-     * so that, we can make other activity implementations looks like normal activity subclasses.
-     */
     @Override
     public void setContentView(int layoutResID) {
         if (view_stub != null) {
@@ -115,13 +111,9 @@ public class AppBaseDepartmentActivity extends AppCompatActivity implements Menu
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Pass the event to ActionBarDrawerToggle, if it returns
-        // true, then it has handled the app icon touch event
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        // Handle your other action bar items...
-
         return super.onOptionsItemSelected(item);
     }
 

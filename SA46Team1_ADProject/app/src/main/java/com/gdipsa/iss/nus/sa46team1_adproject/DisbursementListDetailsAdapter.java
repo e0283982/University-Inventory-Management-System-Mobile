@@ -49,8 +49,6 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
             disbursementDetailQtyRecTextView= itemView.findViewById(R.id.textView_disbursement_detail_quantity_received);
 
             itemView.setOnClickListener(this);
-
-
         }
 
         @Override
@@ -100,10 +98,7 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
                 }
             });
 
-
-
             dialog.show();
-
         }
     }
 
@@ -111,7 +106,6 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
         mInflater = LayoutInflater.from(context);
         this.mDisbursementListDetails = mDisbursementListDetails;
     }
-
 
     @NonNull
     @Override
@@ -134,7 +128,6 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
         holder.qtyReceived = current.getQtyReceived();
 
         holder.currentPosition = position;
-
     }
 
     @Override
@@ -143,8 +136,4 @@ public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<Disburs
             return mDisbursementListDetails.size();
         else return 0;
     }
-
-
-
-
 }

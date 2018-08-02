@@ -73,6 +73,4 @@ public class RequisitionHistoryDetailsAdapter extends RecyclerView.Adapter<Requi
         else return 0;
     }
 
-
-
 }

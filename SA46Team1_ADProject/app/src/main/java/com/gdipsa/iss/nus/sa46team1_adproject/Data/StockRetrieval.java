@@ -91,7 +91,7 @@ public class StockRetrieval {
 
 
     }
-    
+
     //Getter and setter
     public String getItemDescription() {
         return itemDescription;

@@ -32,7 +32,6 @@ public class QRCodeSearchActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressbar_qrcode_search);
 
         captureQRCode();
-
     }
 
     @Override
@@ -79,7 +78,6 @@ public class QRCodeSearchActivity extends AppCompatActivity {
                 finish();
             }
         }
-
 
     }
 

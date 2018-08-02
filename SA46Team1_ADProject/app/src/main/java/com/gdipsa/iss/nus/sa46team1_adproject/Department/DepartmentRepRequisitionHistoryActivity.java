@@ -92,8 +92,6 @@ public class DepartmentRepRequisitionHistoryActivity extends AppBaseDepartmentAc
                     mRecyclerViewRequisitionHistory.setAdapter(adapter);
                     mRecyclerViewRequisitionHistory.setLayoutManager(new LinearLayoutManager(DepartmentRepRequisitionHistoryActivity.this));
 
-
-
                 }
 
                 @Override

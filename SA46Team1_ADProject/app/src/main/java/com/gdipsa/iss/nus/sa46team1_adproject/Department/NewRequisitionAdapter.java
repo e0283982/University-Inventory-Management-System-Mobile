@@ -27,7 +27,7 @@ public class NewRequisitionAdapter extends RecyclerView.Adapter<NewRequisitionAd
     private LayoutInflater mInflater;
     List<NewRequisition> mNewRequisitionList;
 
-    private int maxNewItemQuantity = 50;
+    private int maxNewItemQuantity = 200;
 
     class NewRequisitionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -100,22 +100,14 @@ public class NewRequisitionAdapter extends RecyclerView.Adapter<NewRequisitionAd
                 }
             });
 
-
             dialog.show();
-
-
-
         }
-
-
     }
-
 
     NewRequisitionAdapter(Context context, List<NewRequisition> mNewRequisitionList){
         mInflater = LayoutInflater.from(context);
         this.mNewRequisitionList = mNewRequisitionList;
     }
-
 
     @NonNull
     @Override
@@ -146,10 +138,5 @@ public class NewRequisitionAdapter extends RecyclerView.Adapter<NewRequisitionAd
             return mNewRequisitionList.size();
         else return 0;
     }
-
-
-
-
-
 
 }

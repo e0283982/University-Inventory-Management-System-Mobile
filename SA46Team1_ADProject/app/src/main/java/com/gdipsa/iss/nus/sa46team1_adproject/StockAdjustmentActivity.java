@@ -39,7 +39,6 @@ public class StockAdjustmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stock_adjustment);
 
         setTitle("Stock Adjustment");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         itemAdjustedTextView = findViewById(R.id.textView_stock_adjustment_item_description);
         quantityAdjustedSpinner = findViewById(R.id.spinner_stock_adjustment_quantity_adjusted);
@@ -100,13 +99,8 @@ public class StockAdjustmentActivity extends AppCompatActivity {
 
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
-
             }
         });
-
-
-//        Toast.makeText(getApplicationContext(), data.getStringExtra("StockRetrievalId"), Toast.LENGTH_SHORT).show();
-
 
     }
 
@@ -136,23 +130,5 @@ public class StockAdjustmentActivity extends AppCompatActivity {
 
         }
     }
-
-
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//        int id = item.getItemId();
-//
-//        switch (id){
-//
-//            case android.R.id.home:
-//                NavUtils.navigateUpFromSameTask(StockAdjustmentActivity.this);
-//                return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
 
 }

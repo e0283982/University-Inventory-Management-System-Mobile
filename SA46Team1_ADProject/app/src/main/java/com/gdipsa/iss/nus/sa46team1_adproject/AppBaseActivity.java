@@ -27,7 +27,7 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContentView(R.layout.activity_app_base);// The base layout that contains your navigation drawer.
+        super.setContentView(R.layout.activity_app_base);
         view_stub = (FrameLayout) findViewById(R.id.view_stub);
         navigation_view = (NavigationView) findViewById(R.id.navigation_view);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -40,7 +40,7 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);
         }
 
-        //Change the employee and employee email
+        //Change the employee and employee email nav header
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         View headerView = navigation_view.getHeaderView(0);
@@ -49,10 +49,6 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
 
         TextView employeeEmailTextView = headerView.findViewById(R.id.textView_employee_email_nav_header_main);
         employeeEmailTextView.setText(pref.getString("EmployeeEmail", "Employee Email"));
-
-
-
-
 
     }
 
@@ -68,9 +64,6 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-    /* Override all setContentView methods to put the content view to the FrameLayout view_stub
-     * so that, we can make other activity implementations looks like normal activity subclasses.
-     */
     @Override
     public void setContentView(int layoutResID) {
         if (view_stub != null) {
@@ -102,12 +95,9 @@ public abstract class AppBaseActivity extends AppCompatActivity implements MenuI
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Pass the event to ActionBarDrawerToggle, if it returns
-        // true, then it has handled the app icon touch event
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        // Handle your other action bar items...
 
         return super.onOptionsItemSelected(item);
     }

@@ -41,15 +41,10 @@ public class DisbursementListAdapter extends RecyclerView.Adapter<DisbursementLi
 
         @Override
         public void onClick(View v) {
-
             Context context = v.getContext();
-
             Intent intent = new Intent(context, DisbursementListDepartmentActivity.class);
             intent.putExtra("CollectionPointDescription", collectionPointDescription);
-
             ((Activity) context).startActivity(intent);
-
-
         }
     }
 
@@ -84,8 +79,4 @@ public class DisbursementListAdapter extends RecyclerView.Adapter<DisbursementLi
             return mCollectionPointList.size();
         else return 0;
     }
-
-
-
-
 }

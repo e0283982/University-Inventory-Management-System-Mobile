@@ -99,6 +99,4 @@ public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdap
         else return 0;
     }
 
-
-
 }

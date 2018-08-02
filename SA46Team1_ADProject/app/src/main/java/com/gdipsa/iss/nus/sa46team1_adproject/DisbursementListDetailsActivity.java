@@ -76,7 +76,7 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
 
                 if (data.getStringExtra("QRStatus").equals("Success")){
 
-                    Toast.makeText(getApplicationContext(), "Validation Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Validation Successful", Toast.LENGTH_SHORT).show();
 
                     for(DisbursementListDetail dld : disbursementDetailsList){
                         if (dld.getQtyAdjusted() > 0){
@@ -90,10 +90,6 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
                         DisbursementListDetail disbursementListDetail = disbursementDetailsList.get(i);
                         new UpdateDisbursementTask().execute(disbursementListDetail);
                     }
-
-//                    for(DisbursementListDetail dld : disbursementDetailsList){
-//                        new UpdateDisbursementTask().execute(dld);
-//                    }
 
                 } else{
                     Toast.makeText(getApplicationContext(), "Validation Failure", Toast.LENGTH_SHORT).show();
@@ -109,10 +105,7 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-
     }
-
-
 
     private class MyTask extends AsyncTask<String, Void, List<DisbursementListDetail>> {
         @Override
@@ -150,22 +143,6 @@ public class DisbursementListDetailsActivity extends AppBaseActivity {
 
         }
 
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
