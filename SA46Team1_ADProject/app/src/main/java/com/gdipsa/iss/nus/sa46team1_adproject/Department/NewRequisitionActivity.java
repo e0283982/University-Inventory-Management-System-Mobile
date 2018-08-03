@@ -134,6 +134,11 @@ public class NewRequisitionActivity extends AppBaseDepartmentActivity {
             @Override
             public void onClick(View v) {
 
+                if(newRequisitionList.size() == 0){
+                    Toast.makeText(getApplicationContext(), "Requisition list is empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 for(int i = 0; i < newRequisitionList.size(); i++){
                     NewRequisition newRequisition = newRequisitionList.get(i);
                     newRequisition.setRequisitionSize(newRequisitionList.size());
