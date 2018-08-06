@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DisbursementListDetail {
 
-    private static String host = "http://172.17.191.74/adtest2";
+    private static String host = "http://172.17.190.9/adtest2";
 
     private String disbursementId;
     private String itemDescription;

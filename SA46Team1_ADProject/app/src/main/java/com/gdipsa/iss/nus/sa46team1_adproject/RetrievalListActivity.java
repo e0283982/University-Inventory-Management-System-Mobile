@@ -111,10 +111,13 @@ public class RetrievalListActivity extends AppBaseActivity {
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
+                else {
+                    stoRetId = stockRetrieval.getStockRetrievalId();
 
-                stoRetId = stockRetrieval.getStockRetrievalId();
+                    new MyTask().execute(stockRetrieval.getStockRetrievalId());
+                }
 
-                new MyTask().execute(stockRetrieval.getStockRetrievalId());
+
             }
         }.execute();
 

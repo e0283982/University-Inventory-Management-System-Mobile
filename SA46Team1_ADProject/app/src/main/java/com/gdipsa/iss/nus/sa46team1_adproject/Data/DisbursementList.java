@@ -17,7 +17,7 @@ public class DisbursementList {
     private String collectionPointDescription;
     private String representativeName;
 
-    private static String host = "http://172.17.191.74/adtest2";
+    private static String host = "http://172.17.190.9/adtest2";
 
     public DisbursementList(String disbursementId, String dateStr, String departmentName, String status, String collectionPointDescription, String representativeName) {
         this.disbursementId = disbursementId;

@@ -17,7 +17,7 @@ public class DepartmentDetails {
     private String faxNo;
     private String collectionPointName;
 
-    private static String host = "http://172.17.191.74/adtest2";
+    private static String host = "http://172.17.190.9/adtest2";
 
     public DepartmentDetails(String departmentName, String departmentCode, String contactName, String telephoneNo, String faxNo, String collectionPointName) {
         this.departmentName = departmentName;
