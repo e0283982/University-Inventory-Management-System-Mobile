@@ -16,6 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class DescriptionSearchAdapter extends RecyclerView.Adapter<DescriptionSearchAdapter.DescriptionSearchViewHolder> {
 
     private LayoutInflater mInflater;

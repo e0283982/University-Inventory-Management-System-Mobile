@@ -26,6 +26,10 @@ import com.gdipsa.iss.nus.sa46team1_adproject.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class NewRequisitionActivity extends AppBaseDepartmentActivity {
 
     List<Item> mItemList;

@@ -16,6 +16,10 @@ import com.gdipsa.iss.nus.sa46team1_adproject.R;
 
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class CollectionListRepDetailsActivity extends AppBaseDepartmentActivity {
 
     private RecyclerView mRecyclerViewDisbursementListRepDetails;

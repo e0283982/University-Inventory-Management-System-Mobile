@@ -15,6 +15,10 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class DepartmentRepQRCodeActivity extends AppBaseDepartmentActivity {
 
     ImageView imageView;

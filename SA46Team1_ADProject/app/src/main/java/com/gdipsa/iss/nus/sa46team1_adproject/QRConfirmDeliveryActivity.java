@@ -8,6 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class QRConfirmDeliveryActivity extends AppCompatActivity {
 
     public static final int CAPTURE_QRCODE = 1;

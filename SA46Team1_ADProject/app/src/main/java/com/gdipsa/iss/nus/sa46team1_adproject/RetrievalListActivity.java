@@ -19,6 +19,9 @@ import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockRetrieval;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
 
 public class RetrievalListActivity extends AppBaseActivity {
 

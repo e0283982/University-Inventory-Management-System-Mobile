@@ -15,6 +15,10 @@ import com.gdipsa.iss.nus.sa46team1_adproject.Data.DisbursementList;
 
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class DisbursementListDepartmentActivity extends AppBaseActivity {
 
     private RecyclerView mRecyclerViewDisbursementListDepartment;

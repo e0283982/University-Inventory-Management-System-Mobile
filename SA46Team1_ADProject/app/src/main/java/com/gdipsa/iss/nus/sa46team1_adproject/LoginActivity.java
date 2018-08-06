@@ -22,6 +22,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
+/**
+ * Created by Chirag Shetty
+ */
+
 public class LoginActivity extends AppCompatActivity {
     EditText username;
     EditText password;

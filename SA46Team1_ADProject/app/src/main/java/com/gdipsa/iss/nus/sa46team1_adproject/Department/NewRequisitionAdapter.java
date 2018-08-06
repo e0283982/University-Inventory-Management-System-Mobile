@@ -22,6 +22,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class NewRequisitionAdapter extends RecyclerView.Adapter<NewRequisitionAdapter.NewRequisitionViewHolder> {
 
     private LayoutInflater mInflater;

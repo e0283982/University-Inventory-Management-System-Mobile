@@ -15,6 +15,10 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class JSONParser {
 
     public static String readStream(InputStream is) {

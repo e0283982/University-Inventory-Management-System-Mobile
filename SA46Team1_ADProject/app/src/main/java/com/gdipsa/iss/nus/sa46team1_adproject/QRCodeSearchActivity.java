@@ -17,6 +17,10 @@ import com.gdipsa.iss.nus.sa46team1_adproject.Data.Item;
 
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class QRCodeSearchActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;

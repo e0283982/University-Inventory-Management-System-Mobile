@@ -17,6 +17,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public abstract class AppBaseActivity extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
     private FrameLayout view_stub;
     private NavigationView navigation_view;

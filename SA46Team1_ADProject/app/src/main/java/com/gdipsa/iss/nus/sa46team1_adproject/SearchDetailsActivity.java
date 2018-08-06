@@ -12,6 +12,10 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class SearchDetailsActivity extends AppBaseActivity {
 
     private TextView itemCodeTextView;

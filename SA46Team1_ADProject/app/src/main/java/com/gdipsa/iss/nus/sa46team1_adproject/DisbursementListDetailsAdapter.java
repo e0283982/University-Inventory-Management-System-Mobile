@@ -22,6 +22,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class DisbursementListDetailsAdapter extends RecyclerView.Adapter<DisbursementListDetailsAdapter.DisbursementListDetailsViewHolder>{
 
     private LayoutInflater mInflater;

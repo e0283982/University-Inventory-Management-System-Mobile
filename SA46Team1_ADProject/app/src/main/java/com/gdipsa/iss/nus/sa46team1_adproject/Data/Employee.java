@@ -18,6 +18,10 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
+/**
+ * Created by Chirag Shetty
+ */
+
 public class Employee {
 
     private String email;

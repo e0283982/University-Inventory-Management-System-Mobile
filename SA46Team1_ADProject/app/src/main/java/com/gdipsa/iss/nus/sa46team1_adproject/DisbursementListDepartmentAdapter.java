@@ -17,6 +17,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class DisbursementListDepartmentAdapter extends RecyclerView.Adapter<DisbursementListDepartmentAdapter.DisbursementListDepartmentViewHolder>{
 
     private LayoutInflater mInflater;

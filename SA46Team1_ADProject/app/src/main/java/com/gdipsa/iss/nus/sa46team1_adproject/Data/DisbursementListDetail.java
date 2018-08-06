@@ -12,6 +12,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class DisbursementListDetail {
 
     private static String host = "http://172.17.190.9/adtest2";

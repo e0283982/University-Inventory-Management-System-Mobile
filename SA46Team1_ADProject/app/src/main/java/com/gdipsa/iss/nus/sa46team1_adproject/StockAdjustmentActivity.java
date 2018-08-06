@@ -24,6 +24,10 @@ import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockAdjustment;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class StockAdjustmentActivity extends AppCompatActivity {
 
     private TextView itemAdjustedTextView;

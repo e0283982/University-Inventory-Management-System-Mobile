@@ -8,6 +8,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class StaffRequisitionDetail {
 
     private String itemDescription;

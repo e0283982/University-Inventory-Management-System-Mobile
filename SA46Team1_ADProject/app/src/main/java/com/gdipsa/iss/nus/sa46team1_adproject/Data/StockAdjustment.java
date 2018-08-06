@@ -4,6 +4,10 @@ import com.gdipsa.iss.nus.sa46team1_adproject.JSONParser;
 
 import org.json.JSONObject;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class StockAdjustment {
 
     private String requestorId;

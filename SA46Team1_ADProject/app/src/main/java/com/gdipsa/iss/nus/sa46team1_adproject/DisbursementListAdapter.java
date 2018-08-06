@@ -15,6 +15,10 @@ import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockRetrieval;
 
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class DisbursementListAdapter extends RecyclerView.Adapter<DisbursementListAdapter.DisbursementListViewHolder>{
 
     private LayoutInflater mInflater;

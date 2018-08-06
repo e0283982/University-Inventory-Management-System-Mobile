@@ -16,6 +16,10 @@ import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockRetrieval;
 
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class RetrievalListAdapter extends RecyclerView.Adapter<RetrievalListAdapter.RetrievalListViewHolder>{
 
     private LayoutInflater mInflater;

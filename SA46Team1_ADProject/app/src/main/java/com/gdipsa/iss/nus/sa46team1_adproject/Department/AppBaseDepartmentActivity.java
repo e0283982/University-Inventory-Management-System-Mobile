@@ -24,6 +24,10 @@ import com.gdipsa.iss.nus.sa46team1_adproject.QRCodeSearchActivity;
 import com.gdipsa.iss.nus.sa46team1_adproject.R;
 import com.gdipsa.iss.nus.sa46team1_adproject.RetrievalListActivity;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class AppBaseDepartmentActivity extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
 
     private FrameLayout view_stub;

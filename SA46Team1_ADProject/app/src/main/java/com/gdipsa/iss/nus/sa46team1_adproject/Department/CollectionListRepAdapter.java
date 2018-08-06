@@ -20,6 +20,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class CollectionListRepAdapter extends RecyclerView.Adapter<CollectionListRepAdapter.CollectionListRepViewHolder>{
 
     private LayoutInflater mInflater;

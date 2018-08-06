@@ -13,6 +13,10 @@ import com.gdipsa.iss.nus.sa46team1_adproject.Data.StockRetrieval;
 
 import java.util.List;
 
+/**
+ * Created by Hendri Setia Wardana
+ */
+
 public class DisbursementListActivity extends AppBaseActivity {
 
     private RecyclerView mRecyclerViewDisbursementList;
