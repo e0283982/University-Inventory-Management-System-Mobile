@@ -18,7 +18,7 @@ public class NewRequisition {
     private int requisitionSize;
     private int requisitionIdAndroid;
 
-    private static String host = "http://172.17.190.9/adtest2";
+    private static String host = "http://172.17.190.9/lu";
 
     public NewRequisition(String employeeId, String itemDescription, String itemUoM, int orderQty) {
         this.employeeId = employeeId;

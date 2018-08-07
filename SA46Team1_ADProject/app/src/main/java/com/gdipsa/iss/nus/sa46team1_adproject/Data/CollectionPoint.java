@@ -19,7 +19,7 @@ public class CollectionPoint {
     private String collectionPointTime;
     private int active;
 
-    private static String host = "http://172.17.190.9/adtest2";
+    private static String host = "http://172.17.190.9/lu";
 
     public CollectionPoint(String collectionPointId, String collectionPointDescription, String collectionPointTime, int active) {
         this.collectionPointId = collectionPointId;

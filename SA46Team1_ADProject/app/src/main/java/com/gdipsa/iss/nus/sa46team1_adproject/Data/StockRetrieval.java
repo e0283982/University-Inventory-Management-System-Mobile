@@ -29,7 +29,7 @@ public class StockRetrieval {
     private String stockRetrievalId;
     private int stockDisbursed;
 
-    private static String host = "http://172.17.190.9/adtest2";
+    private static String host = "http://172.17.190.9/lu";
 
     public StockRetrieval(int binNumber, String binLocation, String itemDescription, int itemsRetrieved, String collectionPointDescription){
         this.binNumber = binNumber;

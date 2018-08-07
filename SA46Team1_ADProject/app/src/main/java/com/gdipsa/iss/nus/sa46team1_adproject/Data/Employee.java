@@ -32,7 +32,7 @@ public class Employee {
     private String employeeName;
     private String departmentCode;
 
-    static  final String host = "http://172.17.190.9/adtest2";
+    static  final String host = "http://172.17.190.9/lu";
 
     public Employee(String email, String password){
         this.email = email;

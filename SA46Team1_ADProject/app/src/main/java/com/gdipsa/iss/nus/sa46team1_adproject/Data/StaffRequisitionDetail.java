@@ -20,7 +20,7 @@ public class StaffRequisitionDetail {
     private int qtyDelivered;
     private int qtyBackOrdered;
 
-    private static String host = "http://172.17.190.9/adtest2";
+    private static String host = "http://172.17.190.9/lu";
 
     public StaffRequisitionDetail(String itemDescription, String itemUoM, int qtyOrdered, int qtyDelivered, int qtyBackOrdered) {
         this.itemDescription = itemDescription;
