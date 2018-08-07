@@ -28,8 +28,6 @@ public class Employee {
     private String password;
     private String role;
     private String token;
-
-    //New stuff
     private String employeeId;
     private String employeeName;
     private String departmentCode;
@@ -78,7 +76,7 @@ public class Employee {
     }
 
     public static Employee getEmployeeRole(Employee employee) throws MalformedURLException {
-        //String str = "{ \"email\": \""+employee.getEmail()+"\"}";
+
         String email = employee.getEmail();
         InputStream is = null;
         try {
@@ -144,7 +142,6 @@ public class Employee {
     public void setToken(String token) {
         this.token = token;
     }
-
 
     public String getEmployeeId() {
         return employeeId;

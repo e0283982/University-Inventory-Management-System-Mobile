@@ -68,9 +68,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
 
-
-
-//                    return params[0];
                 } catch (MalformedURLException e) {
 
                     runOnUiThread(new Runnable() {

@@ -72,10 +72,7 @@ public class Item {
         }
         return item;
 
-
     }
-
-
 
     public static List<Item> listItems(){
         List<Item> list = new ArrayList<Item>();

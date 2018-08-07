@@ -28,7 +28,6 @@ public class CollectionPoint {
         this.active = active;
     }
 
-
     public static List<CollectionPoint> listCollectionPoints(){
 
         List<CollectionPoint> list = new ArrayList<CollectionPoint>();
